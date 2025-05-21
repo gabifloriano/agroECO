@@ -7,6 +7,35 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <input type="checkbox" id="font-increase" class="accessibility-global-toggle">
+    <input type="checkbox" id="font-decrease" class="accessibility-global-toggle">
+    <input type="checkbox" id="high-contrast" class="accessibility-global-toggle">
+    <input type="checkbox" id="accessibility-panel-toggle" class="accessibility-global-toggle"> <div class="accessibility-sidebar">
+        <label for="accessibility-panel-toggle" class="sidebar-toggle-button" aria-label="Abrir/Fechar Painel de Acessibilidade">
+            <span>A</span>
+            <span>c</span>
+            <span>e</span>
+            <span>s</span>
+            <span>s</span>
+            <span>i</span>
+            <span>b</span>
+            <span>i</span>
+            <span>l</span>
+            <span>i</span>
+            <span>d</span>
+            <span>a</span>
+            <span>d</span>
+            <span>e</span>
+        </label>
+
+        <div class="sidebar-options">
+            <label for="font-increase" aria-label="Aumentar Fonte" class="access-button">A+</label>
+            <label for="font-decrease" aria-label="Diminuir Fonte" class="access-button">A-</label>
+            <label for="high-contrast" aria-label="Alto Contraste" class="access-button">
+                <span class="contrast-icon"></span>
+            </label>
+        </div>
+    </div>
     <header>
         <div class="header-left">
             <div class="logo">
@@ -16,7 +45,7 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#home">Início</a></li> <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#clima">Previsão do Clima</a></li>
                 <li><a href="#calendario">Calendário</a></li>
                 <li><a href="#cursos">Cursos</a></li>
@@ -29,8 +58,7 @@
         </nav>
     </header>
 
-    <div class="hero-banner">
-        <h2>Bem-vindo ao <span class="vazado">agroECO!</span></h2>
+    <div class="hero-banner" id="home"> <h2>Bem-vindo ao <span class="vazado">agroECO!</span></h2>
         <p>Conectando o campo e a cidade com tecnologia e inovação para o produtor rural.</p>
     </div>
 
@@ -60,7 +88,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td></td><td></td><td>1<br><textarea placeholder="Plantio..."></textarea></td><td>2<br><textarea></textarea></td><td>3<br><textarea></textarea></td><td>4<br><textarea></textarea></td><td>5<br><textarea></textarea></td></tr>
+                    <tr><td></td><td></td><td>1<br><textarea placeholder="Plantio..."></textarea></td><td>2<br><textarea></textarea></td><td>3<br><textarea></textarea></td><td>4<br><textarea></textarea></td><td>5<br><textarea></textarea></td><td></td></tr>
                     <tr><td>6<br><textarea></textarea></td><td>7<br><textarea></textarea></td><td>8<br><textarea></textarea></td><td>9<br><textarea></textarea></td><td>10<br><textarea></textarea></td><td>11<br><textarea></textarea></td><td>12<br><textarea></textarea></td></tr>
                     <tr><td>13<br><textarea></textarea></td><td>14<br><textarea></textarea></td><td>15<br><textarea></textarea></td><td>16<br><textarea></textarea></td><td>17<br><textarea></textarea></td><td>18<br><textarea></textarea></td><td>19<br><textarea></textarea></td></tr>
                     <tr><td>20<br><textarea></textarea></td><td>21<br><textarea></textarea></td><td>22<br><textarea></textarea></td><td>23<br><textarea></textarea></td><td>24<br><textarea></textarea></td><td>25<br><textarea></textarea></td><td>26<br><textarea></textarea></td></tr>

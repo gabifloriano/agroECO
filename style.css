@@ -1,404 +1,639 @@
-/* Importação de fonte do Google Fonts (OPCIONAL, apenas se quiser Roboto.
-   Como você pediu "Helvetica World", que é uma fonte de sistema, esta linha
-   não é estritamente necessária, mas se quiser ter uma 'fallback' diferente
-   ou outra fonte do Google, pode adicionar aqui.) */
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap'); */
-
-/* Definição de variáveis CSS para facilitar a manutenção das cores */
+/* --- VARIÁVEIS CSS (Mantenha ou ajuste as suas) --- */
 :root {
-    --cor-fundo-principal: #1a1a1a; /* Quase preto */
-    --cor-fundo-secao: #2c2c2c; /* Cinza escuro para seções */
-    --cor-primaria: #4CAF50; /* Verde principal */
-    --cor-secundaria: #8BC34A; /* Um verde um pouco mais claro para acentos */
-    --cor-texto-claro: #f0f0f0; /* Branco/cinza claro para textos em fundos escuros */
-    --cor-texto-escuro: #333; /* Usado em elementos claros (poucos, mas bom ter) */
-    --borda-radius: 8px; /* Arredondamento padrão para elementos */
+    --cor-primaria: #4CAF50; /* Verde vibrante */
+    --cor-secundaria: #8BC34A; /* Verde mais claro */
+    --cor-fundo-principal: #F5F5F5; /* Cinza claro */
+    --cor-fundo-secao: #FFFFFF; /* Branco para seções */
+    --cor-texto-escuro: #333333; /* Texto principal escuro */
+    --cor-texto-claro: #555555; /* Texto secundário claro */
+    --borda-radius: 10px;
+    --sombra-leve: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Reset básico e estilos globais */
+/* --- ESTILOS GERAIS DO CORPO --- */
 body {
-    /* Usando "Helvetica World" como primeira opção, com Arial e sans-serif como fallbacks */
     font-family: "Helvetica World", Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--cor-fundo-principal); /* Fundo escuro */
-    color: var(--cor-texto-claro); /* Texto claro por padrão */
-    line-height: 1.6; /* Melhorar a legibilidade */
+    background-color: var(--cor-fundo-principal);
+    color: var(--cor-texto-escuro);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+    transition: background-color 0.3s ease, color 0.3s ease, font-size 0.3s ease; /* Transições para acessibilidade */
 }
 
-/* Estilo do Header */
+/* --- ESTILO DO HEADER --- */
 header {
-    background-color: var(--cor-fundo-principal); /* Fundo escuro */
-    padding: 20px 40px;
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--cor-fundo-secao);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Sombra no cabeçalho */
+    box-shadow: var(--sombra-leve);
+    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas pequenas */
+    position: sticky; /* Fixa o header no topo ao rolar */
+    top: 0;
+    z-index: 999; /* Garante que fique acima de outros elementos */
 }
 
 .header-left {
     display: flex;
     align-items: center;
-    gap: 15px;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
 header h1 {
     margin: 0;
     font-size: 2.2em;
-    color: var(--cor-primaria);
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
-.logo {
-    width: 80px;
-    height: 80px;
+/* --- ESTILO DA NAVEGAÇÃO --- */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
     justify-content: center;
 }
 
-.logo img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%;
-    object-fit: cover;
+nav ul li {
+    margin: 0 10px;
 }
 
-/* Estilo da Navegação */
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    gap: 25px;
-}
-
-nav a {
-    color: var(--cor-texto-claro);
+nav ul li a {
+    color: white;
     text-decoration: none;
-    font-weight: 400;
+    font-weight: 500;
     padding: 8px 12px;
     border-radius: var(--borda-radius);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
-nav a:hover,
-nav a:focus {
-    background-color: var(--cor-primaria);
-    color: var(--cor-fundo-principal);
+nav ul li a:hover {
+    background-color: var(--cor-secundaria);
 }
 
-/* NOVO ESTILO PARA O BANNER DE LARGURA TOTAL */
+/* --- ESTILO DO HERO BANNER --- */
 .hero-banner {
-    width: 100%; /* Ocupa 100% da largura da tela */
-    height: 450px; /* Altura do banner, ajuste conforme desejar */
-    background-image: url('capa.jpeg'); /* *** TROQUE AQUI PELO CAMINHO CORRETO DA SUA IMAGEM! *** */
-    background-size: cover; /* Cobre a área sem distorcer */
-    background-position: center; /* Centraliza a imagem */
+    background-image: url('capa.jpeg'); /* SUBSTITUA PELA SUA IMAGEM */
+    background-size: cover;
+    background-position: center;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    position: relative; /* Para o overlay e z-index */
-    overflow: hidden; /* Garante que nada saia da borda do banner */
-}
-
-/* Overlay para escurecer a imagem e destacar o texto */
-.hero-banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* 50% de opacidade preta para sombreado */
-    z-index: 0; /* Fica abaixo do texto */
-}
-
-/* Estilo do texto dentro do banner */
-.hero-banner h2, .hero-banner p {
-    position: relative;
-    z-index: 1; /* Garante que o texto fique acima do overlay */
-    color: white; /* Texto branco */
-    margin: 0;
-    padding: 0 30px; /* Mais padding nas laterais para texto grande */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra mais forte no texto para legibilidade */
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    padding: 0 20px;
 }
 
 .hero-banner h2 {
-    font-size: 4.5em; /* Fonte maior para o título principal */
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    /* ESTILO PARA TEXTO VAZADO COM BORDA */
-    -webkit-text-stroke: 2px var(--cor-primaria); /* Borda verde (para WebKit browsers) */
-    text-stroke: 2px var(--cor-primaria); /* Borda verde */
-    color: transparent; /* Interior transparente */
-}
-
-/* Estilo para a parte específica do texto "agroECO!" ficar vazada (span.vazado) */
-.hero-banner h2 .vazado {
-    -webkit-text-stroke: 2px var(--cor-secundaria); /* Uma borda verde diferente para o vazado */
-    text-stroke: 2px var(--cor-secundaria);
-    color: transparent; /* VAZADO */
-    padding: 0 5px; /* Pequeno espaçamento para a borda não encostar */
+    font-size: 4.5em;
+    margin-bottom: 10px;
+    line-height: 1; /* Garante que não haja espaço extra */
 }
 
 .hero-banner p {
-    font-size: 1.6em; /* Texto secundário maior */
-    max-width: 800px; /* Largura máxima para não ficar muito longo */
-    line-height: 1.3;
+    font-size: 1.5em;
+    max-width: 800px;
 }
 
-/* Estilo do Main e Seções */
+.vazado {
+    color: transparent;
+    -webkit-text-stroke: 2px white; /* Borda branca */
+    text-stroke: 2px white;
+}
+
+/* --- ESTILO DO CONTEÚDO PRINCIPAL (MAIN) --- */
 main {
     padding: 40px 20px;
     max-width: 1200px;
-    margin: 50px auto; /* Margem superior para dar espaço ao banner e centralizado */
+    margin: 50px auto;
     background-color: var(--cor-fundo-secao);
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    box-shadow: var(--sombra-leve);
     border-radius: var(--borda-radius);
 }
 
-/* A classe rounded-container já aplica o estilo de card */
-.rounded-container {
-    background-color: var(--cor-fundo-principal); /* Fundo das seções */
-    border-radius: var(--borda-radius);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    padding: 30px; /* Padding interno das seções */
-    margin-bottom: 50px; /* Espaço entre as seções */
-    overflow: hidden; /* Para garantir arredondamento */
+section {
+    margin-bottom: 40px;
+    padding: 30px;
+}
+
+section:last-child {
+    margin-bottom: 0;
 }
 
 section h2 {
     color: var(--cor-primaria);
-    border-bottom: 2px solid var(--cor-secundaria);
-    padding-bottom: 10px;
-    margin-bottom: 25px;
     font-size: 2em;
-    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--cor-secundaria);
 }
 
-section p {
-    color: var(--cor-texto-claro);
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 1.1em;
-}
-
-/* Estilo específico para o mapa do clima */
-.mapa-clima {
-    max-width: 900px;
-    margin: 20px auto;
-    border: 3px solid var(--cor-primaria);
+.rounded-container {
+    background-color: var(--cor-fundo-principal);
     border-radius: var(--borda-radius);
-    overflow: hidden;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* --- MAPA DO CLIMA --- */
+.mapa-clima {
+    margin-top: 20px;
+    border-radius: var(--borda-radius);
+    overflow: hidden; /* Garante que o iframe respeite o border-radius */
+    box-shadow: var(--sombra-leve);
 }
 
 .mapa-clima iframe {
-    display: block;
-    width: 100%;
-    height: 450px;
+    border: none;
+    display: block; /* Remove espaço extra abaixo do iframe */
 }
 
-/* Estilo do Calendário */
+/* --- CALENDÁRIO --- */
 .calendario {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 30px;
-    background-color: var(--cor-fundo-secao);
+    margin-top: 20px;
+    box-shadow: var(--sombra-leve);
+    background-color: var(--cor-fundo-principal);
     border-radius: var(--borda-radius);
-    overflow: hidden;
+    overflow: hidden; /* Para bordas arredondadas */
 }
 
-.calendario th, .calendario td {
-    border: 1px solid #444;
+.calendario th,
+.calendario td {
+    border: 1px solid #ddd;
     padding: 10px;
+    text-align: center;
     vertical-align: top;
-    width: 14.28%;
-    height: 150px;
-    color: var(--cor-texto-claro);
-    font-size: 0.95em;
+    height: 100px; /* Altura fixa para as células */
+    position: relative; /* Para posicionar a textarea */
 }
 
 .calendario th {
-    background-color: var(--cor-primaria);
-    color: var(--cor-fundo-principal);
+    background-color: var(--cor-secundaria);
+    color: white;
     font-weight: bold;
-    text-align: center;
+    padding: 12px;
 }
 
 .calendario td {
-    background-color: #333;
-    position: relative;
+    background-color: var(--cor-fundo-secao);
+    color: var(--cor-texto-escuro);
 }
 
-.calendario td:nth-child(6), /* Sábado */
-.calendario td:nth-child(7) { /* Domingo */
-    background-color: #2a2a2a;
-}
-
-.calendario textarea {
-    width: calc(100% - 10px);
-    height: 80px;
-    resize: vertical;
-    font-size: 0.85rem;
-    margin-top: 5px;
+.calendario td textarea {
+    width: calc(100% - 10px); /* Ajusta para padding */
+    height: calc(100% - 30px); /* Altura da textarea */
+    border: 1px solid #ccc;
+    border-radius: 5px;
     padding: 5px;
-    background-color: #444;
-    color: var(--cor-texto-claro);
-    border: 1px solid var(--cor-primaria);
-    border-radius: 4px;
-    box-sizing: border-box;
+    font-size: 0.8em;
+    resize: none; /* Impede redimensionamento pelo usuário */
+    box-sizing: border-box; /* Inclui padding e borda na largura/altura */
+    margin-top: 5px; /* Espaço entre o número do dia e a textarea */
+    display: block;
 }
 
-.calendario textarea::placeholder {
-    color: #bbb;
-}
-
-/* Estilo do Footer */
+/* --- FOOTER --- */
 footer {
-    background-color: var(--cor-fundo-principal);
-    color: var(--cor-texto-claro);
+    background-color: var(--cor-primaria);
+    color: white;
     text-align: center;
     padding: 20px;
     margin-top: 50px;
-    border-top: 1px solid var(--cor-fundo-secao);
-    font-size: 0.9em;
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
 }
 
-/* Media Queries para Responsividade */
+/* --- ESTILOS DE ACESSIBILIDADE LATERAL --- */
+
+/* Esconde todos os checkboxes reais que controlam a acessibilidade */
+.accessibility-global-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none; /* Não interage com o mouse */
+    width: 0;
+    height: 0;
+}
+
+/* Estilo para a barra lateral de acessibilidade */
+.accessibility-sidebar {
+    position: fixed; /* Fixa na tela */
+    top: 50%; /* Centraliza verticalmente */
+    right: 0; /* Coloca na lateral direita */
+    transform: translateY(-50%); /* Ajuste para centralizar perfeitamente */
+    z-index: 1000; /* Garante que fique acima de todo o conteúdo */
+    display: flex;
+    flex-direction: row; /* Inicialmente o botão lateral e o painel ficam lado a lado */
+}
+
+/* Estilo do botão "Acessibilidade" que fica na lateral */
+.sidebar-toggle-button {
+    background-color: #007bff; /* Azul vibrante */
+    color: white;
+    writing-mode: vertical-lr; /* Texto vertical */
+    text-orientation: mixed; /* Orientação do texto */
+    padding: 15px 10px; /* Padding interno */
+    border-top-left-radius: var(--borda-radius);
+    border-bottom-left-radius: var(--borda-radius);
+    cursor: pointer;
+    font-family: "Helvetica World", Arial, sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+    transition: background-color 0.3s ease;
+    display: flex; /* Para centralizar as letras */
+    justify-content: center;
+    align-items: center;
+    min-height: 150px; /* Altura mínima para o botão "Acessibilidade" */
+}
+
+.sidebar-toggle-button:hover {
+    background-color: #0056b3; /* Azul mais escuro no hover */
+}
+
+/* Estilo do painel de opções de acessibilidade */
+.sidebar-options {
+    background-color: var(--cor-fundo-secao); /* Fundo do painel */
+    display: flex;
+    flex-direction: column; /* Botões um abaixo do outro */
+    gap: 8px; /* Espaço entre os botões */
+    padding: 10px;
+    border-top-left-radius: var(--borda-radius); /* Bordas do painel */
+    border-bottom-left-radius: var(--borda-radius);
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
+    
+    /* Propriedades para ocultar/exibir o painel */
+    width: 0; /* Começa com largura zero */
+    overflow: hidden; /* Esconde o conteúdo */
+    opacity: 0; /* Invisível */
+    transform: translateX(100%); /* Desliza para fora da tela */
+    transition: width 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    white-space: nowrap; /* Evita que os botões quebrem linha */
+}
+
+/* Quando o checkbox principal da sidebar está marcado, mostra o painel */
+#accessibility-panel-toggle:checked ~ .accessibility-sidebar .sidebar-options {
+    width: 120px; /* Largura total quando aberto, ajuste se precisar */
+    opacity: 1;
+    transform: translateX(0); /* Desliza para a posição */
+}
+
+/* Estilo para os botões de opção (A+, A-, Contraste) */
+.access-button {
+    background-color: var(--cor-fundo-principal); /* Fundo dos botões de opção */
+    color: var(--cor-texto-claro);
+    padding: 8px 12px;
+    border-radius: var(--borda-radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 0.9em;
+    font-family: "Helvetica World", Arial, sans-serif;
+    text-align: center;
+    border: 1px solid var(--cor-secundaria);
+    display: block; /* Para ocupar a largura total do painel */
+}
+
+.access-button:hover {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-fundo-principal);
+}
+
+/* Feedback visual quando um botão de opção está ativo */
+#font-increase:checked ~ .accessibility-sidebar .access-button[for="font-increase"],
+#font-decrease:checked ~ .accessibility-sidebar .access-button[for="font-decrease"],
+#high-contrast:checked ~ .accessibility-sidebar .access-button[for="high-contrast"] {
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo-principal);
+    border-color: var(--cor-primaria);
+}
+
+/* Estilo para o ícone de contraste (criado com CSS) */
+.contrast-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid currentColor; /* Borda da cor do texto */
+    position: relative;
+    vertical-align: middle;
+}
+
+.contrast-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    background-color: currentColor; /* Metade da cor do texto */
+    transform: translate(-50%, -50%);
+    clip-path: inset(0 50% 0 0); /* Corta a metade direita para criar o efeito */
+}
+
+.contrast-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    background-color: transparent; /* A outra metade transparente */
+    transform: translate(-50%, -50%);
+    clip-path: inset(0 0 0 50%);
+}
+
+/* --- Efeitos de Acessibilidade (AGORA DEVEM FUNCIONAR!) --- */
+
+/* Os seletores de acessibilidade funcionam em todo o body porque os checkboxes estão no topo do body */
+/* Aumentar Fonte (A+) */
+#font-increase:checked ~ body {
+    font-size: 1.15em; /* Aumenta a fonte base do body */
+}
+#font-increase:checked ~ body .hero-banner h2 { font-size: 5.5em; }
+#font-increase:checked ~ body .hero-banner p { font-size: 1.8em; }
+#font-increase:checked ~ body header h1 { font-size: 2.5em; }
+#font-increase:checked ~ body nav a { font-size: 1.1em; } /* Aumenta os links da nav */
+#font-increase:checked ~ body section h2 { font-size: 2.2em; }
+#font-increase:checked ~ body section p { font-size: 1.25em; }
+#font-increase:checked ~ body .calendario th,
+#font-increase:checked ~ body .calendario td { font-size: 1.1em; }
+#font-increase:checked ~ body .calendario textarea { font-size: 1em; }
+#font-increase:checked ~ body footer { font-size: 1em; }
+
+
+/* Diminuir Fonte (A-) */
+#font-decrease:checked ~ body {
+    font-size: 0.85em; /* Diminui a fonte base do body */
+}
+#font-decrease:checked ~ body .hero-banner h2 { font-size: 3.5em; }
+#font-decrease:checked ~ body .hero-banner p { font-size: 1.2em; }
+#font-decrease:checked ~ body header h1 { font-size: 1.8em; }
+#font-decrease:checked ~ body nav a { font-size: 0.8em; }
+#font-decrease:checked ~ body section h2 { font-size: 1.6em; }
+#font-decrease:checked ~ body section p { font-size: 0.95em; }
+#font-decrease:checked ~ body .calendario th,
+#font-decrease:checked ~ body .calendario td { font-size: 0.8em; }
+#font-decrease:checked ~ body .calendario textarea { font-size: 0.75em; }
+#font-decrease:checked ~ body footer { font-size: 0.8em; }
+
+
+/* Modo de Alto Contraste */
+#high-contrast:checked ~ body {
+    background-color: black !important;
+    color: white !important;
+}
+
+#high-contrast:checked ~ body header,
+#high-contrast:checked ~ body main,
+#high-contrast:checked ~ body footer,
+#high-contrast:checked ~ body section,
+#high-contrast:checked ~ body .rounded-container,
+#high-contrast:checked ~ body .hero-banner,
+#high-contrast:checked ~ body .accessibility-sidebar .sidebar-options,
+#high-contrast:checked ~ body .accessibility-sidebar .access-button,
+#high-contrast:checked ~ body .calendario th,
+#high-contrast:checked ~ body .calendario td,
+#high-contrast:checked ~ body .calendario textarea,
+#high-contrast:checked ~ body .mapa-clima {
+    background-color: black !important;
+    border-color: yellow !important;
+    color: white !important;
+    box-shadow: none !important;
+}
+
+#high-contrast:checked ~ body .hero-banner h2,
+#high-contrast:checked ~ body .hero-banner h2 .vazado {
+    -webkit-text-stroke: 2px yellow !important;
+    text-stroke: 2px yellow !important;
+    color: transparent !important;
+}
+
+#high-contrast:checked ~ body header h1,
+#high-contrast:checked ~ body section h2 {
+    color: yellow !important;
+    border-color: white !important;
+}
+
+#high-contrast:checked ~ body nav a {
+    color: white !important;
+    background-color: black !important;
+    border-color: white !important;
+}
+
+#high-contrast:checked ~ body nav a:hover {
+    background-color: white !important;
+    color: black !important;
+}
+
+#high-contrast:checked ~ body .sidebar-toggle-button {
+    background-color: yellow !important;
+    color: black !important;
+}
+
+#high-contrast:checked ~ body .sidebar-toggle-button:hover {
+    background-color: white !important;
+    color: black !important;
+}
+
+#high-contrast:checked ~ body .access-button[for="font-increase"],
+#high-contrast:checked ~ body .access-button[for="font-decrease"],
+#high-contrast:checked ~ body .access-button[for="high-contrast"] {
+     /* Ajusta a cor do botão ativo em alto contraste */
+    background-color: white !important;
+    color: black !important;
+}
+
+
+#high-contrast:checked ~ body .contrast-icon {
+    border-color: white !important;
+    color: white !important;
+}
+
+
+/* Media Queries - Responsividade */
 @media (max-width: 1024px) {
     header {
         flex-direction: column;
-        padding: 20px;
+        align-items: center;
+        padding: 15px 20px;
     }
-    .header-left {
-        margin-bottom: 15px;
-    }
-    nav ul {
-        justify-content: center;
-        gap: 15px;
-    }
-    main {
-        padding: 30px 15px;
-        margin: 20px auto;
-    }
-    .hero-banner {
-        height: 350px; /* Ajuste para telas menores */
-    }
-    .hero-banner h2 {
-        font-size: 3.5em;
-    }
-    .hero-banner p {
-        font-size: 1.3em;
-    }
-    .rounded-container {
-        padding: 20px;
-        margin-bottom: 30px;
-    }
-    section h2 {
+
+    header h1 {
+        margin-top: 10px;
         font-size: 1.8em;
+    }
+
+    nav ul {
+        margin-top: 15px;
+        flex-direction: column; /* Links da nav em coluna */
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .hero-banner h2 {
+        font-size: 3em;
+    }
+
+    .hero-banner p {
+        font-size: 1.2em;
+    }
+
+    .accessibility-sidebar {
+        top: unset;
+        bottom: 20px;
+        transform: translateY(0);
+        flex-direction: column;
+    }
+    .sidebar-toggle-button {
+        writing-mode: unset;
+        text-orientation: unset;
+        min-height: unset;
+        height: 60px;
+        width: 140px;
+        border-radius: var(--borda-radius);
+        align-self: flex-end;
+        margin-bottom: 10px;
+    }
+    .sidebar-options {
+        width: 140px;
+        border-radius: var(--borda-radius);
+        transform: translateY(100%);
+        align-self: flex-end;
+    }
+    #accessibility-panel-toggle:checked ~ .accessibility-sidebar .sidebar-options {
+        transform: translateY(0);
     }
 }
 
 @media (max-width: 768px) {
-    header h1 {
+    main {
+        margin: 30px auto;
+        padding: 20px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    section h2 {
         font-size: 1.8em;
     }
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-    nav a {
-        padding: 6px 10px;
-    }
-    .hero-banner {
-        height: 300px;
-    }
+
     .hero-banner h2 {
         font-size: 2.5em;
-        -webkit-text-stroke: 1.5px var(--cor-primaria); /* Borda menor */
-        text-stroke: 1.5px var(--cor-primaria);
     }
-    .hero-banner h2 .vazado {
-        -webkit-text-stroke: 1.5px var(--cor-secundaria);
-        text-stroke: 1.5px var(--cor-secundaria);
-    }
+
     .hero-banner p {
-        font-size: 1.1em;
+        font-size: 1em;
     }
-    main {
-        padding: 20px 10px;
-    }
-    section h2 {
-        font-size: 1.6em;
-    }
+
     .calendario th, .calendario td {
         padding: 8px;
-        height: 100px;
+        height: 80px;
     }
-    .calendario textarea {
-        height: 50px;
+
+    .calendario td textarea {
+        height: calc(100% - 25px);
+    }
+
+    .sidebar-toggle-button {
+        padding: 12px 8px;
+        font-size: 1em;
+        width: 120px;
+    }
+    .sidebar-options {
+        width: 120px;
+    }
+    .access-button {
+        font-size: 0.85em;
+        padding: 6px 10px;
     }
 }
 
 @media (max-width: 480px) {
     header {
-        padding: 15px;
+        padding: 10px;
     }
-    .logo {
-        width: 60px;
-        height: 60px;
+
+    .logo img {
+        height: 40px;
     }
+
     header h1 {
         font-size: 1.5em;
     }
-    nav a {
+
+    nav ul li {
+        margin: 3px 0;
+    }
+
+    nav ul li a {
+        padding: 6px 10px;
         font-size: 0.9em;
     }
-    .hero-banner {
-        height: 250px;
-    }
+
     .hero-banner h2 {
         font-size: 2em;
-        -webkit-text-stroke: 1px var(--cor-primaria); /* Borda ainda menor */
-        text-stroke: 1px var(--cor-primaria);
     }
-    .hero-banner h2 .vazado {
-        -webkit-text-stroke: 1px var(--cor-secundaria);
-        text-stroke: 1px var(--cor-secundaria);
-    }
+
     .hero-banner p {
-        font-size: 1em;
+        font-size: 0.9em;
     }
+
     main {
-        padding: 15px 10px;
+        margin: 20px auto;
+        padding: 15px;
     }
+
     section {
         padding: 15px;
-        margin-bottom: 20px;
     }
+
     section h2 {
-        font-size: 1.4em;
+        font-size: 1.5em;
     }
-    section p {
-        font-size: 0.95em;
-    }
+
     .calendario th, .calendario td {
+        padding: 5px;
+        height: 60px;
         font-size: 0.8em;
-        height: 80px;
-        padding: 4px;
     }
-    .calendario textarea {
-        height: 40px;
-        font-size: 0.75rem;
+
+    .calendario td textarea {
+        height: calc(100% - 20px);
+        font-size: 0.7em;
+    }
+    .sidebar-toggle-button {
+        padding: 10px 6px;
+        font-size: 0.9em;
+        width: 100px;
+    }
+    .sidebar-options {
+        width: 100px;
+    }
+    .access-button {
+        font-size: 0.8em;
+        padding: 5px 8px;
     }
 }
