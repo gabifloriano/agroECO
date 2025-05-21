@@ -1,9 +1,11 @@
-/* Importação de fonte do Google Fonts (Opcional, mas melhora o visual) */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-/* Escolhi 'Roboto', mas você pode experimentar outras como 'Open Sans', 'Lato', 'Montserrat' */
+/* Importação de fonte do Google Fonts (OPCIONAL, apenas se quiser Roboto.
+   Como você pediu "Helvetica World", que é uma fonte de sistema, esta linha
+   não é estritamente necessária, mas se quiser ter uma 'fallback' diferente
+   ou outra fonte do Google, pode adicionar aqui.) */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap'); */
 
+/* Definição de variáveis CSS para facilitar a manutenção das cores */
 :root {
-    /* Definição de variáveis CSS para facilitar a manutenção das cores */
     --cor-fundo-principal: #1a1a1a; /* Quase preto */
     --cor-fundo-secao: #2c2c2c; /* Cinza escuro para seções */
     --cor-primaria: #4CAF50; /* Verde principal */
@@ -15,7 +17,8 @@
 
 /* Reset básico e estilos globais */
 body {
-    font-family: 'Roboto', sans-serif; /* Usando a fonte importada */
+    /* Usando "Helvetica World" como primeira opção, com Arial e sans-serif como fallbacks */
+    font-family: "Helvetica World", Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: var(--cor-fundo-principal); /* Fundo escuro */
@@ -27,233 +30,281 @@ body {
 header {
     background-color: var(--cor-fundo-principal); /* Fundo escuro */
     padding: 20px 40px;
-    display: flex; /* Usando Flexbox para alinhar itens */
-    justify-content: space-between; /* Espaço entre logo/título e navegação */
-    align-items: center; /* Alinha verticalmente */
-    border-bottom: 1px solid var(--cor-fundo-secao); /* Borda sutil na parte inferior */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--cor-fundo-secao);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Sombra no cabeçalho */
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 header h1 {
     margin: 0;
     font-size: 2.2em;
-    color: var(--cor-primaria); /* Título em verde */
+    color: var(--cor-primaria);
     text-transform: uppercase;
     letter-spacing: 2px;
 }
 
 .logo {
-    /* Ajuste para a logo */
-    width: 80px; /* Reduzi o tamanho da logo para se adequar ao cabeçalho */
+    width: 80px;
     height: 80px;
-    display: flex; /* Para centralizar a imagem dentro da div logo, se precisar */
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 20px; /* Espaçamento entre logo e h1, se estiverem um ao lado do outro */
 }
 
 .logo img {
     max-width: 100%;
     height: auto;
-    border-radius: 50%; /* Se quiser um efeito de logo circular */
-    object-fit: cover; /* Garante que a imagem preencha a área sem distorcer */
+    border-radius: 50%;
+    object-fit: cover;
 }
-
-/* Ajuste do Header para a logo ficar ao lado do h1 */
-header {
-    /* Já é display: flex; justify-content: space-between; align-items: center; */
-}
-/* Se você quiser a logo E o H1 juntos, como um grupo, e a navegação separada */
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Espaço entre logo e H1 */
-}
-
-/* Apliquei essa estrutura ao seu HTML para a logo e H1 ficarem juntos */
-/* No seu HTML ficaria:
-<header>
-    <div class="header-left">
-        <div class="logo">
-            <img src="WhatsApp Image 2025-05-21 at 14.14.28.jpeg" alt="Logo da Agro-ECO">
-        </div>
-        <h1>agroECO</h1>
-    </div>
-    <nav>
-        ...
-    </nav>
-</header>
-*/
-
 
 /* Estilo da Navegação */
 nav ul {
     list-style: none;
     padding: 0;
-    margin: 0; /* Remove margem padrão */
-    display: flex; /* Itens da navegação um ao lado do outro */
-    justify-content: flex-end; /* Alinha à direita no cabeçalho */
-    flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
-    gap: 25px; /* Espaço entre os itens da navegação */
-}
-
-nav li {
-    margin: 0; /* Remove margens extras */
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 25px;
 }
 
 nav a {
     color: var(--cor-texto-claro);
     text-decoration: none;
-    font-weight: 400; /* Levemente mais leve */
+    font-weight: 400;
     padding: 8px 12px;
     border-radius: var(--borda-radius);
-    transition: background-color 0.3s ease, color 0.3s ease; /* Efeito suave ao passar o mouse */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 nav a:hover,
 nav a:focus {
-    background-color: var(--cor-primaria); /* Fundo verde ao passar o mouse */
-    color: var(--cor-fundo-principal); /* Texto escuro no hover */
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo-principal);
+}
+
+/* NOVO ESTILO PARA O BANNER DE LARGURA TOTAL */
+.hero-banner {
+    width: 100%; /* Ocupa 100% da largura da tela */
+    height: 450px; /* Altura do banner, ajuste conforme desejar */
+    background-image: url('capa.jpeg'); /* *** TROQUE AQUI PELO CAMINHO CORRETO DA SUA IMAGEM! *** */
+    background-size: cover; /* Cobre a área sem distorcer */
+    background-position: center; /* Centraliza a imagem */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative; /* Para o overlay e z-index */
+    overflow: hidden; /* Garante que nada saia da borda do banner */
+}
+
+/* Overlay para escurecer a imagem e destacar o texto */
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 50% de opacidade preta para sombreado */
+    z-index: 0; /* Fica abaixo do texto */
+}
+
+/* Estilo do texto dentro do banner */
+.hero-banner h2, .hero-banner p {
+    position: relative;
+    z-index: 1; /* Garante que o texto fique acima do overlay */
+    color: white; /* Texto branco */
+    margin: 0;
+    padding: 0 30px; /* Mais padding nas laterais para texto grande */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra mais forte no texto para legibilidade */
+}
+
+.hero-banner h2 {
+    font-size: 4.5em; /* Fonte maior para o título principal */
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    /* ESTILO PARA TEXTO VAZADO COM BORDA */
+    -webkit-text-stroke: 2px var(--cor-primaria); /* Borda verde (para WebKit browsers) */
+    text-stroke: 2px var(--cor-primaria); /* Borda verde */
+    color: transparent; /* Interior transparente */
+}
+
+/* Estilo para a parte específica do texto "agroECO!" ficar vazada (span.vazado) */
+.hero-banner h2 .vazado {
+    -webkit-text-stroke: 2px var(--cor-secundaria); /* Uma borda verde diferente para o vazado */
+    text-stroke: 2px var(--cor-secundaria);
+    color: transparent; /* VAZADO */
+    padding: 0 5px; /* Pequeno espaçamento para a borda não encostar */
+}
+
+.hero-banner p {
+    font-size: 1.6em; /* Texto secundário maior */
+    max-width: 800px; /* Largura máxima para não ficar muito longo */
+    line-height: 1.3;
 }
 
 /* Estilo do Main e Seções */
 main {
     padding: 40px 20px;
-    max-width: 1200px; /* Aumentei um pouco a largura máxima para se parecer mais com o exemplo */
-    margin: 30px auto; /* Mais margem superior e centralizado */
-    background-color: var(--cor-fundo-secao); /* Fundo de seção mais escuro */
-    box-shadow: 0 0 20px rgba(0,0,0,0.4); /* Sombra mais forte para destacar */
+    max-width: 1200px;
+    margin: 50px auto; /* Margem superior para dar espaço ao banner e centralizado */
+    background-color: var(--cor-fundo-secao);
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
     border-radius: var(--borda-radius);
 }
 
-section {
-    margin-bottom: 50px; /* Mais espaço entre as seções */
-    padding: 30px; /* Padding interno para seções */
-    background-color: var(--cor-fundo-principal); /* Fundo das seções um pouco mais escuro que o main */
+/* A classe rounded-container já aplica o estilo de card */
+.rounded-container {
+    background-color: var(--cor-fundo-principal); /* Fundo das seções */
     border-radius: var(--borda-radius);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra sutil nas seções */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    padding: 30px; /* Padding interno das seções */
+    margin-bottom: 50px; /* Espaço entre as seções */
+    overflow: hidden; /* Para garantir arredondamento */
 }
 
 section h2 {
-    color: var(--cor-primaria); /* Títulos das seções em verde */
-    border-bottom: 2px solid var(--cor-secundaria); /* Borda em verde mais claro */
+    color: var(--cor-primaria);
+    border-bottom: 2px solid var(--cor-secundaria);
     padding-bottom: 10px;
     margin-bottom: 25px;
     font-size: 2em;
-    text-align: center; /* Centraliza o título */
+    text-align: center;
 }
 
 section p {
     color: var(--cor-texto-claro);
-    text-align: center; /* Centraliza o parágrafo de descrição da seção */
+    text-align: center;
     margin-bottom: 30px;
     font-size: 1.1em;
 }
 
-
 /* Estilo específico para o mapa do clima */
 .mapa-clima {
-    max-width: 900px; /* Largura um pouco menor para o mapa */
-    margin: 20px auto; /* Centraliza o mapa */
-    border: 3px solid var(--cor-primaria); /* Borda verde mais evidente */
+    max-width: 900px;
+    margin: 20px auto;
+    border: 3px solid var(--cor-primaria);
     border-radius: var(--borda-radius);
-    overflow: hidden; /* Garante que o iframe não saia da borda arredondada */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra mais pronunciada */
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .mapa-clima iframe {
-    display: block; /* Remove espaço extra abaixo do iframe */
-    width: 100%; /* Garante que o iframe ocupe toda a largura */
-    height: 450px; /* Altura fixa */
+    display: block;
+    width: 100%;
+    height: 450px;
 }
-
 
 /* Estilo do Calendário */
 .calendario {
     width: 100%;
     border-collapse: collapse;
     margin-top: 30px;
-    background-color: var(--cor-fundo-secao); /* Fundo do calendário */
+    background-color: var(--cor-fundo-secao);
     border-radius: var(--borda-radius);
-    overflow: hidden; /* Para que as bordas arredondadas funcionem com as células */
+    overflow: hidden;
 }
 
 .calendario th, .calendario td {
-    border: 1px solid #444; /* Bordas mais escuras */
+    border: 1px solid #444;
     padding: 10px;
     vertical-align: top;
-    width: 14.28%; /* Para 7 dias na semana */
-    height: 150px; /* Aumentei a altura para mais espaço */
+    width: 14.28%;
+    height: 150px;
     color: var(--cor-texto-claro);
     font-size: 0.95em;
 }
 
 .calendario th {
-    background-color: var(--cor-primaria); /* Cabeçalho verde */
-    color: var(--cor-fundo-principal); /* Texto preto no cabeçalho */
+    background-color: var(--cor-primaria);
+    color: var(--cor-fundo-principal);
     font-weight: bold;
     text-align: center;
 }
 
 .calendario td {
-    background-color: #333; /* Fundo das células um pouco mais claro que o main */
-    position: relative; /* Para posicionar o textarea */
+    background-color: #333;
+    position: relative;
 }
 
 .calendario td:nth-child(6), /* Sábado */
 .calendario td:nth-child(7) { /* Domingo */
-    background-color: #2a2a2a; /* Fundo um pouco diferente para fim de semana */
+    background-color: #2a2a2a;
 }
 
-
 .calendario textarea {
-    width: calc(100% - 10px); /* Ajusta a largura com padding */
-    height: 80px; /* Aumentei a altura da textarea */
-    resize: vertical; /* Permite redimensionar apenas verticalmente */
+    width: calc(100% - 10px);
+    height: 80px;
+    resize: vertical;
     font-size: 0.85rem;
-    margin-top: 8px;
+    margin-top: 5px;
     padding: 5px;
-    background-color: #444; /* Fundo da textarea */
+    background-color: #444;
     color: var(--cor-texto-claro);
-    border: 1px solid var(--cor-primaria); /* Borda verde */
+    border: 1px solid var(--cor-primaria);
     border-radius: 4px;
-    box-sizing: border-box; /* Garante que padding e border não aumentem a largura total */
+    box-sizing: border-box;
 }
 
 .calendario textarea::placeholder {
-    color: #bbb; /* Cor do placeholder */
+    color: #bbb;
 }
 
 /* Estilo do Footer */
 footer {
-    background-color: var(--cor-fundo-principal); /* Fundo escuro */
+    background-color: var(--cor-fundo-principal);
     color: var(--cor-texto-claro);
     text-align: center;
     padding: 20px;
-    margin-top: 50px; /* Mais espaço antes do rodapé */
-    border-top: 1px solid var(--cor-fundo-secao); /* Borda superior sutil */
+    margin-top: 50px;
+    border-top: 1px solid var(--cor-fundo-secao);
     font-size: 0.9em;
 }
 
-/* Media Queries para Responsividade (melhorias) */
+/* Media Queries para Responsividade */
 @media (max-width: 1024px) {
     header {
-        flex-direction: column; /* Empilha logo/h1 e navegação */
+        flex-direction: column;
         padding: 20px;
     }
     .header-left {
-        margin-bottom: 15px; /* Espaço entre o grupo logo/h1 e a navegação */
+        margin-bottom: 15px;
     }
     nav ul {
-        justify-content: center; /* Centraliza itens da navegação */
+        justify-content: center;
         gap: 15px;
     }
     main {
         padding: 30px 15px;
         margin: 20px auto;
     }
-    section {
+    .hero-banner {
+        height: 350px; /* Ajuste para telas menores */
+    }
+    .hero-banner h2 {
+        font-size: 3.5em;
+    }
+    .hero-banner p {
+        font-size: 1.3em;
+    }
+    .rounded-container {
         padding: 20px;
         margin-bottom: 30px;
+    }
+    section h2 {
+        font-size: 1.8em;
     }
 }
 
@@ -269,15 +320,33 @@ footer {
     nav a {
         padding: 6px 10px;
     }
+    .hero-banner {
+        height: 300px;
+    }
+    .hero-banner h2 {
+        font-size: 2.5em;
+        -webkit-text-stroke: 1.5px var(--cor-primaria); /* Borda menor */
+        text-stroke: 1.5px var(--cor-primaria);
+    }
+    .hero-banner h2 .vazado {
+        -webkit-text-stroke: 1.5px var(--cor-secundaria);
+        text-stroke: 1.5px var(--cor-secundaria);
+    }
+    .hero-banner p {
+        font-size: 1.1em;
+    }
+    main {
+        padding: 20px 10px;
+    }
     section h2 {
         font-size: 1.6em;
     }
     .calendario th, .calendario td {
         padding: 8px;
-        height: 100px; /* Reduz altura das células para telas menores */
+        height: 100px;
     }
     .calendario textarea {
-        height: 50px; /* Reduz altura da textarea */
+        height: 50px;
     }
 }
 
@@ -294,6 +363,21 @@ footer {
     }
     nav a {
         font-size: 0.9em;
+    }
+    .hero-banner {
+        height: 250px;
+    }
+    .hero-banner h2 {
+        font-size: 2em;
+        -webkit-text-stroke: 1px var(--cor-primaria); /* Borda ainda menor */
+        text-stroke: 1px var(--cor-primaria);
+    }
+    .hero-banner h2 .vazado {
+        -webkit-text-stroke: 1px var(--cor-secundaria);
+        text-stroke: 1px var(--cor-secundaria);
+    }
+    .hero-banner p {
+        font-size: 1em;
     }
     main {
         padding: 15px 10px;
@@ -317,72 +401,4 @@ footer {
         height: 40px;
         font-size: 0.75rem;
     }
-/* ... (Seu CSS existente acima, não apague!) ... */
-
-/* Estilos atualizados para o banner de boas-vindas */
-.hero-banner {
-    background-image: url('capa.jpeg'); /* Substitua pelo caminho da sua imagem de campo! */
-    background-size: cover;
-    background-position: center;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white; /* Letras brancas */
-    position: relative;
-    border-radius: var(--borda-radius);
-    margin-bottom: 50px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
-
-.hero-banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Sombreado para as letras */
-    border-radius: var(--borda-radius);
-}
-
-.hero-banner h2, .hero-banner p {
-    position: relative;
-    z-index: 1;
-    margin: 0;
-    padding: 0 20px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Sombra no texto */
-}
-
-.hero-banner h2 {
-    font-size: 3.5em;
-    margin-bottom: 15px;
-    /* Estilo para a borda e transparência */
-    -webkit-text-stroke: 1px black; /* Borda preta (para navegadores WebKit) */
-    text-stroke: 1px black; /* Borda preta */
-    color: rgba(255, 255, 255, 0.7); /* Branco com 70% de transparência */
-}
-
-.hero-banner p {
-    font-size: 1.4em;
-    max-width: 700px;
-    line-height: 1.4;
-}
-
-/* Alterando a fonte para "Helvetica World" (se estiver disponível) */
-body {
-    font-family: "Helvetica World", Arial, sans-serif; /* Tenta Helvetica World, senão usa Arial ou outra sem serifa */
-}
-
-/* Seções (mantendo o arredondamento) */
-section {
-    padding: 30px;
-    margin-bottom: 50px;
-    background-color: var(--cor-fundo-principal);
-    border-radius: var(--borda-radius);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-/* ... (O restante do seu CSS, incluindo as media queries) ... */
