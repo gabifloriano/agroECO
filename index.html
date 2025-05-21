@@ -114,11 +114,61 @@
     <section id="cursos">
       <h2>Acesso a Cursos</h2>
       <p>Capacite-se com os cursos do SENAR. Veja no mapa os locais e horários de atendimento.</p>
-      <div class="mapa-estatico">
-    <a href="cursos-cidade-a.html">
-      <img src="mapa-regiao.jpg" alt="Mapa com sindicatos rurais" />
-    </a>
+  <div class="mapa-estatico">
+    <img src="mapa-regiao.jpg" alt="Mapa com sindicatos rurais" />
+    <div class="marcador" style="top: 30%; left: 40%;" tabindex="0">
+      <span class="tooltip">
+        Sindicato Rural de Cidade A<br/>
+        Cursos: Agricultura Orgânica, Gestão Rural
+      </span>
+    </div>
+    <div class="marcador" style="top: 60%; left: 70%;" tabindex="0">
+      <span class="tooltip">
+        Sindicato Rural de Cidade B<br/>
+        Cursos: Agropecuária, Irrigação
+      </span>
+    </div>
+    <!-- mais marcadores -->
   </div>
+</section>
+
+<style>
+  .mapa-estatico {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+  }
+  .mapa-estatico img {
+    width: 100%;
+    display: block;
+  }
+  .marcador {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .marcador:hover .tooltip,
+  .marcador:focus .tooltip {
+    display: block;
+  }
+  .tooltip {
+    display: none;
+    position: absolute;
+    top: 25px;
+    left: -50px;
+    width: 150px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 10;
+  }
+</style>
+
 </section>
 
     </section>
