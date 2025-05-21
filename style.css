@@ -318,3 +318,113 @@ footer {
         font-size: 0.75rem;
     }
 }
+/* ... (Seu CSS existente acima, não apague!) ... */
+
+/* Adicione estas novas regras CSS ao final do seu arquivo style.css */
+
+/* Estilo para contêineres arredondados (tipo cards ou seções internas) */
+.rounded-container {
+    background-color: var(--cor-fundo-principal); /* Ou uma cor ligeiramente diferente */
+    border-radius: var(--borda-radius); /* Usando a variável de arredondamento padrão */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra sutil para destaque */
+    padding: 20px; /* Preenchimento interno */
+    margin-bottom: 30px; /* Espaço entre contêineres */
+    overflow: hidden; /* Garante que o conteúdo não 'estoure' as bordas arredondadas */
+}
+
+/* Estilo para o banner de boas-vindas */
+.hero-banner {
+    background-image: url('caminho/para/sua/imagem-de-fundo.jpg'); /* Substitua pelo caminho da sua imagem! */
+    background-size: cover; /* Faz a imagem cobrir toda a área do banner */
+    background-position: center; /* Centraliza a imagem */
+    height: 400px; /* Altura do banner, ajuste conforme desejar */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--cor-texto-claro);
+    position: relative; /* Para o overlay de cor */
+    border-radius: var(--borda-radius); /* Arredonda o banner também */
+    margin-bottom: 50px; /* Espaço após o banner */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5); /* Sombra mais pronunciada para o banner */
+}
+
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Overlay escuro semi-transparente */
+    border-radius: var(--borda-radius); /* Garante que o overlay também seja arredondado */
+}
+
+.hero-banner h2, .hero-banner p {
+    position: relative; /* Para garantir que o texto fique acima do overlay */
+    z-index: 1; /* Coloca o texto acima do pseudo-elemento ::before */
+    margin: 0;
+    padding: 0 20px;
+}
+
+.hero-banner h2 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    color: var(--cor-secundaria); /* Um verde mais claro para o título */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Sombra no texto para melhor leitura */
+}
+
+.hero-banner p {
+    font-size: 1.4em;
+    max-width: 700px;
+    line-height: 1.4;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+/* Melhoria para as seções principais (elas já tem um estilo de card) */
+/* Remova ou ajuste o padding e background-color da 'section' se a 'rounded-container' for envolver ela */
+/* Ou, podemos aplicar o .rounded-container diretamente à section */
+section {
+    /* Pode remover o background-color e box-shadow daqui se você for usar .rounded-container para envolvê-las */
+    /* background-color: var(--cor-fundo-principal); */
+    /* box-shadow: 0 4px 10px rgba(0,0,0,0.3); */
+    padding: 30px; /* Mantenha o padding interno */
+    margin-bottom: 50px;
+}
+
+/* O calendário e o mapa já estão em rounded-container implícitos, mas podemos deixá-los explícitos também. */
+.mapa-clima {
+    /* ... (Mantenha o estilo existente para o mapa) ... */
+    margin-bottom: 30px; /* Garante um espaço após o mapa */
+}
+
+.calendario {
+    /* ... (Mantenha o estilo existente para o calendário) ... */
+    margin-bottom: 30px; /* Garante um espaço após o calendário */
+}
+
+/* Media Queries para responsividade do banner */
+@media (max-width: 768px) {
+    .hero-banner {
+        height: 300px; /* Reduz a altura do banner em telas menores */
+    }
+    .hero-banner h2 {
+        font-size: 2.5em;
+    }
+    .hero-banner p {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-banner {
+        height: 250px;
+    }
+    .hero-banner h2 {
+        font-size: 2em;
+    }
+    .hero-banner p {
+        font-size: 1em;
+    }
+}
