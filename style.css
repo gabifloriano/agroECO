@@ -402,3 +402,305 @@ footer {
         font-size: 0.75rem;
     }
 }
+/* --- ESTILOS DE ACESSIBILIDADE (AJUSTADO PARA BOTÃO DE TOGGLE) --- */
+
+/* Esconde todos os checkboxes reais */
+.hidden-checkbox, .accessibility-option-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none; /* Não interage com o mouse */
+    width: 0;
+    height: 0;
+}
+
+/* Container principal da acessibilidade */
+.accessibility-container {
+    position: relative; /* Para posicionar o painel de opções */
+    z-index: 100; /* Garante que fique acima de outros elementos */
+    margin-left: auto; /* Empurra para a direita */
+    margin-right: 20px;
+    align-self: center; /* Centraliza verticalmente no header */
+}
+
+/* Estilo do botão principal "Acessibilidade" */
+.accessibility-main-button {
+    background-color: #007bff; /* Azul vibrante como na imagem */
+    color: white;
+    padding: 15px 20px; /* Um pouco maior */
+    border-radius: var(--borda-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    font-size: 1em;
+    font-family: "Helvetica World", Arial, sans-serif; /* Mantendo a fonte principal */
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: inline-block; /* Para padding funcionar bem */
+    white-space: nowrap; /* Evita que o texto quebre linha */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para profundidade */
+}
+
+.accessibility-main-button:hover {
+    background-color: #0056b3; /* Azul mais escuro no hover */
+    transform: translateY(-2px);
+}
+
+/* Estilo do painel de opções de acessibilidade */
+.accessibility-options-panel {
+    position: absolute;
+    top: 100%; /* Posiciona abaixo do botão principal */
+    right: 0;
+    background-color: var(--cor-fundo-secao); /* Fundo do painel */
+    border-radius: var(--borda-radius);
+    padding: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column; /* Botões um abaixo do outro */
+    gap: 8px; /* Espaço entre os botões */
+    opacity: 0; /* Inicialmente oculto */
+    visibility: hidden; /* E não interage */
+    transform: translateY(-10px); /* Começa um pouco acima */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+/* Mostra o painel quando o checkbox principal está marcado */
+#accessibility-toggle-panel:checked + .accessibility-main-button + .accessibility-options-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Estilo para os botões de opção (A+, A-, Contraste) */
+.accessibility-options-panel label {
+    background-color: var(--cor-fundo-principal); /* Fundo dos botões de opção */
+    color: var(--cor-texto-claro);
+    padding: 8px 12px;
+    border-radius: var(--borda-radius);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 0.9em;
+    font-family: "Helvetica World", Arial, sans-serif; /* Mantendo a fonte principal */
+    text-align: center;
+    border: 1px solid var(--cor-secundaria);
+    white-space: nowrap;
+    min-width: 80px; /* Largura mínima para os botões */
+}
+
+.accessibility-options-panel label:hover {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-fundo-principal);
+}
+
+/* Feedback visual quando um botão de opção está ativo */
+.accessibility-option-toggle:checked + label {
+    background-color: var(--cor-primaria); /* Cor de destaque quando ativado */
+    color: var(--cor-fundo-principal);
+    border-color: var(--cor-primaria);
+}
+
+/* Estilo para o ícone de contraste (criado com CSS) */
+.contrast-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid currentColor; /* Borda da cor do texto */
+    position: relative;
+    vertical-align: middle;
+    margin-right: 5px; /* Espaço entre ícone e texto, se houver */
+}
+
+.contrast-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    background-color: currentColor; /* Metade da cor do texto */
+    transform: translate(-50%, -50%);
+    clip-path: inset(0 50% 0 0); /* Corta a metade direita para criar o efeito */
+}
+
+.contrast-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    background-color: transparent; /* A outra metade transparente */
+    transform: translate(-50%, -50%);
+    clip-path: inset(0 0 0 50%);
+}
+
+/* --- Efeitos de Acessibilidade (aplicados ao body/elementos específicos) --- */
+
+/* Aumentar Fonte (A+) */
+/* Quando #font-increase está marcado, afeta elementos específicos */
+#font-increase:checked ~ .hero-banner h2 { font-size: 5.5em; } /* Aumenta mais o título */
+#font-increase:checked ~ .hero-banner p { font-size: 1.8em; }
+#font-increase:checked ~ main,
+#font-increase:checked ~ footer,
+#font-increase:checked ~ header h1,
+#font-increase:checked ~ header nav,
+#font-increase:checked ~ .rounded-container h2,
+#font-increase:checked ~ .rounded-container p,
+#font-increase:checked ~ .calendario th,
+#font-increase:checked ~ .calendario td,
+#font-increase:checked ~ .calendario textarea,
+#font-increase:checked ~ .accessibility-container .accessibility-main-button,
+#font-increase:checked ~ .accessibility-options-panel label {
+    font-size: 1.15em; /* Aumenta a fonte geral em 15% */
+}
+
+/* Diminuir Fonte (A-) */
+/* Quando #font-decrease está marcado, afeta elementos específicos */
+#font-decrease:checked ~ .hero-banner h2 { font-size: 3.5em; } /* Diminui mais o título */
+#font-decrease:checked ~ .hero-banner p { font-size: 1.2em; }
+#font-decrease:checked ~ main,
+#font-decrease:checked ~ footer,
+#font-decrease:checked ~ header h1,
+#font-decrease:checked ~ header nav,
+#font-decrease:checked ~ .rounded-container h2,
+#font-decrease:checked ~ .rounded-container p,
+#font-decrease:checked ~ .calendario th,
+#font-decrease:checked ~ .calendario td,
+#font-decrease:checked ~ .calendario textarea,
+#font-decrease:checked ~ .accessibility-container .accessibility-main-button,
+#font-decrease:checked ~ .accessibility-options-panel label {
+    font-size: 0.85em; /* Diminui a fonte geral em 15% */
+}
+
+
+/* Modo de Alto Contraste */
+#high-contrast:checked ~ body {
+    /* Define um tema de alto contraste para o corpo inteiro */
+    filter: invert(1) hue-rotate(180deg) !important; /* Inverte cores e matiz para WCAG */
+    background-color: black !important; /* Garante fundo preto */
+}
+
+/* Isso pode ser complicado com filter: invert.
+   Para um controle mais preciso, você pode redefinir as cores elemento a elemento.
+   A abordagem abaixo (redefinindo cores) é mais previsível do que 'filter: invert'.
+   Vou usar uma abordagem mais direta para alto contraste: */
+
+#high-contrast:checked ~ body {
+    background-color: black !important;
+    color: white !important;
+}
+
+#high-contrast:checked ~ body header,
+#high-contrast:checked ~ body main,
+#high-contrast:checked ~ body footer,
+#high-contrast:checked ~ body section,
+#high-contrast:checked ~ body .rounded-container,
+#high-contrast:checked ~ body .accessibility-main-button,
+#high-contrast:checked ~ body .accessibility-options-panel,
+#high-contrast:checked ~ body .accessibility-options-panel label,
+#high-contrast:checked ~ body .calendario th,
+#high-contrast:checked ~ body .calendario td,
+#high-contrast:checked ~ body .calendario textarea,
+#high-contrast:checked ~ body .mapa-clima {
+    background-color: black !important; /* Fundos escuros */
+    color: white !important; /* Textos claros */
+    border-color: yellow !important; /* Bordas e acentos amarelos */
+    box-shadow: none !important; /* Remove sombras */
+}
+
+/* Cores específicas de alto contraste */
+#high-contrast:checked ~ body .hero-banner h2,
+#high-contrast:checked ~ body .hero-banner h2 .vazado {
+    -webkit-text-stroke: 2px yellow !important; /* Borda amarela */
+    text-stroke: 2px yellow !important;
+    color: transparent !important; /* Continua vazado */
+}
+
+#high-contrast:checked ~ body header h1,
+#high-contrast:checked ~ body section h2 {
+    color: yellow !important; /* Títulos em amarelo */
+    border-color: white !important; /* Linhas de título em branco */
+}
+
+#high-contrast:checked ~ body nav a {
+    color: white !important;
+    background-color: black !important;
+    border-color: white !important;
+}
+
+#high-contrast:checked ~ body nav a:hover {
+    background-color: white !important;
+    color: black !important;
+}
+
+#high-contrast:checked ~ body .accessibility-main-button {
+    background-color: yellow !important; /* Botão principal amarelo */
+    color: black !important;
+}
+
+#high-contrast:checked ~ body .accessibility-main-button:hover {
+    background-color: white !important; /* Hover branco */
+    color: black !important;
+}
+
+#high-contrast:checked ~ body .accessibility-option-toggle:checked + label {
+    background-color: white !important; /* Opções ativas brancas */
+    color: black !important;
+}
+
+/* Ícone de contraste em alto contraste */
+#high-contrast:checked ~ body .contrast-icon {
+    border-color: white !important;
+    color: white !important;
+}
+
+
+/* Media Queries para responsividade - ajuste o painel de acessibilidade */
+@media (max-width: 1024px) {
+    .accessibility-container {
+        order: -1; /* Empurra o painel para o topo na coluna */
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 15px; /* Espaço abaixo do painel */
+        width: 100%;
+        text-align: center; /* Centraliza o botão principal */
+    }
+    .accessibility-main-button {
+        display: block; /* Ocupa a largura total na tela pequena */
+        width: fit-content; /* Se ajusta ao conteúdo */
+        margin: 0 auto; /* Centraliza o botão principal */
+    }
+    .accessibility-options-panel {
+        left: 50%; /* Centraliza o painel de opções */
+        transform: translateX(-50%) translateY(-10px); /* Ajusta para centralizar */
+        white-space: normal; /* Permite quebrar linha se necessário */
+        min-width: unset; /* Remove largura mínima */
+        width: calc(100% - 20px); /* Ocupa quase 100% */
+        top: calc(100% + 10px); /* Mais espaço abaixo do botão */
+    }
+    #accessibility-toggle-panel:checked + .accessibility-main-button + .accessibility-options-panel {
+        transform: translateX(-50%) translateY(0); /* Ajuste para centralizar ao abrir */
+    }
+}
+
+@media (max-width: 480px) {
+    .accessibility-main-button {
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+    .accessibility-options-panel {
+        padding: 8px;
+        gap: 6px;
+    }
+    .accessibility-options-panel label {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+    .contrast-icon {
+        width: 16px;
+        height: 16px;
+        border-width: 1.5px;
+    }
+}
