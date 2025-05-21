@@ -10,21 +10,7 @@
     <input type="checkbox" id="font-increase" class="accessibility-global-toggle">
     <input type="checkbox" id="font-decrease" class="accessibility-global-toggle">
     <input type="checkbox" id="high-contrast" class="accessibility-global-toggle">
-    <input type="checkbox" id="accessibility-panel-toggle" class="accessibility-global-toggle">
-
-    <input type="radio" id="home-section" name="main-content-toggle" class="section-toggle" checked>
-    <input type="radio" id="sobre-section" name="main-content-toggle" class="section-toggle">
-    <input type="radio" id="clima-section" name="main-content-toggle" class="section-toggle">
-    <input type="radio" id="calendario-section" name="main-content-toggle" class="section-toggle">
-    <input type="radio" id="cursos-section" name="main-content-toggle" class="section-toggle">
-    <input type="radio" id="servicos-section" name="main-content-toggle" class="section-toggle">
-    <input type="radio" id="contratacao-section" name="main-content-toggle" class="section-toggle">
-    <input type="radio" id="venda-section" name="main-content-toggle" class="section-toggle">
-    <input type="radio" id="armazenamento-section" name="main-content-toggle" class="section-toggle">
-    <input type="radio" id="apoio-section" name="main-content-toggle" class="section-toggle">
-
-
-    <div class="accessibility-sidebar">
+    <input type="checkbox" id="accessibility-panel-toggle" class="accessibility-global-toggle"> <div class="accessibility-sidebar">
         <label for="accessibility-panel-toggle" class="sidebar-toggle-button" aria-label="Abrir/Fechar Painel de Acessibilidade">
             <span>A</span>
             <span>c</span>
@@ -59,110 +45,90 @@
         </div>
         <nav>
             <ul>
-                <li><label for="home-section" class="nav-label">Início</label></li>
-                <li><label for="sobre-section" class="nav-label">Sobre</label></li>
-                <li><label for="clima-section" class="nav-label">Previsão do Clima</label></li>
-                <li><label for="calendario-section" class="nav-label">Calendário</label></li>
-                <li><label for="cursos-section" class="nav-label">Cursos</label></li>
-                <li><label for="servicos-section" class="nav-label">Serviços</label></li>
-                <li><label for="contratacao-section" class="nav-label">Contratação</label></li>
-                <li><label for="venda-section" class="nav-label">Compra/Venda</label></li>
-                <li><label for="armazenamento-section" class="nav-label">Armazenamento</label></li>
-                <li><label for="apoio-section" class="nav-label">Apoio</label></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#clima">Previsão do Clima</a></li>
+                <li><a href="#calendario">Calendário</a></li>
+                <li><a href="#cursos">Cursos</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contratacao">Contratação</a></li>
+                <li><a href="#venda">Compra/Venda</a></li>
+                <li><a href="#armazenamento">Armazenamento</a></li>
+                <li><a href="#apoio">Apoio</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="main-content-container">
-        <div id="home-content" class="content-section">
-            <div class="hero-banner">
-                <h2>Bem-vindo ao <span class="vazado">agroECO!</span></h2>
-                <p>Conectando o campo e a cidade com tecnologia e inovação para o produtor rural.</p>
-            </div>
-        </div>
-
-        <div id="sobre-content" class="content-section">
-            <section id="sobre" class="rounded-container">
-                <h2>Festejando a Conexão Campo-Cidade</h2>
-                <p>O agroECO é um projeto voltado ao apoio do produtor rural, facilitando o acesso à tecnologia e serviços essenciais.</p>
-            </section>
-        </div>
-
-        <div id="clima-content" class="content-section">
-            <section id="clima" class="rounded-container">
-                <h2>Previsão do Clima</h2>
-                <p>Confira o mapa climático em tempo real para melhor controle da produção.</p>
-                <div class="mapa-clima">
-                    <iframe width="100%" height="450" src="https://embed.windy.com/embed2.html?lat=-15.78&lon=-47.93&detailLat=-15.78&detailLon=-47.93&width=650&height=450&zoom=5&level=surface&overlay=rain&menu=&message=true&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"
-                        frameborder="0">
-                    </iframe>
-                </div>
-            </section>
-        </div>
-
-        <div id="calendario-content" class="content-section">
-            <section id="calendario" class="rounded-container">
-                <h2>Calendário do Produtor</h2>
-                <p>Registre datas de plantio, replantio, aplicação de agrotóxicos e coleta de recipientes.</p>
-                <table class="calendario">
-                    <thead>
-                        <tr>
-                            <th>Dom</th><th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sáb</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td></td><td></td><td>1<br><textarea placeholder="Plantio..."></textarea></td><td>2<br><textarea></textarea></td><td>3<br><textarea></textarea></td><td>4<br><textarea></textarea></td><td>5<br><textarea></textarea></td></tr>
-                        <tr><td>6<br><textarea></textarea></td><td>7<br><textarea></textarea></td><td>8<br><textarea></textarea></td><td>9<br><textarea></textarea></td><td>10<br><textarea></textarea></td><td>11<br><textarea></textarea></td><td>12<br><textarea></textarea></td></tr>
-                        <tr><td>13<br><textarea></textarea></td><td>14<br><textarea></textarea></td><td>15<br><textarea></textarea></td><td>16<br><textarea></textarea></td><td>17<br><textarea></textarea></td><td>18<br><textarea></textarea></td><td>19<br><textarea></textarea></td></tr>
-                        <tr><td>20<br><textarea></textarea></td><td>21<br><textarea></textarea></td><td>22<br><textarea></textarea></td><td>23<br><textarea></textarea></td><td>24<br><textarea></textarea></td><td>25<br><textarea></textarea></td><td>26<br><textarea></textarea></td></tr>
-                        <tr><td>27<br><textarea></textarea></td><td>28<br><textarea></textarea></td><td>29<br><textarea></textarea></td><td>30<br><textarea></textarea></td><td>31<br><textarea></textarea></td><td></td><td></td></tr>
-                    </tbody>
-                </table>
-            </section>
-        </div>
-
-        <div id="cursos-content" class="content-section">
-            <section id="cursos" class="rounded-container">
-                <h2>Acesso a Cursos</h2>
-                <p>Capacite-se com os cursos do SENAR. Veja no mapa os locais e horários de atendimento.</p>
-            </section>
-        </div>
-
-        <div id="servicos-content" class="content-section">
-            <section id="servicos" class="rounded-container">
-                <h2>Solicitação de Serviços</h2>
-                <p>Encontre profissionais especializados de forma rápida e segura.</p>
-            </section>
-        </div>
-
-        <div id="contratacao-content" class="content-section">
-            <section id="contratacao" class="rounded-container">
-                <h2>Contratação</h2>
-                <p>Publique seu currículo ou procure profissionais por área de atuação.</p>
-            </section>
-        </div>
-
-        <div id="venda-content" class="content-section">
-            <section id="venda" class="rounded-container">
-                <h2>Compra e Venda</h2>
-                <p>Comercialize produtos agrícolas, exceto agrotóxicos. Veja também locais autorizados de venda.</p>
-            </section>
-        </div>
-
-        <div id="armazenamento-content" class="content-section">
-            <section id="armazenamento" class="rounded-container">
-                <h2>Armazenamento Inteligente</h2>
-                <p>Controle seu estoque de forma eficiente com alertas visuais.</p>
-            </section>
-        </div>
-
-        <div id="apoio-content" class="content-section">
-            <section id="apoio" class="rounded-container">
-                <h2>Apoio ao Pequeno Produtor</h2>
-                <p>Recursos gratuitos ou com taxa acessível. Disponibilização de tablets com o app AGRO Eco incluso.</p>
-            </section>
-        </div>
+    <div class="hero-banner">
+        <h2>Bem-vindo ao <span class="vazado">agroECO!</span></h2>
+        <p>Conectando o campo e a cidade com tecnologia e inovação para o produtor rural.</p>
     </div>
+
+    <main>
+        <section id="sobre" class="rounded-container">
+            <h2>Festejando a Conexão Campo-Cidade</h2>
+            <p>O agroECO é um projeto voltado ao apoio do produtor rural, facilitando o acesso à tecnologia e serviços essenciais.</p>
+        </section>
+
+        <section id="clima" class="rounded-container">
+            <h2>Previsão do Clima</h2>
+            <p>Confira o mapa climático em tempo real para melhor controle da produção.</p>
+            <div class="mapa-clima">
+                <iframe width="100%" height="450" src="https://embed.windy.com/embed2.html?lat=-15.78&lon=-47.93&detailLat=-15.78&detailLon=-47.93&width=650&height=450&zoom=5&level=surface&overlay=rain&menu=&message=true&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"
+                    frameborder="0">
+                </iframe>
+            </div>
+        </section>
+
+        <section id="calendario" class="rounded-container">
+            <h2>Calendário do Produtor</h2>
+            <p>Registre datas de plantio, replantio, aplicação de agrotóxicos e coleta de recipientes.</p>
+            <table class="calendario">
+                <thead>
+                    <tr>
+                        <th>Dom</th><th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sáb</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td></td><td></td><td>1<br><textarea placeholder="Plantio..."></textarea></td><td>2<br><textarea></textarea></td><td>3<br><textarea></textarea></td><td>4<br><textarea></textarea></td><td>5<br><textarea></textarea></td></tr>
+                    <tr><td>6<br><textarea></textarea></td><td>7<br><textarea></textarea></td><td>8<br><textarea></textarea></td><td>9<br><textarea></textarea></td><td>10<br><textarea></textarea></td><td>11<br><textarea></textarea></td><td>12<br><textarea></textarea></td></tr>
+                    <tr><td>13<br><textarea></textarea></td><td>14<br><textarea></textarea></td><td>15<br><textarea></textarea></td><td>16<br><textarea></textarea></td><td>17<br><textarea></textarea></td><td>18<br><textarea></textarea></td><td>19<br><textarea></textarea></td></tr>
+                    <tr><td>20<br><textarea></textarea></td><td>21<br><textarea></textarea></td><td>22<br><textarea></textarea></td><td>23<br><textarea></textarea></td><td>24<br><textarea></textarea></td><td>25<br><textarea></textarea></td><td>26<br><textarea></textarea></td></tr>
+                    <tr><td>27<br><textarea></textarea></td><td>28<br><textarea></textarea></td><td>29<br><textarea></textarea></td><td>30<br><textarea></textarea></td><td>31<br><textarea></textarea></td><td></td><td></td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="cursos" class="rounded-container">
+            <h2>Acesso a Cursos</h2>
+            <p>Capacite-se com os cursos do SENAR. Veja no mapa os locais e horários de atendimento.</p>
+        </section>
+
+        <section id="servicos" class="rounded-container">
+            <h2>Solicitação de Serviços</h2>
+            <p>Encontre profissionais especializados de forma rápida e segura.</p>
+        </section>
+
+        <section id="contratacao" class="rounded-container">
+            <h2>Contratação</h2>
+            <p>Publique seu currículo ou procure profissionais por área de atuação.</p>
+        </section>
+
+        <section id="venda" class="rounded-container">
+            <h2>Compra e Venda</h2>
+            <p>Comercialize produtos agrícolas, exceto agrotóxicos. Veja também locais autorizados de venda.</p>
+        </section>
+
+        <section id="armazenamento" class="rounded-container">
+            <h2>Armazenamento Inteligente</h2>
+            <p>Controle seu estoque de forma eficiente com alertas visuais.</p>
+        </section>
+
+        <section id="apoio" class="rounded-container">
+            <h2>Apoio ao Pequeno Produtor</h2>
+            <p>Recursos gratuitos ou com taxa acessível. Disponibilização de tablets com o app AGRO Eco incluso.</p>
+        </section>
+    </main>
+
     <footer>
         <p>&copy; 2025 AGRO Eco. Projeto Agrinho. Projeto desenvolvido pela Aluna Gabriela Mendes Floriano & Professor Francisco Peres Biudes Junior.</p>
     </footer>
