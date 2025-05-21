@@ -1,884 +1,134 @@
-/* Importação de fonte do Google Fonts (OPCIONAL, apenas se quiser Roboto.
-   Como você pediu "Helvetica World", que é uma fonte de sistema, esta linha
-   não é estritamente necessária, mas se quiser ter uma 'fallback' diferente
-   ou outra fonte do Google, pode adicionar aqui.) */
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap'); */
+/* --- ESTILOS PARA NAVEGAÇÃO ENTRE SEÇÕES (ABAS/PÁGINAS) --- */
 
-/* Definição de variáveis CSS para facilitar a manutenção das cores */
-:root {
-    --cor-fundo-principal: #1a1a1a; /* Quase preto */
-    --cor-fundo-secao: #2c2c2c; /* Cinza escuro para seções */
-    --cor-primaria: #4CAF50; /* Verde principal */
-    --cor-secundaria: #8BC34A; /* Um verde um pouco mais claro para acentos */
-    --cor-texto-claro: #f0f0f0; /* Branco/cinza claro para textos em fundos escuros */
-    --cor-texto-escuro: #333; /* Usado em elementos claros (poucos, mas bom ter) */
-    --borda-radius: 8px; /* Arredondamento padrão para elementos */
+/* Esconde os radio buttons que controlam as seções */
+.section-toggle {
+    display: none; /* Completamente oculto */
 }
 
-/* Reset básico e estilos globais */
-body {
-    /* Usando "Helvetica World" como primeira opção, com Arial e sans-serif como fallbacks */
-    font-family: "Helvetica World", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--cor-fundo-principal); /* Fundo escuro */
-    color: var(--cor-texto-claro); /* Texto claro por padrão */
-    line-height: 1.6; /* Melhorar a legibilidade */
+/* Esconde todas as seções de conteúdo por padrão */
+.main-content-container .content-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* Transição suave */
 }
 
-/* Estilo do Header */
-header {
-    background-color: var(--cor-fundo-principal); /* Fundo escuro */
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--cor-fundo-secao);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Sombra no cabeçalho */
+/* Mostra a seção correspondente ao radio button marcado */
+/* O seletor é: quando o radio button com ID 'X' está checked,
+   então o irmão geral '.main-content-container' e, dentro dele,
+   o div '#X-content' deve ser exibido. */
+#home-section:checked ~ .main-content-container #home-content,
+#sobre-section:checked ~ .main-content-container #sobre-content,
+#clima-section:checked ~ .main-content-container #clima-content,
+#calendario-section:checked ~ .main-content-container #calendario-content,
+#cursos-section:checked ~ .main-content-container #cursos-content,
+#servicos-section:checked ~ .main-content-container #servicos-content,
+#contratacao-section:checked ~ .main-content-container #contratacao-content,
+#venda-section:checked ~ .main-content-container #venda-content,
+#armazenamento-section:checked ~ .main-content-container #armazenamento-content,
+#apoio-section:checked ~ .main-content-container #apoio-content {
+    display: block; /* Mostra a seção */
+    opacity: 1; /* Torna visível com a transição */
 }
 
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.2em;
-    color: var(--cor-primaria);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.logo {
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-/* Estilo da Navegação */
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    gap: 25px;
-}
-
-nav a {
+/* Estilo para as labels da navegação (agora elas são os "links") */
+.nav-label {
     color: var(--cor-texto-claro);
     text-decoration: none;
     font-weight: 400;
     padding: 8px 12px;
     border-radius: var(--borda-radius);
     transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer; /* Indica que é clicável */
+    display: block; /* Para que o padding e hover funcionem em toda a área */
 }
 
-nav a:hover,
-nav a:focus {
+.nav-label:hover {
     background-color: var(--cor-primaria);
     color: var(--cor-fundo-principal);
 }
 
-/* NOVO ESTILO PARA O BANNER DE LARGURA TOTAL */
-.hero-banner {
-    width: 100%; /* Ocupa 100% da largura da tela */
-    height: 450px; /* Altura do banner, ajuste conforme desejar */
-    background-image: url('capa.jpeg'); /* *** TROQUE AQUI PELO CAMINHO CORRETO DA SUA IMAGEM! *** */
-    background-size: cover; /* Cobre a área sem distorcer */
-    background-position: center; /* Centraliza a imagem */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative; /* Para o overlay e z-index */
-    overflow: hidden; /* Garante que nada saia da borda do banner */
+/* Feedback visual para o item de navegação ativo */
+/* Quando o radio button está marcado, a label correspondente tem um estilo diferente */
+#home-section:checked ~ header nav li:nth-child(1) .nav-label,
+#sobre-section:checked ~ header nav li:nth-child(2) .nav-label,
+#clima-section:checked ~ header nav li:nth-child(3) .nav-label,
+#calendario-section:checked ~ header nav li:nth-child(4) .nav-label,
+#cursos-section:checked ~ header nav li:nth-child(5) .nav-label,
+#servicos-section:checked ~ header nav li:nth-child(6) .nav-label,
+#contratacao-section:checked ~ header nav li:nth-child(7) .nav-label,
+#venda-section:checked ~ header nav li:nth-child(8) .nav-label,
+#armazenamento-section:checked ~ header nav li:nth-child(9) .nav-label,
+#apoio-section:checked ~ header nav li:nth-child(10) .nav-label {
+    background-color: var(--cor-primaria); /* Fundo verde para o ativo */
+    color: var(--cor-fundo-principal); /* Texto escuro */
+    font-weight: 700; /* Negrito para destaque */
 }
 
-/* Overlay para escurecer a imagem e destacar o texto */
-.hero-banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* 50% de opacidade preta para sombreado */
-    z-index: 0; /* Fica abaixo do texto */
-}
-
-/* Estilo do texto dentro do banner */
-.hero-banner h2, .hero-banner p {
-    position: relative;
-    z-index: 1; /* Garante que o texto fique acima do overlay */
-    color: white; /* Texto branco */
-    margin: 0;
-    padding: 0 30px; /* Mais padding nas laterais para texto grande */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra mais forte no texto para legibilidade */
-}
-
-.hero-banner h2 {
-    font-size: 4.5em; /* Fonte maior para o título principal */
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    /* ESTILO PARA TEXTO VAZADO COM BORDA */
-    -webkit-text-stroke: 2px var(--cor-primaria); /* Borda verde (para WebKit browsers) */
-    text-stroke: 2px var(--cor-primaria); /* Borda verde */
-    color: transparent; /* Interior transparente */
-}
-
-/* Estilo para a parte específica do texto "agroECO!" ficar vazada (span.vazado) */
-.hero-banner h2 .vazado {
-    -webkit-text-stroke: 2px var(--cor-secundaria); /* Uma borda verde diferente para o vazado */
-    text-stroke: 2px var(--cor-secundaria);
-    color: transparent; /* VAZADO */
-    padding: 0 5px; /* Pequeno espaçamento para a borda não encostar */
-}
-
-.hero-banner p {
-    font-size: 1.6em; /* Texto secundário maior */
-    max-width: 800px; /* Largura máxima para não ficar muito longo */
-    line-height: 1.3;
-}
-
-/* Estilo do Main e Seções */
-main {
-    padding: 40px 20px;
+/* --- Ajustes no Main para o novo contêiner --- */
+/* Remova o padding e margem diretos do main se ele estiver agora dentro de um container */
+/* O main agora é apenas um wrapper visual para as sections, os estilos são nas sections */
+/* Ou você pode aplicar os estilos de 'main' ao '.main-content-container' */
+.main-content-container {
+    padding: 40px 20px; /* Padding e margem que estavam no main */
     max-width: 1200px;
-    margin: 50px auto; /* Margem superior para dar espaço ao banner e centralizado */
+    margin: 50px auto;
     background-color: var(--cor-fundo-secao);
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
     border-radius: var(--borda-radius);
+    min-height: 500px; /* Para garantir que o container não encolha demais */
 }
 
-/* A classe rounded-container já aplica o estilo de card */
-.rounded-container {
-    background-color: var(--cor-fundo-principal); /* Fundo das seções */
-    border-radius: var(--borda-radius);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    padding: 30px; /* Padding interno das seções */
-    margin-bottom: 50px; /* Espaço entre as seções */
-    overflow: hidden; /* Para garantir arredondamento */
+/* Garante que o header e footer não sejam afetados pelos seletores ~ do radio button de navegação */
+/* Isso é importante para que o header e o footer fiquem visíveis sempre */
+header, footer {
+    position: relative; /* ou z-index, se precisar, para garantir que fiquem acima dos conteúdos escondidos */
+    z-index: 50;
 }
 
-section h2 {
-    color: var(--cor-primaria);
-    border-bottom: 2px solid var(--cor-secundaria);
-    padding-bottom: 10px;
-    margin-bottom: 25px;
-    font-size: 2em;
-    text-align: center;
-}
 
-section p {
-    color: var(--cor-texto-claro);
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 1.1em;
-}
+/* --- Acessibilidade - Garantir que os seletores funcionem com a nova estrutura --- */
+/* Os seletores de acessibilidade precisam considerar os checkboxes de navegação */
+/* Efeitos de Fonte (A+, A-) */
+#font-increase:checked ~ #home-section:checked ~ .main-content-container #home-content .hero-banner h2,
+#font-increase:checked ~ #sobre-section:checked ~ .main-content-container #sobre-content section h2,
+/* ... e assim por diante para CADA COMBINAÇÃO de acessibilidade E seção */
+/* Isso se torna EXTREMAMENTE complexo e repetitivo sem JavaScript.
+   Para simplificar, vou aplicar a mudança de fonte ao body inteiro, como antes,
+   que já é o padrão mais comum para acessibilidade de fonte.
+   Se os checkboxes de font-increase/decrease e high-contrast estão no `body`,
+   eles podem afetar o `body` e seus filhos, independentemente de qual section está visível. */
 
-/* Estilo específico para o mapa do clima */
-.mapa-clima {
-    max-width: 900px;
-    margin: 20px auto;
-    border: 3px solid var(--cor-primaria);
-    border-radius: var(--borda-radius);
-    overflow: hidden;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-}
-
-.mapa-clima iframe {
-    display: block;
-    width: 100%;
-    height: 450px;
-}
-
-/* Estilo do Calendário */
-.calendario {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 30px;
-    background-color: var(--cor-fundo-secao);
-    border-radius: var(--borda-radius);
-    overflow: hidden;
-}
-
-.calendario th, .calendario td {
-    border: 1px solid #444;
-    padding: 10px;
-    vertical-align: top;
-    width: 14.28%;
-    height: 150px;
-    color: var(--cor-texto-claro);
-    font-size: 0.95em;
-}
-
-.calendario th {
-    background-color: var(--cor-primaria);
-    color: var(--cor-fundo-principal);
-    font-weight: bold;
-    text-align: center;
-}
-
-.calendario td {
-    background-color: #333;
-    position: relative;
-}
-
-.calendario td:nth-child(6), /* Sábado */
-.calendario td:nth-child(7) { /* Domingo */
-    background-color: #2a2a2a;
-}
-
-.calendario textarea {
-    width: calc(100% - 10px);
-    height: 80px;
-    resize: vertical;
-    font-size: 0.85rem;
-    margin-top: 5px;
-    padding: 5px;
-    background-color: #444;
-    color: var(--cor-texto-claro);
-    border: 1px solid var(--cor-primaria);
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.calendario textarea::placeholder {
-    color: #bbb;
-}
-
-/* Estilo do Footer */
-footer {
-    background-color: var(--cor-fundo-principal);
-    color: var(--cor-texto-claro);
-    text-align: center;
-    padding: 20px;
-    margin-top: 50px;
-    border-top: 1px solid var(--cor-fundo-secao);
-    font-size: 0.9em;
-}
-
-/* Media Queries para Responsividade */
-@media (max-width: 1024px) {
-    header {
-        flex-direction: column;
-        padding: 20px;
-    }
-    .header-left {
-        margin-bottom: 15px;
-    }
-    nav ul {
-        justify-content: center;
-        gap: 15px;
-    }
-    main {
-        padding: 30px 15px;
-        margin: 20px auto;
-    }
-    .hero-banner {
-        height: 350px; /* Ajuste para telas menores */
-    }
-    .hero-banner h2 {
-        font-size: 3.5em;
-    }
-    .hero-banner p {
-        font-size: 1.3em;
-    }
-    .rounded-container {
-        padding: 20px;
-        margin-bottom: 30px;
-    }
-    section h2 {
-        font-size: 1.8em;
-    }
-}
-
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 1.8em;
-    }
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-    nav a {
-        padding: 6px 10px;
-    }
-    .hero-banner {
-        height: 300px;
-    }
-    .hero-banner h2 {
-        font-size: 2.5em;
-        -webkit-text-stroke: 1.5px var(--cor-primaria); /* Borda menor */
-        text-stroke: 1.5px var(--cor-primaria);
-    }
-    .hero-banner h2 .vazado {
-        -webkit-text-stroke: 1.5px var(--cor-secundaria);
-        text-stroke: 1.5px var(--cor-secundaria);
-    }
-    .hero-banner p {
-        font-size: 1.1em;
-    }
-    main {
-        padding: 20px 10px;
-    }
-    section h2 {
-        font-size: 1.6em;
-    }
-    .calendario th, .calendario td {
-        padding: 8px;
-        height: 100px;
-    }
-    .calendario textarea {
-        height: 50px;
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        padding: 15px;
-    }
-    .logo {
-        width: 60px;
-        height: 60px;
-    }
-    header h1 {
-        font-size: 1.5em;
-    }
-    nav a {
-        font-size: 0.9em;
-    }
-    .hero-banner {
-        height: 250px;
-    }
-    .hero-banner h2 {
-        font-size: 2em;
-        -webkit-text-stroke: 1px var(--cor-primaria); /* Borda ainda menor */
-        text-stroke: 1px var(--cor-primaria);
-    }
-    .hero-banner h2 .vazado {
-        -webkit-text-stroke: 1px var(--cor-secundaria);
-        text-stroke: 1px var(--cor-secundaria);
-    }
-    .hero-banner p {
-        font-size: 1em;
-    }
-    main {
-        padding: 15px 10px;
-    }
-    section {
-        padding: 15px;
-        margin-bottom: 20px;
-    }
-    section h2 {
-        font-size: 1.4em;
-    }
-    section p {
-        font-size: 0.95em;
-    }
-    .calendario th, .calendario td {
-        font-size: 0.8em;
-        height: 80px;
-        padding: 4px;
-    }
-    .calendario textarea {
-        height: 40px;
-        font-size: 0.75rem;
-    }
-}
-/* --- ESTILOS DE ACESSIBILIDADE (AJUSTADO PARA BOTÃO DE TOGGLE) --- */
-
-/* Esconde todos os checkboxes reais */
-.hidden-checkbox, .accessibility-option-toggle {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none; /* Não interage com o mouse */
-    width: 0;
-    height: 0;
-}
-
-/* Container principal da acessibilidade */
-.accessibility-container {
-    position: relative; /* Para posicionar o painel de opções */
-    z-index: 100; /* Garante que fique acima de outros elementos */
-    margin-left: auto; /* Empurra para a direita */
-    margin-right: 20px;
-    align-self: center; /* Centraliza verticalmente no header */
-}
-
-/* Estilo do botão principal "Acessibilidade" */
-.accessibility-main-button {
-    background-color: #007bff; /* Azul vibrante como na imagem */
-    color: white;
-    padding: 15px 20px; /* Um pouco maior */
-    border-radius: var(--borda-radius);
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.1s ease;
-    font-size: 1em;
-    font-family: "Helvetica World", Arial, sans-serif; /* Mantendo a fonte principal */
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 1px;
-    display: inline-block; /* Para padding funcionar bem */
-    white-space: nowrap; /* Evita que o texto quebre linha */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para profundidade */
-}
-
-.accessibility-main-button:hover {
-    background-color: #0056b3; /* Azul mais escuro no hover */
-    transform: translateY(-2px);
-}
-
-/* Estilo do painel de opções de acessibilidade */
-.accessibility-options-panel {
-    position: absolute;
-    top: 100%; /* Posiciona abaixo do botão principal */
-    right: 0;
-    background-color: var(--cor-fundo-secao); /* Fundo do painel */
-    border-radius: var(--borda-radius);
-    padding: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column; /* Botões um abaixo do outro */
-    gap: 8px; /* Espaço entre os botões */
-    opacity: 0; /* Inicialmente oculto */
-    visibility: hidden; /* E não interage */
-    transform: translateY(-10px); /* Começa um pouco acima */
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-}
-
-/* Mostra o painel quando o checkbox principal está marcado */
-#accessibility-toggle-panel:checked + .accessibility-main-button + .accessibility-options-panel {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-/* Estilo para os botões de opção (A+, A-, Contraste) */
-.accessibility-options-panel label {
-    background-color: var(--cor-fundo-principal); /* Fundo dos botões de opção */
-    color: var(--cor-texto-claro);
-    padding: 8px 12px;
-    border-radius: var(--borda-radius);
-    cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    font-size: 0.9em;
-    font-family: "Helvetica World", Arial, sans-serif; /* Mantendo a fonte principal */
-    text-align: center;
-    border: 1px solid var(--cor-secundaria);
-    white-space: nowrap;
-    min-width: 80px; /* Largura mínima para os botões */
-}
-
-.accessibility-options-panel label:hover {
-    background-color: var(--cor-secundaria);
-    color: var(--cor-fundo-principal);
-}
-
-/* Feedback visual quando um botão de opção está ativo */
-.accessibility-option-toggle:checked + label {
-    background-color: var(--cor-primaria); /* Cor de destaque quando ativado */
-    color: var(--cor-fundo-principal);
-    border-color: var(--cor-primaria);
-}
-
-/* Estilo para o ícone de contraste (criado com CSS) */
-.contrast-icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid currentColor; /* Borda da cor do texto */
-    position: relative;
-    vertical-align: middle;
-    margin-right: 5px; /* Espaço entre ícone e texto, se houver */
-}
-
-.contrast-icon::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 60%;
-    height: 60%;
-    border-radius: 50%;
-    background-color: currentColor; /* Metade da cor do texto */
-    transform: translate(-50%, -50%);
-    clip-path: inset(0 50% 0 0); /* Corta a metade direita para criar o efeito */
-}
-
-.contrast-icon::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 60%;
-    height: 60%;
-    border-radius: 50%;
-    background-color: transparent; /* A outra metade transparente */
-    transform: translate(-50%, -50%);
-    clip-path: inset(0 0 0 50%);
-}
-
-/* --- Efeitos de Acessibilidade (aplicados ao body/elementos específicos) --- */
 
 /* Aumentar Fonte (A+) */
-/* Quando #font-increase está marcado, afeta elementos específicos */
-#font-increase:checked ~ .hero-banner h2 { font-size: 5.5em; } /* Aumenta mais o título */
-#font-increase:checked ~ .hero-banner p { font-size: 1.8em; }
-#font-increase:checked ~ main,
-#font-increase:checked ~ footer,
-#font-increase:checked ~ header h1,
-#font-increase:checked ~ header nav,
-#font-increase:checked ~ .rounded-container h2,
-#font-increase:checked ~ .rounded-container p,
-#font-increase:checked ~ .calendario th,
-#font-increase:checked ~ .calendario td,
-#font-increase:checked ~ .calendario textarea,
-#font-increase:checked ~ .accessibility-container .accessibility-main-button,
-#font-increase:checked ~ .accessibility-options-panel label {
-    font-size: 1.15em; /* Aumenta a fonte geral em 15% */
-}
-
-/* Diminuir Fonte (A-) */
-/* Quando #font-decrease está marcado, afeta elementos específicos */
-#font-decrease:checked ~ .hero-banner h2 { font-size: 3.5em; } /* Diminui mais o título */
-#font-decrease:checked ~ .hero-banner p { font-size: 1.2em; }
-#font-decrease:checked ~ main,
-#font-decrease:checked ~ footer,
-#font-decrease:checked ~ header h1,
-#font-decrease:checked ~ header nav,
-#font-decrease:checked ~ .rounded-container h2,
-#font-decrease:checked ~ .rounded-container p,
-#font-decrease:checked ~ .calendario th,
-#font-decrease:checked ~ .calendario td,
-#font-decrease:checked ~ .calendario textarea,
-#font-decrease:checked ~ .accessibility-container .accessibility-main-button,
-#font-decrease:checked ~ .accessibility-options-panel label {
-    font-size: 0.85em; /* Diminui a fonte geral em 15% */
-}
-
-
-/* Modo de Alto Contraste */
-#high-contrast:checked ~ body {
-    /* Define um tema de alto contraste para o corpo inteiro */
-    filter: invert(1) hue-rotate(180deg) !important; /* Inverte cores e matiz para WCAG */
-    background-color: black !important; /* Garante fundo preto */
-}
-
-/* Isso pode ser complicado com filter: invert.
-   Para um controle mais preciso, você pode redefinir as cores elemento a elemento.
-   A abordagem abaixo (redefinindo cores) é mais previsível do que 'filter: invert'.
-   Vou usar uma abordagem mais direta para alto contraste: */
-
-#high-contrast:checked ~ body {
-    background-color: black !important;
-    color: white !important;
-}
-
-#high-contrast:checked ~ body header,
-#high-contrast:checked ~ body main,
-#high-contrast:checked ~ body footer,
-#high-contrast:checked ~ body section,
-#high-contrast:checked ~ body .rounded-container,
-#high-contrast:checked ~ body .accessibility-main-button,
-#high-contrast:checked ~ body .accessibility-options-panel,
-#high-contrast:checked ~ body .accessibility-options-panel label,
-#high-contrast:checked ~ body .calendario th,
-#high-contrast:checked ~ body .calendario td,
-#high-contrast:checked ~ body .calendario textarea,
-#high-contrast:checked ~ body .mapa-clima {
-    background-color: black !important; /* Fundos escuros */
-    color: white !important; /* Textos claros */
-    border-color: yellow !important; /* Bordas e acentos amarelos */
-    box-shadow: none !important; /* Remove sombras */
-}
-
-/* Cores específicas de alto contraste */
-#high-contrast:checked ~ body .hero-banner h2,
-#high-contrast:checked ~ body .hero-banner h2 .vazado {
-    -webkit-text-stroke: 2px yellow !important; /* Borda amarela */
-    text-stroke: 2px yellow !important;
-    color: transparent !important; /* Continua vazado */
-}
-
-#high-contrast:checked ~ body header h1,
-#high-contrast:checked ~ body section h2 {
-    color: yellow !important; /* Títulos em amarelo */
-    border-color: white !important; /* Linhas de título em branco */
-}
-
-#high-contrast:checked ~ body nav a {
-    color: white !important;
-    background-color: black !important;
-    border-color: white !important;
-}
-
-#high-contrast:checked ~ body nav a:hover {
-    background-color: white !important;
-    color: black !important;
-}
-
-#high-contrast:checked ~ body .accessibility-main-button {
-    background-color: yellow !important; /* Botão principal amarelo */
-    color: black !important;
-}
-
-#high-contrast:checked ~ body .accessibility-main-button:hover {
-    background-color: white !important; /* Hover branco */
-    color: black !important;
-}
-
-#high-contrast:checked ~ body .accessibility-option-toggle:checked + label {
-    background-color: white !important; /* Opções ativas brancas */
-    color: black !important;
-}
-
-/* Ícone de contraste em alto contraste */
-#high-contrast:checked ~ body .contrast-icon {
-    border-color: white !important;
-    color: white !important;
-}
-
-
-/* Media Queries para responsividade - ajuste o painel de acessibilidade */
-@media (max-width: 1024px) {
-    .accessibility-container {
-        order: -1; /* Empurra o painel para o topo na coluna */
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom: 15px; /* Espaço abaixo do painel */
-        width: 100%;
-        text-align: center; /* Centraliza o botão principal */
-    }
-    .accessibility-main-button {
-        display: block; /* Ocupa a largura total na tela pequena */
-        width: fit-content; /* Se ajusta ao conteúdo */
-        margin: 0 auto; /* Centraliza o botão principal */
-    }
-    .accessibility-options-panel {
-        left: 50%; /* Centraliza o painel de opções */
-        transform: translateX(-50%) translateY(-10px); /* Ajusta para centralizar */
-        white-space: normal; /* Permite quebrar linha se necessário */
-        min-width: unset; /* Remove largura mínima */
-        width: calc(100% - 20px); /* Ocupa quase 100% */
-        top: calc(100% + 10px); /* Mais espaço abaixo do botão */
-    }
-    #accessibility-toggle-panel:checked + .accessibility-main-button + .accessibility-options-panel {
-        transform: translateX(-50%) translateY(0); /* Ajuste para centralizar ao abrir */
-    }
-}
-
-@media (max-width: 480px) {
-    .accessibility-main-button {
-        padding: 12px 15px;
-        font-size: 0.9em;
-    }
-    .accessibility-options-panel {
-        padding: 8px;
-        gap: 6px;
-    }
-    .accessibility-options-panel label {
-        padding: 6px 10px;
-        font-size: 0.8em;
-    }
-    .contrast-icon {
-        width: 16px;
-        height: 16px;
-        border-width: 1.5px;
-    }
-}
-/* --- ESTILOS DE ACESSIBILIDADE LATERAL --- */
-
-/* Esconde todos os checkboxes reais que controlam a acessibilidade */
-.accessibility-global-toggle {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none; /* Não interage com o mouse */
-    width: 0;
-    height: 0;
-}
-
-/* Estilo para a barra lateral de acessibilidade */
-.accessibility-sidebar {
-    position: fixed; /* Fixa na tela */
-    top: 50%; /* Centraliza verticalmente */
-    right: 0; /* Coloca na lateral direita */
-    transform: translateY(-50%); /* Ajuste para centralizar perfeitamente */
-    z-index: 1000; /* Garante que fique acima de todo o conteúdo */
-    display: flex;
-    flex-direction: row; /* Inicialmente o botão lateral e o painel ficam lado a lado */
-}
-
-/* Estilo do botão "Acessibilidade" que fica na lateral */
-.sidebar-toggle-button {
-    background-color: #007bff; /* Azul vibrante */
-    color: white;
-    writing-mode: vertical-lr; /* Texto vertical */
-    text-orientation: mixed; /* Orientação do texto */
-    padding: 15px 10px; /* Padding interno */
-    border-top-left-radius: var(--borda-radius);
-    border-bottom-left-radius: var(--borda-radius);
-    cursor: pointer;
-    font-family: "Helvetica World", Arial, sans-serif;
-    font-size: 1.1em;
-    font-weight: bold;
-    letter-spacing: 2px;
-    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
-    transition: background-color 0.3s ease;
-    display: flex; /* Para centralizar as letras */
-    justify-content: center;
-    align-items: center;
-    min-height: 150px; /* Altura mínima para o botão "Acessibilidade" */
-}
-
-.sidebar-toggle-button:hover {
-    background-color: #0056b3; /* Azul mais escuro no hover */
-}
-
-/* Estilo do painel de opções que se expande */
-.sidebar-options {
-    background-color: var(--cor-fundo-secao); /* Fundo do painel */
-    display: flex;
-    flex-direction: column; /* Botões um abaixo do outro */
-    gap: 8px; /* Espaço entre os botões */
-    padding: 10px;
-    border-top-left-radius: var(--borda-radius); /* Bordas do painel */
-    border-bottom-left-radius: var(--borda-radius);
-    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
-    
-    /* Propriedades para ocultar/exibir o painel */
-    width: 0; /* Começa com largura zero */
-    overflow: hidden; /* Esconde o conteúdo */
-    opacity: 0; /* Invisível */
-    transform: translateX(100%); /* Desliza para fora da tela */
-    transition: width 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-    white-space: nowrap; /* Evita que os botões quebrem linha */
-}
-
-/* Quando o checkbox principal da sidebar está marcado, mostra o painel */
-#accessibility-panel-toggle:checked ~ .accessibility-sidebar .sidebar-options {
-    width: 120px; /* Largura total quando aberto, ajuste se precisar */
-    opacity: 1;
-    transform: translateX(0); /* Desliza para a posição */
-}
-
-/* Estilo para os botões de opção (A+, A-, Contraste) */
-.access-button {
-    background-color: var(--cor-fundo-principal); /* Fundo dos botões de opção */
-    color: var(--cor-texto-claro);
-    padding: 8px 12px;
-    border-radius: var(--borda-radius);
-    cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    font-size: 0.9em;
-    font-family: "Helvetica World", Arial, sans-serif;
-    text-align: center;
-    border: 1px solid var(--cor-secundaria);
-    display: block; /* Para ocupar a largura total do painel */
-}
-
-.access-button:hover {
-    background-color: var(--cor-secundaria);
-    color: var(--cor-fundo-principal);
-}
-
-/* Feedback visual quando um botão de opção está ativo */
-/* IMPORTANTÍSSIMO: Os seletores agora usam o ID do checkbox global e o seletor ~ body para aplicar */
-#font-increase:checked ~ .accessibility-sidebar .access-button[for="font-increase"],
-#font-decrease:checked ~ .accessibility-sidebar .access-button[for="font-decrease"],
-#high-contrast:checked ~ .accessibility-sidebar .access-button[for="high-contrast"] {
-    background-color: var(--cor-primaria);
-    color: var(--cor-fundo-principal);
-    border-color: var(--cor-primaria);
-}
-
-/* Estilo para o ícone de contraste (criado com CSS) */
-.contrast-icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid currentColor; /* Borda da cor do texto */
-    position: relative;
-    vertical-align: middle;
-}
-
-.contrast-icon::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 60%;
-    height: 60%;
-    border-radius: 50%;
-    background-color: currentColor; /* Metade da cor do texto */
-    transform: translate(-50%, -50%);
-    clip-path: inset(0 50% 0 0); /* Corta a metade direita para criar o efeito */
-}
-
-.contrast-icon::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 60%;
-    height: 60%;
-    border-radius: 50%;
-    background-color: transparent; /* A outra metade transparente */
-    transform: translate(-50%, -50%);
-    clip-path: inset(0 0 0 50%);
-}
-
-/* --- Efeitos de Acessibilidade (AGORA DEVEM FUNCIONAR!) --- */
-
-/* Aumentar Fonte (A+) - Afeta o body inteiro */
 #font-increase:checked ~ body {
     font-size: 1.15em; /* Aumenta a fonte base do body */
 }
-/* Para ajustar elementos que têm tamanhos fixos, ou que precisam de um aumento maior */
-#font-increase:checked ~ .hero-banner h2 { font-size: 5.5em; }
-#font-increase:checked ~ .hero-banner p { font-size: 1.8em; }
-#font-increase:checked ~ header h1 { font-size: 2.5em; } /* Aumenta o H1 do header */
-#font-increase:checked ~ nav a { font-size: 1.1em; } /* Aumenta os links da nav */
-#font-increase:checked ~ section h2 { font-size: 2.2em; }
-#font-increase:checked ~ section p { font-size: 1.25em; }
-#font-increase:checked ~ .calendario th,
-#font-increase:checked ~ .calendario td { font-size: 1.1em; }
-#font-increase:checked ~ .calendario textarea { font-size: 1em; }
-#font-increase:checked ~ footer { font-size: 1em; }
+#font-increase:checked ~ body .hero-banner h2 { font-size: 5.5em; }
+#font-increase:checked ~ body .hero-banner p { font-size: 1.8em; }
+#font-increase:checked ~ body header h1 { font-size: 2.5em; }
+#font-increase:checked ~ body nav .nav-label { font-size: 1.1em; } /* Aumenta os links da nav */
+#font-increase:checked ~ body section h2 { font-size: 2.2em; }
+#font-increase:checked ~ body section p { font-size: 1.25em; }
+#font-increase:checked ~ body .calendario th,
+#font-increase:checked ~ body .calendario td { font-size: 1.1em; }
+#font-increase:checked ~ body .calendario textarea { font-size: 1em; }
+#font-increase:checked ~ body footer { font-size: 1em; }
 
 
 /* Diminuir Fonte (A-) */
 #font-decrease:checked ~ body {
     font-size: 0.85em; /* Diminui a fonte base do body */
 }
-#font-decrease:checked ~ .hero-banner h2 { font-size: 3.5em; }
-#font-decrease:checked ~ .hero-banner p { font-size: 1.2em; }
-#font-decrease:checked ~ header h1 { font-size: 1.8em; }
-#font-decrease:checked ~ nav a { font-size: 0.8em; }
-#font-decrease:checked ~ section h2 { font-size: 1.6em; }
-#font-decrease:checked ~ section p { font-size: 0.95em; }
-#font-decrease:checked ~ .calendario th,
-#font-decrease:checked ~ .calendario td { font-size: 0.8em; }
-#font-decrease:checked ~ .calendario textarea { font-size: 0.75em; }
-#font-decrease:checked ~ footer { font-size: 0.8em; }
+#font-decrease:checked ~ body .hero-banner h2 { font-size: 3.5em; }
+#font-decrease:checked ~ body .hero-banner p { font-size: 1.2em; }
+#font-decrease:checked ~ body header h1 { font-size: 1.8em; }
+#font-decrease:checked ~ body nav .nav-label { font-size: 0.8em; }
+#font-decrease:checked ~ body section h2 { font-size: 1.6em; }
+#font-decrease:checked ~ body section p { font-size: 0.95em; }
+#font-decrease:checked ~ body .calendario th,
+#font-decrease:checked ~ body .calendario td { font-size: 0.8em; }
+#font-decrease:checked ~ body .calendario textarea { font-size: 0.75em; }
+#font-decrease:checked ~ body footer { font-size: 0.8em; }
 
 
 /* Modo de Alto Contraste */
@@ -888,13 +138,13 @@ footer {
 }
 
 #high-contrast:checked ~ body header,
-#high-contrast:checked ~ body main,
+#high-contrast:checked ~ body .main-content-container,
 #high-contrast:checked ~ body footer,
 #high-contrast:checked ~ body section,
 #high-contrast:checked ~ body .rounded-container,
 #high-contrast:checked ~ body .hero-banner,
-#high-contrast:checked ~ body .sidebar-options, /* Adicionado para garantir o contraste do próprio painel */
-#high-contrast:checked ~ body .access-button, /* Adicionado para garantir o contraste dos botões */
+#high-contrast:checked ~ body .accessibility-sidebar .sidebar-options,
+#high-contrast:checked ~ body .accessibility-sidebar .access-button,
 #high-contrast:checked ~ body .calendario th,
 #high-contrast:checked ~ body .calendario td,
 #high-contrast:checked ~ body .calendario textarea,
@@ -905,7 +155,6 @@ footer {
     box-shadow: none !important;
 }
 
-/* Cores específicas de alto contraste */
 #high-contrast:checked ~ body .hero-banner h2,
 #high-contrast:checked ~ body .hero-banner h2 .vazado {
     -webkit-text-stroke: 2px yellow !important;
@@ -919,66 +168,74 @@ footer {
     border-color: white !important;
 }
 
-#high-contrast:checked ~ body nav a {
+#high-contrast:checked ~ body nav .nav-label {
     color: white !important;
     background-color: black !important;
     border-color: white !important;
 }
 
-#high-contrast:checked ~ body nav a:hover {
+#high-contrast:checked ~ body nav .nav-label:hover,
+#high-contrast:checked ~ body #home-section:checked ~ header nav li:nth-child(1) .nav-label,
+#high-contrast:checked ~ body #sobre-section:checked ~ header nav li:nth-child(2) .nav-label,
+#high-contrast:checked ~ body #clima-section:checked ~ header nav li:nth-child(3) .nav-label,
+#high-contrast:checked ~ body #calendario-section:checked ~ header nav li:nth-child(4) .nav-label,
+#high-contrast:checked ~ body #cursos-section:checked ~ header nav li:nth-child(5) .nav-label,
+#high-contrast:checked ~ body #servicos-section:checked ~ header nav li:nth-child(6) .nav-label,
+#high-contrast:checked ~ body #contratacao-section:checked ~ header nav li:nth-child(7) .nav-label,
+#high-contrast:checked ~ body #venda-section:checked ~ header nav li:nth-child(8) .nav-label,
+#high-contrast:checked ~ body #armazenamento-section:checked ~ header nav li:nth-child(9) .nav-label,
+#high-contrast:checked ~ body #apoio-section:checked ~ header nav li:nth-child(10) .nav-label {
     background-color: white !important;
     color: black !important;
 }
 
 #high-contrast:checked ~ body .sidebar-toggle-button {
-    background-color: yellow !important; /* Botão principal amarelo */
+    background-color: yellow !important;
     color: black !important;
 }
 
 #high-contrast:checked ~ body .sidebar-toggle-button:hover {
-    background-color: white !important; /* Hover branco */
-    color: black !important;
-}
-
-#high-contrast:checked ~ body .access-button:checked + label, /* Ajuste para o botão ativo */
-#high-contrast:checked ~ body .access-button.active { /* Se você tivesse uma classe 'active' com JS */
     background-color: white !important;
     color: black !important;
 }
 
-/* Ícone de contraste em alto contraste */
+#high-contrast:checked ~ body .accessibility-sidebar .access-button:checked + label {
+    background-color: white !important;
+    color: black !important;
+}
+
 #high-contrast:checked ~ body .contrast-icon {
     border-color: white !important;
     color: white !important;
 }
 
 
-/* Media Queries para responsividade - ajuste o painel de acessibilidade */
+/* Media Queries - Acessibilidade Lateral (continua como antes) */
 @media (max-width: 1024px) {
     .accessibility-sidebar {
-        top: unset; /* Remove centralização vertical */
-        bottom: 20px; /* Posiciona no canto inferior direito */
+        top: unset;
+        bottom: 20px;
         transform: translateY(0);
-        flex-direction: column; /* Empilha o botão e as opções */
+        flex-direction: column;
     }
     .sidebar-toggle-button {
-        writing-mode: unset; /* Volta ao texto normal */
+        writing-mode: unset;
         text-orientation: unset;
         min-height: unset;
-        height: 60px; /* Altura padrão para o botão "Acessibilidade" */
-        width: 140px; /* Largura para o botão */
+        height: 60px;
+        width: 140px;
         border-radius: var(--borda-radius);
-        align-self: flex-end; /* Alinha à direita no canto inferior */
-        margin-bottom: 10px; /* Espaço entre o botão e o painel */
+        align-self: flex-end;
+        margin-bottom: 10px;
     }
     .sidebar-options {
-        width: 140px; /* Largura padrão para as opções */
+        width: 140px;
         border-radius: var(--borda-radius);
-        transform: translateY(100%); /* Desliza para baixo */
-        align-self: flex-end; /* Alinha à direita */
+        transform: translateY(100%);
+        align-self: flex-end;
     }
     #accessibility-panel-toggle:checked ~ .accessibility-sidebar .sidebar-options {
-        transform: translateY(0); /* Desliza para cima */
+        transform: translateY(0);
     }
 }
 
