@@ -1148,56 +1148,11 @@ footer {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.titulo-calendario {
-  color: #333;
-  text-align: center;
-  margin-bottom: 15px;
-  font-weight: 700;
-}
-
-.legenda {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin-bottom: 25px;
-  flex-wrap: wrap;
-  font-weight: 600;
-  font-size: 1rem;
-  color: #555;
-}
-
-.legenda span {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.legenda-icone {
-  width: 22px;
-  height: 22px;
-  border-radius: 5px;
-}
-
-.plantio {
-  background-color: #4CAF50;
-}
-
-.irrigacao {
-  background-color: #2196F3;
-}
-
-.colheita {
-  background-color: #FF5722;
-}
-
-.coleta {
-  background-color: #FF9800;
-}
-
 .calendario-anual {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
+  padding: 10px;
 }
 
 .mes {
@@ -1260,25 +1215,20 @@ footer {
 
 .calendario-mes td.plantio {
   background-color: #4CAF50;
+  color: white;
 }
 
 .calendario-mes td.irrigacao {
   background-color: #2196F3;
+  color: white;
 }
 
 .calendario-mes td.colheita {
   background-color: #FF5722;
+  color: white;
 }
 
 .calendario-mes td.coleta {
   background-color: #FF9800;
-}
-
-.info-cultura {
-  margin-top: 12px;
-  font-size: 0.9rem;
-  text-align: center;
-  color: #333;
-  line-height: 1.3;
-  font-weight: 600;
+  color: white;
 }
