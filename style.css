@@ -1147,19 +1147,70 @@ footer {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-.calendario-anual {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
-  padding: 10px;
+/* Título do calendário */
+#calendario h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #222;
 }
 
+/* Legenda das categorias */
+.legenda {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #555;
+}
+
+.legenda span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legenda-icone {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+}
+
+.plantio {
+  background-color: #4CAF50;
+}
+
+.irrigacao {
+  background-color: #2196F3;
+}
+
+.colheita {
+  background-color: #FF5722;
+}
+
+.coleta {
+  background-color: #FF9800;
+}
+
+/* Grid com os meses */
+.calendario-anual {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+  padding: 0 10px;
+}
+
+/* Cada mês do calendário */
 .mes {
   background: #fafafa;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 0.08);
-  padding: 15px 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 16px 12px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1167,24 +1218,28 @@ footer {
 }
 
 .mes:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 16px rgb(0 0 0 / 0.15);
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .mes h3 {
   margin: 0 0 10px 0;
   font-weight: 700;
+  font-size: 1.1rem;
   color: #222;
 }
 
+/* Tabela do calendário mensal */
 .calendario-mes {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
   user-select: none;
+  font-family: inherit;
 }
 
-.calendario-mes th, .calendario-mes td {
+.calendario-mes th,
+.calendario-mes td {
   border: 1px solid #ddd;
   text-align: center;
   padding: 6px 0;
@@ -1213,22 +1268,33 @@ footer {
   border-radius: 5px;
 }
 
+/* Categorias dentro das células */
 .calendario-mes td.plantio {
   background-color: #4CAF50;
-  color: white;
+  color: #fff;
 }
 
 .calendario-mes td.irrigacao {
   background-color: #2196F3;
-  color: white;
+  color: #fff;
 }
 
 .calendario-mes td.colheita {
   background-color: #FF5722;
-  color: white;
+  color: #fff;
 }
 
 .calendario-mes td.coleta {
   background-color: #FF9800;
-  color: white;
+  color: #fff;
+}
+
+/* Informações de cultura no rodapé de cada mês */
+.info-cultura {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #333;
+  line-height: 1.3;
+  font-weight: 600;
 }
