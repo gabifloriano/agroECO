@@ -5,7 +5,7 @@
     --cor-fundo-principal: #F5F5F5; /* Cinza claro */
     --cor-fundo-secao: #FFFFFF; /* Branco para seções */
     --cor-texto-escuro: #333333; /* Texto principal escuro */
-    --cor-texto-claro: #555555; /* Texto secundário claro */
+    --cor-texto-claro: #ffffff; /* Texto secundário claro */
     --borda-radius: 10px;
     --sombra-leve: 0 4px 8px rgba(0,0,0,0.1);
 }
