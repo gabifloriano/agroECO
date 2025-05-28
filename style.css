@@ -971,3 +971,12 @@ footer {
   color: red;
   font-weight: bold;
 }
+#inclusao-digital ul {
+    padding-left: 1.5rem;
+    list-style-type: '🌱 ';
+}
+
+#inclusao-digital h3 {
+    margin-top: 1.5rem;
+    color: #2e7d32;
+}
