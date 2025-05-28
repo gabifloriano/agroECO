@@ -1,4 +1,4 @@
-# agro-Eco
+# agro-ECO
 O agroECO é uma plataforma criada para fortalecer o trabalho do produtor rural, unindo tecnologia, informação e acessibilidade. O objetivo é facilitar o dia a dia no campo, oferecendo recursos que vão do planejamento à execução, com foco também na inclusão dos pequenos produtores.
 
 Previsão do Clima: Acompanhe as condições meteorológicas em tempo real para um melhor planejamento da produção.
