@@ -155,7 +155,52 @@
         <section id="venda" class="rounded-container">
             <h2>Compra e Venda</h2>
             <p>Comercialize produtos agrícolas, exceto agrotóxicos. Veja também locais autorizados de venda.</p>
-        </section>
+        <section id="servicos" class="rounded-container">
+    <h2>Solicitação de Serviços</h2>
+    <p>Encontre profissionais disponíveis para serviços específicos no campo, como atendimento veterinário ou coleta de solo.</p>
+
+    <div class="servicos-container">
+        <div class="cadastro-servico">
+            <h3>Profissionais Disponíveis</h3>
+            <form class="formulario-servico">
+                <label for="nome-prof">Nome:</label>
+                <input type="text" id="nome-prof" name="nome" placeholder="Seu nome completo" required>
+
+                <label for="area-servico">Área de Serviço:</label>
+                <input type="text" id="area-servico" name="area" placeholder="Ex: Veterinário, Coleta de Solo" required>
+
+                <label for="localizacao">Localização:</label>
+                <input type="text" id="localizacao" name="localizacao" placeholder="Cidade ou região" required>
+
+                <label for="contato-prof">Contato:</label>
+                <input type="text" id="contato-prof" name="contato" placeholder="(00) 00000-0000 ou email">
+
+                <label for="disponibilidade">Disponibilidade:</label>
+                <textarea id="disponibilidade" name="disponibilidade" placeholder="Ex: Disponível amanhã das 7h às 10h para visita veterinária..."></textarea>
+
+                <input type="submit" value="Publicar Serviço">
+            </form>
+        </div>
+
+        <div class="lista-solicitacoes">
+            <h3>Solicitações Recentes</h3>
+
+            <div class="solicitacao">
+                <p><strong>Solicitante:</strong> Fazenda São Jorge</p>
+                <p><strong>Necessidade:</strong> Veterinário para porco com febre</p>
+                <p><strong>Quando:</strong> Amanhã cedo</p>
+                <p><strong>Contato:</strong> (66) 99876-1234</p>
+            </div>
+
+            <div class="solicitacao">
+                <p><strong>Solicitante:</strong> Sítio Esperança</p>
+                <p><strong>Necessidade:</strong> Coleta de solo para análise laboratorial</p>
+                <p><strong>Quando:</strong> Esta semana</p>
+                <p><strong>Contato:</strong> sitioteste@exemplo.com</p>
+            </div>
+        </div>
+    </div>
+</section>
 
         <section id="armazenamento" class="rounded-container">
             <h2>Armazenamento Inteligente</h2>
