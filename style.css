@@ -32,9 +32,9 @@ header {
     align-items: center;
     box-shadow: var(--sombra-leve);
     flex-wrap: wrap; /* Permite que os itens quebrem linha em telas pequenas */
-    position: sticky; /* Fixa o header no topo ao rolar */
+    position: sticky; 
     top: 0;
-    z-index: 999; /* Garante que fique acima de outros elementos */
+    z-index: 999;
 }
 
 .header-left {
