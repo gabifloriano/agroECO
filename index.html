@@ -92,39 +92,45 @@
             </div>
         </section>
 
-        <section id="calendario" class="rounded-container">
-  <h2>Calendário do Produtor</h2>
-  <p>Acompanhe as melhores datas para plantio, irrigação, colheita e coleta de embalagens. O calendário mostra visualmente cada atividade ao longo do ano para melhor organização e produtividade.</p>
+       <section id="calendario" class="rounded-container">
+  <h2>Calendário do Produtor - Janeiro 2025</h2>
+  <p>Registros visuais de plantio, irrigação, colheita e coleta de embalagens.</p>
 
   <div class="legenda">
     <span><div class="legenda-icone plantio"></div> Plantio</span>
     <span><div class="legenda-icone irrigacao"></div> Irrigação</span>
     <span><div class="legenda-icone colheita"></div> Colheita</span>
-    <span><div class="legenda-icone coleta"></div> Coleta de Embalagens</span>
+    <span><div class="legenda-icone coleta"></div> Coleta Embalagens</span>
   </div>
 
-  <div class="calendario">
-    <!-- Janeiro -->
-    <div class="mes"><h2>Janeiro</h2><div class="data">
-      <div class="dia irrigacao" title="Irrigação - soja"></div>
-      <div class="dia plantio" title="Plantio de milho safrinha"></div>
-    </div></div>
-
-    <!-- Fevereiro -->
-    <div class="mes"><h2>Fevereiro</h2><div class="data">
-      <div class="dia irrigacao" title="Irrigação - milho"></div>
-      <div class="dia coleta" title="Coleta de embalagens"></div>
-    </div></div>
-
-    <!-- (continue com os demais meses até Dezembro como na versão completa anterior) -->
-
-    <div class="mes"><h2>Dezembro</h2><div class="data">
-      <div class="dia irrigacao" title="Irrigação soja"></div>
-      <div class="dia colheita" title="Pré-colheita soja antecipada"></div>
-    </div></div>
-  </div>
+  <table class="calendario-mes">
+    <thead>
+      <tr>
+        <th>Dom</th><th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sáb</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="vazio"></td><td class="vazio"></td><td class="evento plantio" title="Plantio milho">1</td>
+        <td class="evento irrigacao" title="Irrigação soja">2</td>
+        <td>3</td><td>4</td><td>5</td>
+      </tr>
+      <tr>
+        <td>6</td><td>7</td><td>8</td><td class="evento coleta" title="Coleta embalagens">9</td>
+        <td>10</td><td class="evento colheita" title="Colheita feijão">11</td><td>12</td>
+      </tr>
+      <tr>
+        <td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td>
+      </tr>
+      <tr>
+        <td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
+      </tr>
+      <tr>
+        <td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td class="vazio"></td><td class="vazio"></td>
+      </tr>
+    </tbody>
+  </table>
 </section>
-
 
         <section id="cursos" class="rounded-container">
     <h2>Acesso a Cursos do SENAR</h2>
