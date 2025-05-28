@@ -1148,12 +1148,13 @@ footer {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 /* Estilos gerais para títulos */
-h2 {
+#calendario h2 {
   text-align: center;
   margin-bottom: 15px;
   font-weight: 700;
   color: #333;
 }
+
 
 /* Legenda dos eventos */
 .legenda {
