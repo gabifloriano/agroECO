@@ -5,7 +5,7 @@
     --cor-fundo-principal: #F5F5F5; /* Cinza claro */
     --cor-fundo-secao: #FFFFFF; /* Branco para seções */
     --cor-texto-escuro: #333333; /* Texto principal escuro */
-    --cor-texto-claro: #ffffff; /* Texto secundário claro */
+    --cor-texto-claro: #555555; /* Texto secundário claro */
     --borda-radius: 10px;
     --sombra-leve: 0 4px 8px rgba(0,0,0,0.1);
 }
@@ -32,9 +32,9 @@ header {
     align-items: center;
     box-shadow: var(--sombra-leve);
     flex-wrap: wrap; /* Permite que os itens quebrem linha em telas pequenas */
-    position: sticky; 
+    position: sticky; /* Fixa o header no topo ao rolar */
     top: 0;
-    z-index: 999;
+    z-index: 999; /* Garante que fique acima de outros elementos */
 }
 
 .header-left {
@@ -1148,11 +1148,11 @@ footer {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h2 {
+.titulo-calendario {
+  color: #333;
   text-align: center;
   margin-bottom: 15px;
   font-weight: 700;
-  color: #333;
 }
 
 .legenda {
