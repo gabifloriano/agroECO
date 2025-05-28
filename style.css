@@ -1021,3 +1021,65 @@ footer {
 #sobre ul li strong {
     color: #2a7a2a; /* destaque em verde */
 }
+.form-loja {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 500px;
+  margin-bottom: 25px;
+}
+
+.form-loja label {
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+.form-loja input[type="text"],
+.form-loja input[type="number"],
+.form-loja textarea {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.form-loja button {
+  width: max-content;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-loja button:hover {
+  background-color: #1b4d20;
+}
+
+.lista-produtos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+}
+
+.produto {
+  background-color: #e6f2e6;
+  border-radius: 10px;
+  padding: 15px 20px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+
+.produto h4 {
+  margin-top: 0;
+  color: #256029;
+}
+
+.produto p {
+  margin: 4px 0;
+  color: #2a2a2a;
+}
