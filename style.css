@@ -840,3 +840,64 @@ footer {
         grid-template-columns: 1fr; /* Uma coluna em telas menores */
     }
 }
+.estoque-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.estoque-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+.estoque-form input[type="text"],
+.estoque-form input[type="number"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+}
+
+.alerta-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.estoque-item-preview {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.item-estoque {
+  padding: 14px;
+  border-radius: 8px;
+  background-color: #f2f2f2;
+  border-left: 6px solid;
+  width: 100%;
+  max-width: 400px;
+}
+
+.item-estoque.normal {
+  border-color: green;
+}
+
+.item-estoque.alerta {
+  border-color: red;
+  background-color: #ffe5e5;
+}
+
+.status.verde {
+  color: green;
+  font-weight: bold;
+}
+
+.status.vermelho {
+  color: red;
+  font-weight: bold;
+}
