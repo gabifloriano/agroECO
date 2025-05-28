@@ -1021,65 +1021,111 @@ footer {
 #sobre ul li strong {
     color: #2a7a2a; /* destaque em verde */
 }
+/* Container do formulário */
 .form-loja {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  max-width: 500px;
-  margin-bottom: 25px;
+  gap: 18px;
+  max-width: 600px;
+  margin-bottom: 40px;
+  background: #f9faf9;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(46, 125, 50, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Labels */
 .form-loja label {
-  font-weight: 600;
+  font-weight: 700;
   color: #2e7d32;
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
 }
 
+/* Inputs e textarea */
 .form-loja input[type="text"],
 .form-loja input[type="number"],
 .form-loja textarea {
-  padding: 8px 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  padding: 12px 14px;
+  border: 2px solid #c6dec6;
+  border-radius: 8px;
   font-size: 1rem;
-  resize: vertical;
+  color: #3a3a3a;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.form-loja input[type="text"]:focus,
+.form-loja input[type="number"]:focus,
+.form-loja textarea:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 6px 2px rgba(46, 125, 50, 0.3);
+  outline: none;
+}
+
+/* Botão */
 .form-loja button {
-  width: max-content;
+  align-self: flex-start;
   background-color: #2e7d32;
-  color: white;
+  color: #fff;
   border: none;
-  padding: 10px 18px;
-  border-radius: 6px;
-  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 12px rgba(46, 125, 50, 0.35);
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .form-loja button:hover {
-  background-color: #1b4d20;
+  background-color: #1f4f18;
+  box-shadow: 0 8px 20px rgba(31, 79, 24, 0.6);
 }
 
+/* Lista de produtos */
 .lista-produtos {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  max-width: 600px;
+  gap: 24px;
+  max-width: 700px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Cada produto */
 .produto {
-  background-color: #e6f2e6;
-  border-radius: 10px;
-  padding: 15px 20px;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #dff0d8, #b4d8a7);
+  border-radius: 16px;
+  padding: 22px 28px;
+  box-shadow: 0 10px 18px rgba(46, 125, 50, 0.2);
+  border: 1px solid #aacb9a;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.produto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 25px rgba(46, 125, 50, 0.4);
 }
 
 .produto h4 {
-  margin-top: 0;
-  color: #256029;
+  margin: 0 0 8px;
+  color: #1b3a10;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
 }
 
 .produto p {
-  margin: 4px 0;
-  color: #2a2a2a;
+  margin: 5px 0;
+  color: #2f4f20;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+/* Destaques dentro do produto */
+.produto p strong {
+  color: #224d13;
+  font-weight: 700;
 }
