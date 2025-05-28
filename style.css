@@ -750,3 +750,93 @@ footer {
     border-left: 5px solid #3d8b40;
     border-radius: 8px;
 }
+/* --- ESTILOS PARA A SEÇÃO "Acesso a Cursos" --- */
+
+.mapa-sindicatos {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: var(--borda-radius);
+    overflow: hidden; /* Garante que o iframe respeite o border-radius */
+    box-shadow: var(--sombra-leve);
+}
+
+.mapa-sindicatos iframe {
+    border: none;
+    display: block; /* Remove espaço extra abaixo do iframe */
+}
+
+.sindicatos-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 colunas em telas maiores, ajusta para menores */
+    gap: 25px; /* Espaço entre os itens dos sindicatos */
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.sindicato-item {
+    background-color: var(--cor-fundo-principal); /* Fundo branco ou claro */
+    border: 1px solid #e0e0e0;
+    border-radius: var(--borda-radius);
+    padding: 20px;
+    box-shadow: var(--sombra-leve);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sindicato-item:hover {
+    transform: translateY(-5px); /* Efeito de leve elevação no hover */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.sindicato-item h4 {
+    color: var(--cor-primaria);
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--cor-secundaria);
+    padding-bottom: 5px;
+}
+
+.sindicato-item p {
+    font-size: 0.95em;
+    color: var(--cor-texto-escuro);
+    margin-bottom: 8px;
+}
+
+.sindicato-item a {
+    display: inline-block; /* Para o padding e margem funcionarem */
+    background-color: var(--cor-secundaria);
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.sindicato-item a:hover {
+    background-color: var(--cor-primaria);
+}
+
+.cursos-destaque-list {
+    list-style: disc; /* Marcadores de lista */
+    padding-left: 25px;
+    margin-top: 20px;
+    line-height: 1.8;
+}
+
+.cursos-destaque-list li {
+    margin-bottom: 8px;
+    color: var(--cor-texto-escuro);
+    font-size: 0.95em;
+}
+
+.cursos-destaque-list li strong {
+    color: var(--cor-primaria); /* Deixa o nome do curso em destaque */
+}
+
+/* --- Media Queries para responsividade da seção de cursos --- */
+@media (max-width: 768px) {
+    .sindicatos-list {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+}
