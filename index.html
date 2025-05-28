@@ -93,24 +93,38 @@
         </section>
 
         <section id="calendario" class="rounded-container">
-            <h2>Calendário do Produtor</h2>
-            <p>Acompanhe todo o ciclo da sua produção: registre datas de plantio, irrigação, aplicação de agrotóxicos e coleta de recipientes. Com base nos dados inseridos, o sistema estima automaticamente a previsão de colheita, ajudando você a planejar melhor suas etapas e aumentar a produtividade com mais controle e organização.
-</p>
-            <table class="calendario">
-                <thead>
-                    <tr>
-                        <th>Dom</th><th>Seg</th><th>Ter</th><th>Qua</th><th>Qui</th><th>Sex</th><th>Sáb</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td></td><td></td><td>1<br><textarea placeholder="Plantio..."></textarea></td><td>2<br><textarea></textarea></td><td>3<br><textarea></textarea></td><td>4<br><textarea></textarea></td><td>5<br><textarea></textarea></td><td></td></tr>
-                    <tr><td>6<br><textarea></textarea></td><td>7<br><textarea></textarea></td><td>8<br><textarea></textarea></td><td>9<br><textarea></textarea></td><td>10<br><textarea></textarea></td><td>11<br><textarea></textarea></td><td>12<br><textarea></textarea></td></tr>
-                    <tr><td>13<br><textarea></textarea></td><td>14<br><textarea></textarea></td><td>15<br><textarea></textarea></td><td>16<br><textarea></textarea></td><td>17<br><textarea></textarea></td><td>18<br><textarea></textarea></td><td>19<br><textarea></textarea></td></tr>
-                    <tr><td>20<br><textarea></textarea></td><td>21<br><textarea></textarea></td><td>22<br><textarea></textarea></td><td>23<br><textarea></textarea></td><td>24<br><textarea></textarea></td><td>25<br><textarea></textarea></td><td>26<br><textarea></textarea></td></tr>
-                    <tr><td>27<br><textarea></textarea></td><td>28<br><textarea></textarea></td><td>29<br><textarea></textarea></td><td>30<br><textarea></textarea></td><td>31<br><textarea></textarea></td><td></td><td></td></tr>
-                </tbody>
-            </table>
-        </section>
+  <h2>Calendário do Produtor</h2>
+  <p>Acompanhe as melhores datas para plantio, irrigação, colheita e coleta de embalagens. O calendário mostra visualmente cada atividade ao longo do ano para melhor organização e produtividade.</p>
+
+  <div class="legenda">
+    <span><div class="legenda-icone plantio"></div> Plantio</span>
+    <span><div class="legenda-icone irrigacao"></div> Irrigação</span>
+    <span><div class="legenda-icone colheita"></div> Colheita</span>
+    <span><div class="legenda-icone coleta"></div> Coleta de Embalagens</span>
+  </div>
+
+  <div class="calendario">
+    <!-- Janeiro -->
+    <div class="mes"><h2>Janeiro</h2><div class="data">
+      <div class="dia irrigacao" title="Irrigação - soja"></div>
+      <div class="dia plantio" title="Plantio de milho safrinha"></div>
+    </div></div>
+
+    <!-- Fevereiro -->
+    <div class="mes"><h2>Fevereiro</h2><div class="data">
+      <div class="dia irrigacao" title="Irrigação - milho"></div>
+      <div class="dia coleta" title="Coleta de embalagens"></div>
+    </div></div>
+
+    <!-- (continue com os demais meses até Dezembro como na versão completa anterior) -->
+
+    <div class="mes"><h2>Dezembro</h2><div class="data">
+      <div class="dia irrigacao" title="Irrigação soja"></div>
+      <div class="dia colheita" title="Pré-colheita soja antecipada"></div>
+    </div></div>
+  </div>
+</section>
+
 
         <section id="cursos" class="rounded-container">
     <h2>Acesso a Cursos do SENAR</h2>

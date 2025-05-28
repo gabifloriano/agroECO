@@ -1129,3 +1129,69 @@ footer {
   color: #224d13;
   font-weight: 700;
 }
+.legenda {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.legenda span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legenda-icone {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+}
+
+.plantio {
+  background-color: #4CAF50;
+}
+.irrigacao {
+  background-color: #2196F3;
+}
+.colheita {
+  background-color: #FF5722;
+}
+.coleta {
+  background-color: #FF9800;
+}
+
+.calendario {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.mes {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.mes h2 {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.dia {
+  width: 20px;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+}
