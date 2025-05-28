@@ -234,11 +234,52 @@
         </div>
     </div>
 </section>
+ 
+       <section id="armazenamento" class="rounded-container">
+  <h2>Armazém Inteligente</h2>
+  <p>Adicione manualmente os itens do seu estoque e marque quando estiver em alerta.</p>
 
-        <section id="armazenamento" class="rounded-container">
-            <h2>Armazenamento Inteligente</h2>
-            <p>Controle seu estoque de forma eficiente com alertas visuais.</p>
-        </section>
+  <form class="estoque-form" method="post">
+    <label>
+      Nome do item:
+      <input type="text" name="item-nome" placeholder="Ex: Semente de milho" required>
+    </label>
+
+    <label>
+      Quantidade atual:
+      <input type="number" name="item-quantidade" placeholder="Ex: 50" min="0" required>
+    </label>
+
+    <label>
+      Quantidade mínima:
+      <input type="number" name="item-minimo" placeholder="Ex: 20" min="0" required>
+    </label>
+
+    <label class="alerta-checkbox">
+      <input type="checkbox" name="estoque-alerta">
+      Estoque em alerta (abaixo do mínimo)
+    </label>
+
+    <div class="estoque-item-preview">
+      <div class="item-estoque normal">
+        <strong>Nome do Item:</strong> Semente de milho<br>
+        <strong>Quantidade:</strong> 50<br>
+        <strong>Mínimo:</strong> 20<br>
+        <span class="status verde">Estoque OK</span>
+      </div>
+
+      <div class="item-estoque alerta">
+        <strong>Nome do Item:</strong> Semente de milho<br>
+        <strong>Quantidade:</strong> 15<br>
+        <strong>Mínimo:</strong> 20<br>
+        <span class="status vermelho">⚠ Estoque Baixo!</span>
+      </div>
+    </div>
+
+    <p><em>* Esta é uma versão visual. Para funcionalidade completa, é necessário uso de programação.</em></p>
+  </form>
+</section>
+
 
         <section id="apoio" class="rounded-container">
             <h2>Apoio ao Pequeno Produtor</h2>
