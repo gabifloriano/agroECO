@@ -1147,150 +1147,179 @@ footer {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+/* Container geral */
 #calendario {
-  font-family: Arial, sans-serif;
   max-width: 1200px;
   margin: 20px auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
   padding: 10px;
 }
 
+/* Título principal */
 #calendario h2 {
   text-align: center;
-  margin-bottom: 15px;
-  color: #333;
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-weight: 700;
 }
 
+/* Legenda com os ícones coloridos */
 .legenda {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin-bottom: 20px;
-  font-size: 14px;
+  gap: 25px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.legenda span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 1rem;
   color: #444;
 }
 
 .legenda-icone {
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  margin-right: 6px;
-  vertical-align: middle;
-  border-radius: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
 }
 
+/* Cores dos ícones */
 .plantio {
-  background-color: #4caf50; /* verde */
-  color: white;
+  background-color: #27ae60; /* verde */
 }
 
 .irrigacao {
-  background-color: #2196f3; /* azul */
-  color: white;
+  background-color: #2980b9; /* azul */
 }
 
 .colheita {
-  background-color: #ff9800; /* laranja */
-  color: white;
+  background-color: #e67e22; /* laranja */
 }
 
 .coleta {
-  background-color: #9c27b0; /* roxo */
-  color: white;
+  background-color: #c0392b; /* vermelho */
 }
 
-.legenda .plantio {
-  background-color: #4caf50;
-}
-
-.legenda .irrigacao {
-  background-color: #2196f3;
-}
-
-.legenda .colheita {
-  background-color: #ff9800;
-}
-
-.legenda .coleta {
-  background-color: #9c27b0;
-}
-
+/* Calendário anual: grid com 4 colunas e espaçamento */
 .calendario-anual {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding-bottom: 40px;
 }
 
+/* Cada mês */
 .mes {
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 10px;
-  width: 280px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  border: 1.8px solid #ddd;
+  border-radius: 10px;
+  background: #f9f9f9;
+  box-shadow: 0 3px 8px rgb(0 0 0 / 0.1);
+  padding: 15px 12px;
+  display: flex;
+  flex-direction: column;
+  min-width: 280px;
+  max-width: 320px;
 }
 
+/* Nome do mês */
 .mes h3 {
   text-align: center;
-  margin-bottom: 8px;
-  color: #222;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #34495e;
+  margin-bottom: 10px;
 }
 
+/* Tabela do mês */
 .calendario-mes {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  margin-bottom: 12px;
+  table-layout: fixed;
 }
 
+/* Cabeçalho dos dias da semana */
 .calendario-mes thead th {
-  background-color: #f0f0f0;
-  padding: 6px 0;
-  color: #555;
-  border-bottom: 1px solid #ccc;
+  background-color: #34495e;
+  color: #fff;
+  padding: 7px 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid #ddd;
 }
 
+/* Dias da semana e células */
 .calendario-mes tbody td {
   text-align: center;
-  padding: 6px 0;
-  border: 1px solid #eee;
+  padding: 8px 4px;
+  font-size: 0.85rem;
+  border: 1px solid #ddd;
   cursor: default;
+  transition: background-color 0.2s ease;
   user-select: none;
-  border-radius: 3px;
+  min-width: 30px;
+  height: 32px;
+  vertical-align: middle;
 }
 
+/* Células vazias */
 .calendario-mes tbody td.vazio {
-  background-color: #fafafa;
-  border: none;
+  background: #f0f0f0;
   cursor: default;
 }
 
+/* Cores de marcação para os dias especiais */
 .calendario-mes tbody td.plantio {
-  background-color: #4caf50;
-  color: white;
-  font-weight: bold;
+  background-color: #27ae6033;
+  border-color: #27ae60;
+  font-weight: 700;
+  color: #27ae60;
 }
 
 .calendario-mes tbody td.irrigacao {
-  background-color: #2196f3;
-  color: white;
-  font-weight: bold;
+  background-color: #2980b933;
+  border-color: #2980b9;
+  font-weight: 700;
+  color: #2980b9;
 }
 
 .calendario-mes tbody td.colheita {
-  background-color: #ff9800;
-  color: white;
-  font-weight: bold;
+  background-color: #e67e2233;
+  border-color: #e67e22;
+  font-weight: 700;
+  color: #e67e22;
 }
 
 .calendario-mes tbody td.coleta {
-  background-color: #9c27b0;
-  color: white;
-  font-weight: bold;
+  background-color: #c0392b33;
+  border-color: #c0392b;
+  font-weight: 700;
+  color: #c0392b;
 }
 
+/* Info de cultura abaixo do calendário do mês */
 .info-cultura {
-  margin-top: 8px;
-  font-size: 13px;
+  font-size: 0.9rem;
   font-style: italic;
-  text-align: center;
   color: #555;
+  text-align: center;
+  padding-top: 5px;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 640px) {
+  .calendario-anual {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .mes {
+    min-width: 220px;
+    max-width: 100%;
+  }
 }
