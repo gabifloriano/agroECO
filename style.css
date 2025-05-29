@@ -1155,8 +1155,6 @@ footer {
   color: #333;
 }
 
-
-/* Legenda dos eventos */
 .legenda {
   display: flex;
   justify-content: center;
@@ -1196,15 +1194,14 @@ footer {
   background-color: #FF9800;
 }
 
-/* Container geral do calendário anual */
 .calendario-anual {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas para 8 meses fica duas linhas */
   gap: 20px;
-  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Cada mês */
 .mes {
   background: #fafafa;
   border-radius: 10px;
@@ -1227,7 +1224,6 @@ footer {
   color: #222;
 }
 
-/* Tabela do mês */
 .calendario-mes {
   width: 100%;
   border-collapse: collapse;
@@ -1244,7 +1240,8 @@ footer {
   font-size: 0.85rem;
   position: relative;
   color: #444;
-  vertical-align: middle;
+  min-width: 34px;
+  max-width: 34px;
 }
 
 .calendario-mes th {
@@ -1265,24 +1262,26 @@ footer {
   border-radius: 5px;
 }
 
-/* Cores para eventos nos dias */
 .calendario-mes td.plantio {
   background-color: #4CAF50;
+  color: #fff;
 }
 
 .calendario-mes td.irrigacao {
   background-color: #2196F3;
+  color: #fff;
 }
 
 .calendario-mes td.colheita {
   background-color: #FF5722;
+  color: #fff;
 }
 
 .calendario-mes td.coleta {
   background-color: #FF9800;
+  color: #fff;
 }
 
-/* Informações extras abaixo do calendário do mês */
 .info-cultura {
   margin-top: 12px;
   font-size: 0.9rem;
@@ -1293,14 +1292,16 @@ footer {
 }
 
 /* Responsividade para telas menores */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .calendario-anual {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 480px) {
   .calendario-anual {
     grid-template-columns: 1fr;
+    max-width: 320px;
   }
 }
