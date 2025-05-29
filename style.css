@@ -1207,8 +1207,8 @@ footer {
 
 .calendario-anual {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
   padding: 0 10px;
 }
 
@@ -1216,17 +1216,18 @@ footer {
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  padding: 12px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .mes h3 {
-  font-size: 1rem;
-  margin-bottom: 8px;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
   font-weight: 700;
   color: #333;
+  text-align: center;
 }
 
 .calendario-mes {
@@ -1238,10 +1239,10 @@ footer {
 .calendario-mes th,
 .calendario-mes td {
   width: 14.2857%;
-  height: 36px;
+  aspect-ratio: 1 / 1;
   border: 1px solid #ddd;
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   color: #333;
   padding: 0;
   vertical-align: middle;
@@ -1251,6 +1252,7 @@ footer {
   background-color: #f5f5f5;
   font-weight: bold;
   color: #555;
+  height: auto;
 }
 
 .calendario-mes td.vazio {
@@ -1268,9 +1270,10 @@ footer {
 }
 
 .info-cultura {
-  margin-top: 8px;
-  font-size: 0.8rem;
+  margin-top: 10px;
+  font-size: 0.85rem;
   color: #444;
   text-align: center;
   font-weight: 600;
+  line-height: 1.3;
 }
