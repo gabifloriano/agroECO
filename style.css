@@ -1384,7 +1384,7 @@ footer {
 button[type="submit"] {
   width: 100%;
   padding: 10px;
-  background-color: #2196F3;
+  background-color: #2e7d32;
   color: white;
   font-weight: bold;
   border: none;
@@ -1395,5 +1395,26 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #1976D2;
+  background-color: #2e7d32;
+}
+.tipo-usuario-box {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tipo-usuario-box p {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.tipo-usuario-box label {
+  font-weight: 500;
+  color: #444;
 }
