@@ -1338,7 +1338,7 @@ footer {
 
 #tab-login:checked ~ .tabs label[for="tab-login"],
 #tab-cadastro:checked ~ .tabs label[for="tab-cadastro"] {
-  background-color: #2196F3;
+  background-color: #2e7d32;
   color: white;
 }
 
@@ -1396,7 +1396,7 @@ footer {
 button[type="submit"] {
   width: 100%;
   padding: 10px;
-  background-color: #2196F3;
+  background-color: #2e7d32;
   color: white;
   font-weight: bold;
   border: none;
@@ -1407,5 +1407,5 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #1976D2;
+  background-color: #2e7d32;
 }
