@@ -1304,100 +1304,110 @@ footer {
 
 
 
-/* Container principal do formulário */
-.form-tabs {
-  position: fixed;
-  top: 100px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  width: 350px;
-  z-index: 9999;
-  font-family: sans-serif;
-}
+     margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+    }
 
-/* Botões das abas */
-.tabs {
-  display: flex;
-  border-bottom: 2px solid #ccc;
-}
+    .login-wrapper {
+      position: fixed;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 360px;
+      background: white;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      z-index: 9999;
+    }
 
-.tabs label {
-  flex: 1;
-  text-align: center;
-  padding: 10px 0;
-  cursor: pointer;
-  font-weight: 600;
-  background: #f0f0f0;
-  transition: background 0.3s;
-}
+    .form-tabs {
+      width: 100%;
+    }
 
-#tab-login:checked ~ .tabs label[for="tab-login"],
-#tab-cadastro:checked ~ .tabs label[for="tab-cadastro"] {
-  background: #4CAF50;
-  color: white;
-  border-radius: 12px 12px 0 0;
-}
+    .tabs {
+      display: flex;
+    }
 
-/* Conteúdo das abas */
-.tab-content {
-  display: none;
-  padding: 20px;
-}
+    .tabs label {
+      flex: 1;
+      padding: 12px;
+      text-align: center;
+      background: #eee;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 10px 10px 0 0;
+    }
 
-#tab-login:checked ~ #content-login,
-#tab-cadastro:checked ~ #content-cadastro {
-  display: block;
-}
+    #tab-login:checked ~ .tabs label[for="tab-login"],
+    #tab-cadastro:checked ~ .tabs label[for="tab-cadastro"] {
+      background: #4CAF50;
+      color: white;
+    }
 
-/* Formulário */
-.form-box {
-  display: flex;
-  flex-direction: column;
-}
+    input[type="radio"] {
+      display: none;
+    }
 
-.form-box label {
-  margin-top: 10px;
-  font-size: 0.95rem;
-}
+    .tab-content {
+      display: none;
+      padding: 20px;
+    }
 
-.form-box input[type="email"],
-.form-box input[type="password"],
-.form-box input[type="text"] {
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  margin-top: 4px;
-}
+    #tab-login:checked ~ #content-login,
+    #tab-cadastro:checked ~ #content-cadastro {
+      display: block;
+    }
 
-.perfil-select {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 10px;
-}
+    .form-box h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: #333;
+    }
 
-.perfil-select label {
-  font-size: 0.9rem;
-}
+    .form-box label {
+      display: block;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #555;
+    }
 
-button[type="submit"] {
-  margin-top: 15px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-}
+    .form-box input[type="text"],
+    .form-box input[type="email"],
+    .form-box input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-top: 4px;
+    }
 
-button[type="submit"]:hover {
-  background-color: #45a049;
-}
+    .perfil-select {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 12px;
+    }
 
+    .perfil-select label {
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .form-box button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .form-box button:hover {
+      background: #45a049;
+    }
 
 
 body {
