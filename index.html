@@ -606,43 +606,41 @@
         <p>&copy; 2025 agro ECO. Projeto Agrinho. Projeto desenvolvido pela Aluna Gabriela Andreoti Mendes Floriano & Professor Francisco Peres Biudes Junior.</p>
     </footer>
 
-<input type="checkbox" id="toggle-login-panel" hidden>
-<label for="toggle-login-panel" class="login-toggle-button">👤 Login / Cadastro</label>
 
-<div class="login-slide-panel">
-  <div class="form-tabs">
-    <!-- Abas de login/cadastro -->
-    <input type="radio" id="tab-login" name="form-tab" checked hidden>
-    <input type="radio" id="tab-cadastro" name="form-tab" hidden>
+<input type="checkbox" id="login-toggle" hidden>
+<label for="login-toggle" class="login-btn">👤 Login / Cadastro</label>
+
+<div class="login-panel">
+  <div class="tab-container">
+    <input type="radio" name="login-tab" id="login-tab" checked hidden>
+    <input type="radio" name="login-tab" id="cadastro-tab" hidden>
 
     <div class="tabs">
-      <label for="tab-login">Login</label>
-      <label for="tab-cadastro">Cadastro</label>
+      <label for="login-tab">Login</label>
+      <label for="cadastro-tab">Cadastro</label>
     </div>
 
-    <!-- Conteúdo: Login -->
-    <div class="tab-content" id="content-login">
-      <form class="form-box">
-        <h2>Login</h2>
-        <label for="login-email">E-mail:</label>
-        <input type="email" id="login-email" name="email" required>
-        <label for="login-senha">Senha:</label>
-        <input type="password" id="login-senha" name="senha" required>
+    <div class="tab-content login-content">
+      <form>
+        <h3>Login</h3>
+        <label>E-mail:</label>
+        <input type="email" required>
+        <label>Senha:</label>
+        <input type="password" required>
         <button type="submit">Entrar</button>
       </form>
     </div>
 
-    <!-- Conteúdo: Cadastro -->
-    <div class="tab-content" id="content-cadastro">
-      <form class="form-box">
-        <h2>Cadastro</h2>
-        <label for="nome">Nome Completo:</label>
-        <input type="text" id="nome" name="nome" required>
-        <label for="cad-email">E-mail:</label>
-        <input type="email" id="cad-email" name="email" required>
-        <label for="cad-senha">Senha:</label>
-        <input type="password" id="cad-senha" name="senha" required>
-        <div class="perfil-select">
+    <div class="tab-content cadastro-content">
+      <form>
+        <h3>Cadastro</h3>
+        <label>Nome Completo:</label>
+        <input type="text" required>
+        <label>E-mail:</label>
+        <input type="email" required>
+        <label>Senha:</label>
+        <input type="password" required>
+        <div class="perfil">
           <label><input type="radio" name="perfil" value="produtor" required> Produtor</label>
           <label><input type="radio" name="perfil" value="candidato" required> Candidato</label>
         </div>
@@ -651,6 +649,7 @@
     </div>
   </div>
 </div>
+
 
 
 </body>
