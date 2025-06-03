@@ -611,14 +611,16 @@
 
 <div class="login-slide-panel">
   <div class="form-tabs">
-    <input type="radio" id="tab-login" name="form-tab" checked>
-    <input type="radio" id="tab-cadastro" name="form-tab">
+    <!-- Abas de login/cadastro -->
+    <input type="radio" id="tab-login" name="form-tab" checked hidden>
+    <input type="radio" id="tab-cadastro" name="form-tab" hidden>
 
     <div class="tabs">
       <label for="tab-login">Login</label>
       <label for="tab-cadastro">Cadastro</label>
     </div>
 
+    <!-- Conteúdo: Login -->
     <div class="tab-content" id="content-login">
       <form class="form-box">
         <h2>Login</h2>
@@ -630,6 +632,7 @@
       </form>
     </div>
 
+    <!-- Conteúdo: Cadastro -->
     <div class="tab-content" id="content-cadastro">
       <form class="form-box">
         <h2>Cadastro</h2>
@@ -648,6 +651,7 @@
     </div>
   </div>
 </div>
+
 
 </body>
 </html>
