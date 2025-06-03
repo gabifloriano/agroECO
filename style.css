@@ -1519,7 +1519,9 @@ body {
   color: #333;
 }
 
- /* Estilos do body e conteúdo - modo claro padrão */
+
+
+ /* Estilo padrão (modo claro) */
   body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -1534,11 +1536,11 @@ body {
     margin: 0 auto;
   }
 
-  /* Botão modo noturno fixo no canto inferior direito */
+  /* Botão modo noturno fixo no canto inferior ESQUERDO */
   .botao-modo-noturno {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     background: #444;
     color: #fff;
     width: 42px;
@@ -1558,7 +1560,7 @@ body {
     background: #222;
   }
 
-  /* Quando o toggle estiver ativo, muda o tema */
+  /* Modo noturno ativado */
   #modo-noturno-toggle:checked ~ .conteudo {
     background: #121212;
     color: #ddd;
