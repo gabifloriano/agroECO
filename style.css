@@ -1304,110 +1304,105 @@ footer {
 
 
 
-     margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f0f0f0;
-    }
+  /* Botão flutuante no canto inferior direito */
+.login-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #4CAF50;
+  color: white;
+  padding: 12px 18px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
 
-    .login-wrapper {
-      position: fixed;
-      top: 100px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 360px;
-      background: white;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-      border-radius: 10px;
-      z-index: 9999;
-    }
+/* Painel centralizado invisível por padrão */
+.login-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 90%;
+  max-width: 400px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  padding: 20px;
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
 
-    .form-tabs {
-      width: 100%;
-    }
+#login-toggle:checked ~ .login-panel {
+  transform: translate(-50%, -50%) scale(1);
+}
 
-    .tabs {
-      display: flex;
-    }
+/* Abas */
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
 
-    .tabs label {
-      flex: 1;
-      padding: 12px;
-      text-align: center;
-      background: #eee;
-      cursor: pointer;
-      font-weight: bold;
-      border-radius: 10px 10px 0 0;
-    }
+.tabs label {
+  background: #eee;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+  flex: 1;
+  text-align: center;
+  transition: 0.3s;
+}
 
-    #tab-login:checked ~ .tabs label[for="tab-login"],
-    #tab-cadastro:checked ~ .tabs label[for="tab-cadastro"] {
-      background: #4CAF50;
-      color: white;
-    }
+#login-tab:checked ~ .tabs label[for="login-tab"],
+#cadastro-tab:checked ~ .tabs label[for="cadastro-tab"] {
+  background: #4CAF50;
+  color: white;
+}
 
-    input[type="radio"] {
-      display: none;
-    }
+/* Conteúdo */
+.tab-content {
+  display: none;
+}
 
-    .tab-content {
-      display: none;
-      padding: 20px;
-    }
+#login-tab:checked ~ .login-content,
+#cadastro-tab:checked ~ .cadastro-content {
+  display: block;
+}
 
-    #tab-login:checked ~ #content-login,
-    #tab-cadastro:checked ~ #content-cadastro {
-      display: block;
-    }
+.tab-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-    .form-box h2 {
-      margin-top: 0;
-      font-size: 1.2rem;
-      color: #333;
-    }
+.tab-content input[type="text"],
+.tab-content input[type="email"],
+.tab-content input[type="password"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
 
-    .form-box label {
-      display: block;
-      margin-top: 10px;
-      font-size: 0.9rem;
-      color: #555;
-    }
+.tab-content button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .form-box input[type="text"],
-    .form-box input[type="email"],
-    .form-box input[type="password"] {
-      width: 100%;
-      padding: 8px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      margin-top: 4px;
-    }
-
-    .perfil-select {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 12px;
-    }
-
-    .perfil-select label {
-      font-size: 0.9rem;
-      color: #333;
-    }
-
-    .form-box button {
-      margin-top: 15px;
-      width: 100%;
-      padding: 10px;
-      background: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .form-box button:hover {
-      background: #45a049;
-    }
+.perfil {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
 
 
 body {
