@@ -1518,3 +1518,53 @@ body {
   user-select: none;
   color: #333;
 }
+
+ /* Estilos do body e conteúdo - modo claro padrão */
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #222;
+    transition: background 0.4s, color 0.4s;
+  }
+
+  .conteudo {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Botão modo noturno fixo no canto inferior direito */
+  .botao-modo-noturno {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #444;
+    color: #fff;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 22px;
+    line-height: 42px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    user-select: none;
+    transition: background 0.3s;
+    z-index: 9999;
+  }
+
+  .botao-modo-noturno:hover {
+    background: #222;
+  }
+
+  /* Quando o toggle estiver ativo, muda o tema */
+  #modo-noturno-toggle:checked ~ .conteudo {
+    background: #121212;
+    color: #ddd;
+  }
+
+  #modo-noturno-toggle:checked ~ .botao-modo-noturno {
+    background: #eee;
+    color: #121212;
+  }
