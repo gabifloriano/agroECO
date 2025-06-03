@@ -566,19 +566,19 @@
 
 
 <input type="checkbox" id="login-toggle" hidden>
-<label for="login-toggle" class="login-btn">Login / Cadastro</label>
+<label for="login-toggle" class="login-btn">👤 Login / Cadastro</label>
 
 <div class="login-panel">
-  <div class="tab-box">
-    <input type="radio" name="tab" id="login-tab" hidden checked>
-    <input type="radio" name="tab" id="cadastro-tab" hidden>
+  <div class="tab-container">
+    <input type="radio" name="login-tab" id="login-tab" checked hidden>
+    <input type="radio" name="login-tab" id="cadastro-tab" hidden>
 
-    <div class="tab-buttons">
-      <label for="login-tab" class="tab-label">Login</label>
-      <label for="cadastro-tab" class="tab-label">Cadastro</label>
+    <div class="tabs">
+      <label for="login-tab">Login</label>
+      <label for="cadastro-tab">Cadastro</label>
     </div>
 
-    <div class="tab-content" id="login-content">
+    <div class="tab-content login-content">
       <form>
         <h3>Login</h3>
         <label>E-mail:</label>
@@ -589,7 +589,7 @@
       </form>
     </div>
 
-    <div class="tab-content" id="cadastro-content">
+    <div class="tab-content cadastro-content">
       <form>
         <h3>Cadastro</h3>
         <label>Nome Completo:</label>

@@ -1419,107 +1419,105 @@ body {
   
 
 
-/* Estilo geral da aba de modo noturno */
-.darkmode-tab {
-  position: fixed;
-  top: 80px; /* ajuste para não atrapalhar menu */
-  right: 20px;
-  font-family: Arial, sans-serif;
-  z-index: 9999;
-  user-select: none;
-}
+body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
 
-/* Checkbox escondido para controle */
-.darkmode-tab > input[type="checkbox"] {
-  display: none;
-}
+    .login-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      z-index: 999;
+    }
 
-/* Label da aba */
-.tab-label {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 10px 10px 0 0;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 700;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  transition: background-color 0.3s ease;
-}
+    #login-toggle:checked ~ .login-panel {
+      display: flex;
+    }
 
-.tab-label:hover {
-  background-color: #45a049;
-}
+    .login-panel {
+      display: none;
+      position: fixed;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+      z-index: 998;
+      flex-direction: column;
+    }
 
-/* Conteúdo oculto da aba */
-.tab-content {
-  background-color: #f1f1f1;
-  border-radius: 0 0 10px 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-  padding: 15px 20px;
-  width: 160px;
-  max-width: 90vw;
-  display: none;
-  text-align: center;
-}
+    .tab-container {
+      width: 100%;
+    }
 
-/* Mostrar conteúdo quando a aba estiver aberta */
-.darkmode-tab > input[type="checkbox"]:checked ~ .tab-content {
-  display: block;
-}
+    .tabs {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
 
-/* Switch estilo botão */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 26px;
-  vertical-align: middle;
-}
+    .tabs label {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      background: #eee;
+      cursor: pointer;
+      border-radius: 6px 6px 0 0;
+    }
 
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-  position: absolute;
-}
+    #login-tab:checked ~ .tabs label[for="login-tab"],
+    #cadastro-tab:checked ~ .tabs label[for="cadastro-tab"] {
+      background: #4CAF50;
+      color: white;
+    }
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #ccc;
-  border-radius: 34px;
-  transition: 0.4s;
-}
+    .tab-content {
+      display: none;
+    }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 20px;
-  width: 20px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  border-radius: 50%;
-  transition: 0.4s;
-}
+    #login-tab:checked ~ .login-content,
+    #cadastro-tab:checked ~ .cadastro-content {
+      display: block;
+    }
 
-.switch input:checked + .slider {
-  background-color: #4CAF50;
-}
+    form {
+      display: flex;
+      flex-direction: column;
+    }
 
-.switch input:checked + .slider:before {
-  transform: translateX(24px);
-}
+    input[type="text"], input[type="email"], input[type="password"] {
+      margin-bottom: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
 
-.label-text {
-  margin-left: 8px;
-  font-weight: 600;
-  vertical-align: middle;
-  user-select: none;
-  color: #333;
-}
+    .perfil {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px;
+      background: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
 
 
 
