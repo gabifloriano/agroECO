@@ -605,6 +605,56 @@
     <footer>
         <p>&copy; 2025 agro ECO. Projeto Agrinho. Projeto desenvolvido pela Aluna Gabriela Andreoti Mendes Floriano & Professor Francisco Peres Biudes Junior.</p>
     </footer>
+
+<input type="checkbox" id="toggle-login-panel" hidden>
+<label for="toggle-login-panel" class="login-toggle-button">👤 Login / Cadastro</label>
+
+<div class="login-slide-panel">
+  <div class="form-tabs">
+    <input type="radio" id="tab-login" name="form-tab" checked>
+    <input type="radio" id="tab-cadastro" name="form-tab">
+
+    <div class="tabs">
+      <label for="tab-login">Login</label>
+      <label for="tab-cadastro">Cadastro</label>
+    </div>
+
+    <div class="tab-content" id="content-login">
+      <form action="#" method="post" class="form-box">
+        <h2>Login</h2>
+        <label for="login-email">E-mail:</label>
+        <input type="email" id="login-email" name="email" required>
+
+        <label for="login-senha">Senha:</label>
+        <input type="password" id="login-senha" name="senha" required>
+
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+
+    <div class="tab-content" id="content-cadastro">
+      <form action="#" method="post" class="form-box">
+        <h2>Cadastro</h2>
+        <label for="nome">Nome Completo:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="cad-email">E-mail:</label>
+        <input type="email" id="cad-email" name="email" required>
+
+        <label for="cad-senha">Senha:</label>
+        <input type="password" id="cad-senha" name="senha" required>
+
+        <div class="perfil-select">
+          <label><input type="radio" name="perfil" value="produtor" required> Produtor</label>
+          <label><input type="radio" name="perfil" value="candidato" required> Candidato</label>
+        </div>
+
+        <button type="submit">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
 
