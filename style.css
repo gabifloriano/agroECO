@@ -1415,32 +1415,87 @@ body {
   color: #eee;
 }
   
-/* Estilo do toggle switch */
-.switch {
+
+
+/* Estilo geral da aba de modo noturno */
+.darkmode-tab {
   position: fixed;
-  top: 10px;
-  right: 10px;
-  display: inline-block;
-  width: 50px;
-  height: 24px;
+  top: 80px; /* ajuste para não atrapalhar menu */
+  right: 20px;
+  font-family: Arial, sans-serif;
+  z-index: 9999;
+  user-select: none;
 }
 
-.switch input { display:none; }
+/* Checkbox escondido para controle */
+.darkmode-tab > input[type="checkbox"] {
+  display: none;
+}
+
+/* Label da aba */
+.tab-label {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.tab-label:hover {
+  background-color: #45a049;
+}
+
+/* Conteúdo oculto da aba */
+.tab-content {
+  background-color: #f1f1f1;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  padding: 15px 20px;
+  width: 160px;
+  max-width: 90vw;
+  display: none;
+  text-align: center;
+}
+
+/* Mostrar conteúdo quando a aba estiver aberta */
+.darkmode-tab > input[type="checkbox"]:checked ~ .tab-content {
+  display: block;
+}
+
+/* Switch estilo botão */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  vertical-align: middle;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
 
 .slider {
   position: absolute;
   cursor: pointer;
-  background-color: #ccc;
-  border-radius: 24px;
   top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
   transition: 0.4s;
 }
 
 .slider:before {
   position: absolute;
   content: "";
-  height: 18px;
-  width: 18px;
+  height: 20px;
+  width: 20px;
   left: 3px;
   bottom: 3px;
   background-color: white;
@@ -1448,11 +1503,18 @@ body {
   transition: 0.4s;
 }
 
-input:checked + .slider {
+.switch input:checked + .slider {
   background-color: #4CAF50;
 }
 
-input:checked + .slider:before {
-  transform: translateX(26px);
+.switch input:checked + .slider:before {
+  transform: translateX(24px);
 }
 
+.label-text {
+  margin-left: 8px;
+  font-weight: 600;
+  vertical-align: middle;
+  user-select: none;
+  color: #333;
+}
