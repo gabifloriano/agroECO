@@ -582,44 +582,46 @@
       <h3>Cadastro - Produtor</h3>
 
       <label>Nome:</label>
-      <input type="text" required>
+      <input type="text" name="nome_produtor" required>
 
       <label>Sobrenome:</label>
-      <input type="text" required>
+      <input type="text" name="sobrenome_produtor" required>
 
       <label>Foto de Perfil:</label>
-      <input type="file" accept="image/*">
+      <input type="file" name="foto_produtor" accept="image/*">
 
       <label>Cidade e Estado:</label>
-      <input type="text" required>
+      <input type="text" name="cidade_estado_produtor" required>
 
       <label>Links de contato (WhatsApp, LinkedIn):</label>
-      <input type="text" placeholder="Ex: https://wa.me/ ou LinkedIn" required>
+      <input type="text" name="contato_produtor" placeholder="Ex: https://wa.me/ ou LinkedIn" required>
 
       <label>Nome da Propriedade:</label>
-      <input type="text" required>
+      <input type="text" name="nome_propriedade" required>
 
       <label>Localização (Link do mapa ou endereço):</label>
-      <input type="text">
+      <input type="text" name="localizacao_propriedade">
 
       <label>Descrição:</label>
-      <textarea placeholder="Fale sobre sua propriedade, objetivos, etc." rows="3"></textarea>
+      <textarea name="descricao_propriedade" placeholder="Fale sobre sua propriedade, objetivos, etc." rows="3"></textarea>
 
       <label>Informações da Empresa:</label>
-      <textarea placeholder="Tamanho do terreno, o que produz, se cria animais, qual a maior demanda..." rows="4"></textarea>
+      <textarea name="info_empresa" placeholder="Tamanho do terreno, o que produz, se cria animais, qual a maior demanda..." rows="4"></textarea>
 
       <label>Tem certificado NEAT?</label>
       <div class="radio-group">
-        <label><input type="radio" name="neat" value="sim"> Sim</label>
-        <label><input type="radio" name="neat" value="nao"> Não</label>
+        <label><input type="radio" name="certificado_neat" value="sim"> Sim</label>
+        <label><input type="radio" name="certificado_neat" value="nao"> Não</label>
       </div>
       <small class="neat-info">
         Produtores certificados pelo NEAT ganham um selo de verificação no perfil.
       </small>
 
       <label>Formações:</label>
-      <input type="text" placeholder="Ex: Curso SENAR – 2023">
-      <div class="add-formacao">+ Adicionar outra formação</div>
+      <div class="formacoes-produtor">
+        <input type="text" name="formacao_produtor[]" placeholder="Ex: Curso SENAR – 2023">
+      </div>
+      <div class="add-formacao" onclick="adicionarFormacao('produtor')">+ Adicionar outra formação</div>
 
       <button type="submit">Salvar</button>
     </form>
@@ -631,34 +633,49 @@
       <h3>Cadastro - Candidato</h3>
 
       <label>Nome:</label>
-      <input type="text" required>
+      <input type="text" name="nome_candidato" required>
 
       <label>Sobrenome:</label>
-      <input type="text" required>
+      <input type="text" name="sobrenome_candidato" required>
 
       <label>Foto de Perfil:</label>
-      <input type="file" accept="image/*">
+      <input type="file" name="foto_candidato" accept="image/*">
 
       <label>Formações:</label>
-      <input type="text" placeholder="Ex: Técnico Agrícola - IFPR">
-      <div class="add-formacao">+ Adicionar outra formação</div>
+      <div class="formacoes-candidato">
+        <input type="text" name="formacao_candidato[]" placeholder="Ex: Técnico Agrícola - IFPR">
+      </div>
+      <div class="add-formacao" onclick="adicionarFormacao('candidato')">+ Adicionar outra formação</div>
 
       <label>Área de Atuação:</label>
-      <input type="text" placeholder="Ex: Irrigação, colheita, logística">
+      <input type="text" name="area_atuacao_candidato" placeholder="Ex: Irrigação, colheita, logística">
 
       <label>Cidade e Estado:</label>
-      <input type="text" required>
+      <input type="text" name="cidade_estado_candidato" required>
 
       <label>Links de contato (WhatsApp, LinkedIn):</label>
-      <input type="text" placeholder="Ex: https://wa.me/ ou LinkedIn" required>
+      <input type="text" name="contato_candidato" placeholder="Ex: https://wa.me/ ou LinkedIn" required>
 
       <label>Descrição:</label>
-      <textarea placeholder="Fale um pouco sobre sua experiência e objetivos." rows="4"></textarea>
+      <textarea name="descricao_candidato" placeholder="Fale um pouco sobre sua experiência e objetivos." rows="4"></textarea>
 
       <button type="submit">Salvar</button>
     </form>
   </div>
 </div>
+
+<script>
+  // Exemplo simples para adicionar campos de formação
+  function adicionarFormacao(tipo) {
+    const container = document.querySelector(`.formacoes-${tipo}`);
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.name = tipo === 'produtor' ? 'formacao_produtor[]' : 'formacao_candidato[]';
+    input.placeholder = tipo === 'produtor' ? 'Ex: Curso SENAR – 2023' : 'Ex: Técnico Agrícola - IFPR';
+    container.appendChild(input);
+  }
+</script>
+
 
 
 
