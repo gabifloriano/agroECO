@@ -562,128 +562,92 @@
 
 
 
-<!-- Checkbox para abrir modal principal -->
-<input type="checkbox" id="abrir-formulario" hidden>
-
-<!-- Checkbox para abrir formulário final -->
-<input type="checkbox" id="finalizar-cadastro" hidden>
-
-<!-- Radios para perfil final -->
-<input type="radio" name="perfil-final" id="perfil-produtor" hidden checked>
-<input type="radio" name="perfil-final" id="perfil-candidato" hidden>
-
 <!-- Botão flutuante para abrir modal -->
 <label class="login-btn" for="abrir-formulario">Login / Cadastro</label>
+<input type="checkbox" id="abrir-formulario" hidden>
 
-<!-- Modal principal -->
+<!-- Checkbox que exibe o formulário final -->
+<input type="checkbox" id="finalizar-cadastro" hidden>
+
+<!-- FORMULÁRIO DE LOGIN/CADASTRO INICIAL -->
 <div class="form-wrapper">
-  <!-- Abas Login e Cadastro -->
+
+  <!-- Radios para escolher entre aba Login e aba Cadastro -->
   <input type="radio" name="tab-main" id="tab-login" hidden checked>
   <input type="radio" name="tab-main" id="tab-cadastro" hidden>
 
+  <!-- Radios dentro do cadastro para Produtor ou Candidato -->
+  <input type="radio" name="tab-cadastro" id="cad-produtor" hidden checked>
+  <input type="radio" name="tab-cadastro" id="cad-candidato" hidden>
+
+  <!-- Abas principais -->
   <div class="form-tabs-main">
     <label for="tab-login">Login</label>
     <label for="tab-cadastro">Cadastro</label>
   </div>
 
-  <!-- Conteúdo Login -->
+  <!-- Conteúdo LOGIN -->
   <div class="form-container login">
     <form>
       <h3>Login</h3>
+
       <label>Email:</label>
       <input type="email" required>
+
       <label>Senha:</label>
       <input type="password" required>
+
       <button type="submit">Entrar</button>
+
+      <!-- Label que ativa aba Cadastro -->
       <label for="tab-cadastro" class="btn-link">Cadastrar-se</label>
     </form>
   </div>
 
-  <!-- Conteúdo Cadastro -->
+  <!-- Conteúdo CADASTRO -->
   <div class="form-container cadastro">
-    <!-- Abas internas Produtor/Candidato -->
-    <input type="radio" name="tab-cadastro-interno" id="cad-produtor" hidden checked>
-    <input type="radio" name="tab-cadastro-interno" id="cad-candidato" hidden>
-
+    <!-- Abas internas cadastro Produtor/Candidato -->
     <div class="form-tabs-cadastro">
       <label for="cad-produtor">Produtor</label>
       <label for="cad-candidato">Candidato</label>
     </div>
 
     <!-- Formulário Produtor -->
-    <form class="cad-produtor" onsubmit="return false;">
+    <form class="cad-produtor">
       <h3>Cadastro - Produtor</h3>
+
       <label>Nome:</label>
       <input type="text" required>
+
       <label>Sobrenome:</label>
       <input type="text" required>
+
       <label>Email:</label>
       <input type="email" required>
+
       <label>Senha:</label>
       <input type="password" required>
 
-      <!-- Label para ativar o formulário final e selecionar Produtor -->
-      <label for="finalizar-cadastro" class="btn" onclick="document.getElementById('perfil-produtor').checked = true;document.getElementById('abrir-formulario').checked=false;">Cadastrar</label>
+      <label for="finalizar-cadastro" onclick="document.getElementById('perfil-produtor').checked = true;" class="btn">Cadastrar</label>
     </form>
 
     <!-- Formulário Candidato -->
-    <form class="cad-candidato" onsubmit="return false;">
+    <form class="cad-candidato">
       <h3>Cadastro - Candidato</h3>
+
       <label>Nome:</label>
       <input type="text" required>
+
       <label>Sobrenome:</label>
       <input type="text" required>
+
       <label>Email:</label>
       <input type="email" required>
+
       <label>Senha:</label>
       <input type="password" required>
 
-      <!-- Label para ativar o formulário final e selecionar Candidato -->
-      <label for="finalizar-cadastro" class="btn" onclick="document.getElementById('perfil-candidato').checked = true;document.getElementById('abrir-formulario').checked=false;">Cadastrar</label>
-    </form>
-  </div>
-</div>
-
-<!-- FORMULÁRIO FINAL -->
-<div class="form-final">
-  <div class="form-tabs">
-    <label for="perfil-produtor">Produtor</label>
-    <label for="perfil-candidato">Candidato</label>
-  </div>
-
-  <div class="form-container produtor">
-    <form>
-      <h3>Cadastro Completo - Produtor</h3>
-      <!-- Campos extras aqui -->
-      <label>Nome:</label>
-      <input type="text">
-      <label>Sobrenome:</label>
-      <input type="text">
-      <label>Foto de Perfil:</label>
-      <input type="file" accept="image/*">
-      <label>Cidade e Estado:</label>
-      <input type="text">
-      <label>Links de contato:</label>
-      <input type="text">
-      <button type="submit">Salvar</button>
-    </form>
-  </div>
-
-  <div class="form-container candidato">
-    <form>
-      <h3>Cadastro Completo - Candidato</h3>
-      <!-- Campos extras aqui -->
-      <label>Nome:</label>
-      <input type="text">
-      <label>Sobrenome:</label>
-      <input type="text">
-      <label>Foto de Perfil:</label>
-      <input type="file" accept="image/*">
-      <label>Cidade e Estado:</label>
-      <input type="text">
-      <label>Links de contato:</label>
-      <input type="text">
-      <button type="submit">Salvar</button>
+      <label for="finalizar-cadastro" onclick="document.getElementById('perfil-candidato').checked = true;" class="btn">Cadastrar</label>
     </form>
   </div>
 </div>

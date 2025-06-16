@@ -1303,8 +1303,61 @@ footer {
 }
 
 
+ /* Estilo padrão (modo claro) */
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #222;
+    transition: background 0.4s, color 0.4s;
+  }
+
+  .conteudo {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Botão modo noturno fixo no canto inferior ESQUERDO */
+  .botao-modo-noturno {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #444;
+    color: #fff;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 22px;
+    line-height: 42px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    user-select: none;
+    transition: background 0.3s;
+    z-index: 9999;
+  }
+
+  .botao-modo-noturno:hover {
+    background: #222;
+  }
+
+  /* Modo noturno ativado */
+  #modo-noturno-toggle:checked ~ .conteudo {
+    background: #121212;
+    color: #ddd;
+  }
+
+  #modo-noturno-toggle:checked ~ .botao-modo-noturno {
+    background: #eee;
+    color: #121212;
+  }
 
 
+
+
+
+  Aqui o CSS
 /* Container das abas */
 .form-tabs {
   display: flex;
@@ -1440,136 +1493,12 @@ button:hover {
   margin-bottom: 12px;
 }
 
-/* Oculta o formulário final por padrão */
-.formulario-final {
-  display: none;
-}
-
-/* Mostra o formulário final quando o checkbox for ativado */
-#finalizar-cadastro:checked ~ .formulario-final {
-  display: block;
-}
-
-.form-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 20px auto;
-  max-width: 400px;
-}
-
-.form-tabs label {
-  flex: 1;
-  text-align: center;
-  background-color: #eee;
-  padding: 12px;
-  border-radius: 10px 10px 0 0;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-#perfil-produtor:checked ~ .form-tabs label[for="perfil-produtor"],
-#perfil-candidato:checked ~ .form-tabs label[for="perfil-candidato"] {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.form-container {
-  display: none;
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
-  max-width: 600px;
-  margin: auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-#perfil-produtor:checked ~ .produtor {
-  display: block;
-}
-
-#perfil-candidato:checked ~ .candidato {
-  display: block;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="file"],
-textarea {
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-textarea {
-  resize: vertical;
-}
-
-.radio-group {
-  display: flex;
-  gap: 20px;
-}
-
-.add-formacao {
-  background: #e0e0e0;
-  color: #333;
-  text-align: center;
-  padding: 6px;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: default;
-  width: fit-content;
-}
-
-button {
-  padding: 12px;
-  background: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.neat-info {
-  font-size: 12px;
-  color: #666;
-}
 
 
 
 
 
-/* Botão flutuante */
-.login-btn {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #4caf50;
-  color: white;
-  padding: 14px 22px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  user-select: none;
-  z-index: 10001;
-  transition: background-color 0.3s;
-}
-.login-btn:hover {
-  background-color: #388e3c;
-}
-
-/* Modal principal login/cadastro */
+/* Esconde o formulário todo por padrão */
 .form-wrapper {
   display: none;
   position: fixed;
@@ -1585,18 +1514,19 @@ button {
   z-index: 10000;
 }
 
-/* Mostrar modal principal */
+/* Quando checkbox aberto */
 #abrir-formulario:checked ~ .form-wrapper {
   display: block;
 }
 
-/* Tabs principais */
+/* Estilos abas principais (Login/Cadastro) */
 .form-tabs-main {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
   user-select: none;
 }
+
 .form-tabs-main label {
   flex: 1;
   padding: 12px;
@@ -1608,9 +1538,9 @@ button {
   transition: background-color 0.3s;
 }
 
-/* Aba ativa */
-#tab-login:checked ~ .form-wrapper .form-tabs-main label[for="tab-login"],
-#tab-cadastro:checked ~ .form-wrapper .form-tabs-main label[for="tab-cadastro"] {
+/* Aba principal ativa */
+#tab-login:checked ~ .form-tabs-main label[for="tab-login"],
+#tab-cadastro:checked ~ .form-tabs-main label[for="tab-cadastro"] {
   background-color: #4caf50;
   color: white;
 }
@@ -1621,21 +1551,23 @@ button {
   display: none;
 }
 
-/* Mostrar Login ou Cadastro */
-#tab-login:checked ~ .form-wrapper .form-container.login {
-  display: block;
-}
-#tab-cadastro:checked ~ .form-wrapper .form-container.cadastro {
+/* Mostrar aba Login ou Cadastro */
+#tab-login:checked ~ .form-container.login {
   display: block;
 }
 
-/* Tabs internas cadastro */
+#tab-cadastro:checked ~ .form-container.cadastro {
+  display: block;
+}
+
+/* Abas internas cadastro Produtor/Candidato */
 .form-tabs-cadastro {
   display: flex;
   gap: 10px;
   margin-bottom: 15px;
   user-select: none;
 }
+
 .form-tabs-cadastro label {
   flex: 1;
   padding: 10px;
@@ -1646,147 +1578,98 @@ button {
   font-weight: bold;
   transition: background-color 0.3s;
 }
-#cad-produtor:checked ~ .form-wrapper .form-tabs-cadastro label[for="cad-produtor"],
-#cad-candidato:checked ~ .form-wrapper .form-tabs-cadastro label[for="cad-candidato"] {
+
+/* Aba cadastro ativa */
+#cad-produtor:checked ~ .form-container.cadastro .form-tabs-cadastro label[for="cad-produtor"],
+#cad-candidato:checked ~ .form-container.cadastro .form-tabs-cadastro label[for="cad-candidato"] {
   background-color: #4caf50;
   color: white;
 }
 
-/* Esconder forms internos */
+/* Formulários internos cadastro escondidos */
 form.cad-produtor,
 form.cad-candidato {
   display: none;
 }
 
-/* Mostrar form Produtor ou Candidato */
-#cad-produtor:checked ~ .form-wrapper form.cad-produtor {
-  display: block;
-}
-#cad-candidato:checked ~ .form-wrapper form.cad-candidato {
+/* Mostrar formulário cadastro produtor ou candidato */
+#cad-produtor:checked ~ .form-container.cadastro form.cad-produtor {
   display: block;
 }
 
-/* Estilos dos botões dentro dos forms */
-.btn {
-  display: inline-block;
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  margin-top: 15px;
+#cad-candidato:checked ~ .form-container.cadastro form.cad-candidato {
+  display: block;
+}
+
+/* Estilos básicos dos inputs e botão */
+input, button, label {
+  font-family: Arial, sans-serif;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
   border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  user-select: none;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
 }
 
-/* FORMULÁRIO FINAL - escondido inicialmente */
-.form-final {
-  display: none;
-  max-width: 600px;
-  margin: 50px auto;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  z-index: 9999;
-}
-
-/* Exibir formulário final quando checkbox marcado */
-#finalizar-cadastro:checked ~ .form-final {
-  display: block;
-}
-
-/* Abas do formulário final */
-.form-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-.form-tabs label {
-  flex: 1;
-  text-align: center;
-  background-color: #eee;
-  padding: 12px;
-  border-radius: 10px 10px 0 0;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s, color 0.3s;
-}
-
-/* Aba ativa no formulário final */
-#perfil-produtor:checked ~ .form-final .form-tabs label[for="perfil-produtor"],
-#perfil-candidato:checked ~ .form-final .form-tabs label[for="perfil-candidato"] {
+button {
   background-color: #4caf50;
   color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
 }
 
-/* Containers de formulário escondidos */
-.form-final .form-container {
+button:hover {
+  background-color: #45a049;
+}
+
+/* Label que parece link para abrir aba cadastro */
+.btn-link {
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  color: #4caf50;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+/* Botão flutuante estilo básico */
+.login-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #4caf50;
+  color: white;
+  padding: 14px 22px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  user-select: none;
+  z-index: 10001;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #388e3c;
+}
+/* Oculta o formulário final por padrão */
+.formulario-final {
   display: none;
 }
 
-/* Mostrar conforme perfil selecionado */
-#perfil-produtor:checked ~ .form-final .form-container.produtor {
+/* Mostra o formulário final quando o checkbox for ativado */
+#finalizar-cadastro:checked ~ .formulario-final {
   display: block;
 }
-#perfil-candidato:checked ~ .form-final .form-container.candidato {
-  display: block;
-}
-
-
-
-
-
-
-
-
- /* Estilo padrão (modo claro) */
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #fff;
-    color: #222;
-    transition: background 0.4s, color 0.4s;
-  }
-
-  .conteudo {
-    padding: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  /* Botão modo noturno fixo no canto inferior ESQUERDO */
-  .botao-modo-noturno {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: #444;
-    color: #fff;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    font-size: 22px;
-    line-height: 42px;
-    text-align: center;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    user-select: none;
-    transition: background 0.3s;
-    z-index: 9999;
-  }
-
-  .botao-modo-noturno:hover {
-    background: #222;
-  }
-
-  /* Modo noturno ativado */
-  #modo-noturno-toggle:checked ~ .conteudo {
-    background: #121212;
-    color: #ddd;
-  }
-
-  #modo-noturno-toggle:checked ~ .botao-modo-noturno {
-    background: #eee;
-    color: #121212;
-  }
