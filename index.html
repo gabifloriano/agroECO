@@ -559,66 +559,99 @@
     <p>Com isso, garantimos que todos tenham acesso aos mesmos recursos, promovendo mais igualdade no campo.</p>
 </section>  
 
-<input type="radio" name="tipo" id="produtor" hidden checked>
-<input type="radio" name="tipo" id="candidato" hidden>
 
-<div class="perfil-selector">
-  <label for="produtor">Sou Produtor</label>
-  <label for="candidato">Sou Candidato</label>
+
+
+<input type="radio" name="perfil-tab" id="perfil-produtor" hidden checked>
+<input type="radio" name="perfil-tab" id="perfil-candidato" hidden>
+
+<div class="form-tabs">
+  <label for="perfil-produtor">Produtor</label>
+  <label for="perfil-candidato">Candidato</label>
 </div>
 
-<section class="formulario">
+<!-- FORMULÁRIO PRODUTOR -->
+<div class="form-container produtor">
+  <form>
+    <h3>Cadastro - Produtor</h3>
 
-  <!-- FORMULÁRIO PRODUTOR -->
-  <div class="form-produtor">
-    <h2>Cadastro - Produtor</h2>
-    <form>
-      <label>Nome:</label>
-      <input type="text" required>
-      <label>Sobrenome:</label>
-      <input type="text" required>
-      <label>Foto de Perfil:</label>
-      <input type="file" accept="image/*">
-      <label>Cidade e Estado:</label>
-      <input type="text" required>
-      <label>Links de Contato:</label>
-      <input type="text" placeholder="WhatsApp">
-      <input type="text" placeholder="LinkedIn">
-      <label>Nome da Fazenda/Sítio:</label>
-      <input type="text">
-      <label>Localização (coordenadas ou endereço):</label>
-      <input type="text">
-      <label>Descrição:</label>
-      <textarea rows="4"></textarea>
-      <label>Informações da Empresa:</label>
-      <textarea placeholder="Tamanho do terreno, o que é produzido, se tem criação de animais, maior demanda atual, se busca funcionários..."></textarea>
-      <button type="submit">Enviar Cadastro</button>
-    </form>
-  </div>
+    <label>Nome:</label>
+    <input type="text" required>
 
-  <!-- FORMULÁRIO CANDIDATO -->
-  <div class="form-candidato">
-    <h2>Cadastro - Candidato</h2>
-    <form>
-      <label>Nome:</label>
-      <input type="text" required>
-      <label>Sobrenome:</label>
-      <input type="text" required>
-      <label>Formações:</label>
-      <input type="text" placeholder="Curso ou especialização">
-      <label>Área de Atuação:</label>
-      <input type="text">
-      <label>Cidade e Estado:</label>
-      <input type="text">
-      <label>Links de Contato:</label>
-      <input type="text" placeholder="WhatsApp">
-      <input type="text" placeholder="LinkedIn">
-      <label>Descrição:</label>
-      <textarea rows="4" placeholder="Fale mais sobre sua experiência, habilidades e disponibilidade."></textarea>
-      <button type="submit">Enviar Cadastro</button>
-    </form>
-  </div>
-</section>
+    <label>Sobrenome:</label>
+    <input type="text" required>
+
+    <label>Foto de Perfil:</label>
+    <input type="file" accept="image/*">
+
+    <label>Cidade e Estado:</label>
+    <input type="text" required>
+
+    <label>Links de contato (WhatsApp, LinkedIn):</label>
+    <input type="text" placeholder="Ex: https://wa.me/ ou LinkedIn" required>
+
+    <label>Nome da Propriedade:</label>
+    <input type="text" required>
+
+    <label>Localização (Link do mapa ou endereço):</label>
+    <input type="text">
+
+    <label>Descrição:</label>
+    <textarea placeholder="Fale sobre sua propriedade, objetivos, etc." rows="3"></textarea>
+
+    <label>Informações da Empresa:</label>
+    <textarea placeholder="Tamanho do terreno, o que produz, se cria animais, qual a maior demanda..." rows="4"></textarea>
+
+    <label>Tem certificado NEAT?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="neat" value="sim"> Sim</label>
+      <label><input type="radio" name="neat" value="nao"> Não</label>
+    </div>
+    <small class="neat-info">
+      Produtores certificados pelo NEAT ganham um selo de verificação no perfil.
+    </small>
+
+    <label>Formações:</label>
+    <input type="text" placeholder="Ex: Curso SENAR – 2023">
+    <div class="add-formacao">+ Adicionar outra formação</div>
+
+    <button type="submit">Salvar</button>
+  </form>
+</div>
+
+<!-- FORMULÁRIO CANDIDATO -->
+<div class="form-container candidato">
+  <form>
+    <h3>Cadastro - Candidato</h3>
+
+    <label>Nome:</label>
+    <input type="text" required>
+
+    <label>Sobrenome:</label>
+    <input type="text" required>
+
+    <label>Foto de Perfil:</label>
+    <input type="file" accept="image/*">
+
+    <label>Formações:</label>
+    <input type="text" placeholder="Ex: Técnico Agrícola - IFPR">
+    <div class="add-formacao">+ Adicionar outra formação</div>
+
+    <label>Área de Atuação:</label>
+    <input type="text" placeholder="Ex: Irrigação, colheita, logística">
+
+    <label>Cidade e Estado:</label>
+    <input type="text" required>
+
+    <label>Links de contato (WhatsApp, LinkedIn):</label>
+    <input type="text" placeholder="Ex: https://wa.me/ ou LinkedIn" required>
+
+    <label>Descrição:</label>
+    <textarea placeholder="Fale um pouco sobre sua experiência e objetivos." rows="4"></textarea>
+
+    <button type="submit">Salvar</button>
+  </form>
+</div>
 
 
    </main>
