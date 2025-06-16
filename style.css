@@ -1549,153 +1549,7 @@ button {
 
 
 
-/* Esconde o formulário todo por padrão */
-.form-wrapper {
-  display: none;
-  position: fixed;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  padding: 20px;
-  width: 90%;
-  max-width: 450px;
-  z-index: 10000;
-}
-
-/* Quando checkbox aberto */
-#abrir-formulario:checked ~ .form-wrapper {
-  display: block;
-}
-
-/* Estilos abas principais (Login/Cadastro) */
-.form-tabs-main {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-  user-select: none;
-}
-
-.form-tabs-main label {
-  flex: 1;
-  padding: 12px;
-  background: #eee;
-  text-align: center;
-  border-radius: 8px 8px 0 0;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-/* Aba principal ativa */
-#tab-login:checked ~ .form-tabs-main label[for="tab-login"],
-#tab-cadastro:checked ~ .form-tabs-main label[for="tab-cadastro"] {
-  background-color: #4caf50;
-  color: white;
-}
-
-/* Esconder todos os containers */
-.form-container.login,
-.form-container.cadastro {
-  display: none;
-}
-
-/* Mostrar aba Login ou Cadastro */
-#tab-login:checked ~ .form-container.login {
-  display: block;
-}
-
-#tab-cadastro:checked ~ .form-container.cadastro {
-  display: block;
-}
-
-/* Abas internas cadastro Produtor/Candidato */
-.form-tabs-cadastro {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-  user-select: none;
-}
-
-.form-tabs-cadastro label {
-  flex: 1;
-  padding: 10px;
-  background: #eee;
-  text-align: center;
-  border-radius: 6px 6px 0 0;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-/* Aba cadastro ativa */
-#cad-produtor:checked ~ .form-container.cadastro .form-tabs-cadastro label[for="cad-produtor"],
-#cad-candidato:checked ~ .form-container.cadastro .form-tabs-cadastro label[for="cad-candidato"] {
-  background-color: #4caf50;
-  color: white;
-}
-
-/* Formulários internos cadastro escondidos */
-form.cad-produtor,
-form.cad-candidato {
-  display: none;
-}
-
-/* Mostrar formulário cadastro produtor ou candidato */
-#cad-produtor:checked ~ .form-container.cadastro form.cad-produtor {
-  display: block;
-}
-
-#cad-candidato:checked ~ .form-container.cadastro form.cad-candidato {
-  display: block;
-}
-
-/* Estilos básicos dos inputs e botão */
-input, button, label {
-  font-family: Arial, sans-serif;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-button {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-/* Label que parece link para abrir aba cadastro */
-.btn-link {
-  display: block;
-  margin-top: 12px;
-  text-align: center;
-  color: #4caf50;
-  cursor: pointer;
-  text-decoration: underline;
-  font-size: 14px;
-}
-
-/* Botão flutuante estilo básico */
+/* Botão flutuante */
 .login-btn {
   position: fixed;
   bottom: 30px;
@@ -1711,10 +1565,175 @@ button:hover {
   z-index: 10001;
   transition: background-color 0.3s;
 }
-
 .login-btn:hover {
   background-color: #388e3c;
 }
+
+/* Modal principal login/cadastro */
+.form-wrapper {
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  padding: 20px;
+  width: 90%;
+  max-width: 450px;
+  z-index: 10000;
+}
+
+/* Mostrar modal principal */
+#abrir-formulario:checked ~ .form-wrapper {
+  display: block;
+}
+
+/* Tabs principais */
+.form-tabs-main {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  user-select: none;
+}
+.form-tabs-main label {
+  flex: 1;
+  padding: 12px;
+  background: #eee;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+/* Aba ativa */
+#tab-login:checked ~ .form-wrapper .form-tabs-main label[for="tab-login"],
+#tab-cadastro:checked ~ .form-wrapper .form-tabs-main label[for="tab-cadastro"] {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Esconder todos os containers */
+.form-container.login,
+.form-container.cadastro {
+  display: none;
+}
+
+/* Mostrar Login ou Cadastro */
+#tab-login:checked ~ .form-wrapper .form-container.login {
+  display: block;
+}
+#tab-cadastro:checked ~ .form-wrapper .form-container.cadastro {
+  display: block;
+}
+
+/* Tabs internas cadastro */
+.form-tabs-cadastro {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  user-select: none;
+}
+.form-tabs-cadastro label {
+  flex: 1;
+  padding: 10px;
+  background: #eee;
+  text-align: center;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+#cad-produtor:checked ~ .form-wrapper .form-tabs-cadastro label[for="cad-produtor"],
+#cad-candidato:checked ~ .form-wrapper .form-tabs-cadastro label[for="cad-candidato"] {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Esconder forms internos */
+form.cad-produtor,
+form.cad-candidato {
+  display: none;
+}
+
+/* Mostrar form Produtor ou Candidato */
+#cad-produtor:checked ~ .form-wrapper form.cad-produtor {
+  display: block;
+}
+#cad-candidato:checked ~ .form-wrapper form.cad-candidato {
+  display: block;
+}
+
+/* Estilos dos botões dentro dos forms */
+.btn {
+  display: inline-block;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  user-select: none;
+}
+
+/* FORMULÁRIO FINAL - escondido inicialmente */
+.form-final {
+  display: none;
+  max-width: 600px;
+  margin: 50px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  z-index: 9999;
+}
+
+/* Exibir formulário final quando checkbox marcado */
+#finalizar-cadastro:checked ~ .form-final {
+  display: block;
+}
+
+/* Abas do formulário final */
+.form-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.form-tabs label {
+  flex: 1;
+  text-align: center;
+  background-color: #eee;
+  padding: 12px;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Aba ativa no formulário final */
+#perfil-produtor:checked ~ .form-final .form-tabs label[for="perfil-produtor"],
+#perfil-candidato:checked ~ .form-final .form-tabs label[for="perfil-candidato"] {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Containers de formulário escondidos */
+.form-final .form-container {
+  display: none;
+}
+
+/* Mostrar conforme perfil selecionado */
+#perfil-produtor:checked ~ .form-final .form-container.produtor {
+  display: block;
+}
+#perfil-candidato:checked ~ .form-final .form-container.candidato {
+  display: block;
+}
+
 
 
 
