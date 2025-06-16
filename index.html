@@ -586,7 +586,7 @@
 
     <!-- ABA DE CADASTRO -->
     <div class="tab-content cadastro-content">
-      <form>
+      <form action="criar-perfil.html" method="get">
         <h3>Cadastro</h3>
         <label>Nome Completo:</label>
         <input type="text" name="nome" required>
@@ -594,38 +594,36 @@
         <input type="email" name="email" required>
         <label>Senha:</label>
         <input type="password" name="senha" required>
+
         <div class="perfil">
-          <label><input type="radio" name="perfil" value="produtor" required> Produtor</label>
-          <label><input type="radio" name="perfil" value="candidato" required> Candidato</label>
+          <input type="radio" name="perfil" id="produtor" value="produtor" required hidden>
+          <label for="produtor">Produtor</label>
+
+          <input type="radio" name="perfil" id="candidato" value="candidato" required hidden>
+          <label for="candidato">Candidato</label>
         </div>
 
-        <!-- Botão que leva à seção oculta -->
-        <a href="#criar-perfil" class="continue-btn">
-          <button type="button">Cadastrar</button>
-        </a>
+        <!-- Campos extras para Produtor -->
+        <div class="campos-produtor">
+          <label>Nome da Fazenda:</label>
+          <input type="text" name="nomeFazenda">
+          <label>Área Cultivada (ha):</label>
+          <input type="number" name="areaCultivada" min="0">
+        </div>
+
+        <!-- Campos extras para Candidato -->
+        <div class="campos-candidato">
+          <label>Área de Interesse:</label>
+          <input type="text" name="areaInteresse">
+          <label>Experiência (anos):</label>
+          <input type="number" name="experiencia" min="0">
+        </div>
+
+        <button type="submit">Cadastrar</button>
       </form>
     </div>
   </div>
 </div>
-
-<!-- SEÇÃO INVISÍVEL DE CRIAR PERFIL -->
-<section id="criar-perfil" class="rounded-container">
-  <h2>Criação de Perfil</h2>
-  <p>Complete as informações adicionais para finalizar seu cadastro no agroECO.</p>
-  
-  <form>
-    <label for="foto">Foto de perfil:</label>
-    <input type="file" id="foto" name="foto">
-
-    <label for="cidade">Cidade:</label>
-    <input type="text" id="cidade" name="cidade" required>
-
-    <label for="descricao">Descrição:</label>
-    <textarea id="descricao" name="descricao" required></textarea>
-
-    <button type="submit">Salvar Perfil</button>
-  </form>
-</section>
 
    </main>
 
