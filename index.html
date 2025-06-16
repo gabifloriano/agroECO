@@ -45,7 +45,8 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#home">Início</a></li> <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#home">Início</a></li>
+                 <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#clima">Previsão do Clima</a></li>
                 <li><a href="#calendario">Calendário</a></li>
                 <li><a href="#cursos">Cursos</a></li>
@@ -85,7 +86,6 @@
 
 
 </div>
-
         <section id="clima" class="rounded-container">
             <h2>Previsão do Clima</h2>
             <p>Confira o mapa climático em tempo real para melhor controle da produção.</p>
@@ -578,6 +578,7 @@
       <label for="cadastro-tab">Cadastro</label>
     </div>
 
+    <!-- ABA DE LOGIN -->
     <div class="tab-content login-content">
       <form>
         <h3>Login</h3>
@@ -589,15 +590,16 @@
       </form>
     </div>
 
+    <!-- ABA DE CADASTRO -->
     <div class="tab-content cadastro-content">
-      <form>
+      <form action="criar-perfil.html" method="get">
         <h3>Cadastro</h3>
         <label>Nome Completo:</label>
-        <input type="text" required>
+        <input type="text" name="nome" required>
         <label>E-mail:</label>
-        <input type="email" required>
+        <input type="email" name="email" required>
         <label>Senha:</label>
-        <input type="password" required>
+        <input type="password" name="senha" required>
         <div class="perfil">
           <label><input type="radio" name="perfil" value="produtor" required> Produtor</label>
           <label><input type="radio" name="perfil" value="candidato" required> Candidato</label>
@@ -607,8 +609,6 @@
     </div>
   </div>
 </div>
-
-
 
 
 <input type="checkbox" id="modo-noturno-toggle" hidden />
