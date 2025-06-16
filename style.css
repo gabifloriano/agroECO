@@ -1440,6 +1440,15 @@ button:hover {
   margin-bottom: 12px;
 }
 
+/* Oculta o formulário final por padrão */
+.formulario-final {
+  display: none;
+}
+
+/* Mostra o formulário final quando o checkbox for ativado */
+#finalizar-cadastro:checked ~ .formulario-final {
+  display: block;
+}
 
 
 
