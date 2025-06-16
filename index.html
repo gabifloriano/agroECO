@@ -559,71 +559,67 @@
     <p>Com isso, garantimos que todos tenham acesso aos mesmos recursos, promovendo mais igualdade no campo.</p>
 </section>  
 
-<input type="checkbox" id="login-toggle" hidden>
-<label for="login-toggle" class="login-btn">Login / Cadastro</label>
+<input type="radio" name="tipo" id="produtor" hidden checked>
+<input type="radio" name="tipo" id="candidato" hidden>
 
-<div class="login-panel">
-  <div class="tab-container">
-    <input type="radio" name="login-tab" id="login-tab" checked hidden>
-    <input type="radio" name="login-tab" id="cadastro-tab" hidden>
-
-    <div class="tabs">
-      <label for="login-tab">Login</label>
-      <label for="cadastro-tab">Cadastro</label>
-    </div>
-
-    <!-- ABA DE LOGIN -->
-    <div class="tab-content login-content">
-      <form>
-        <h3>Login</h3>
-        <label>E-mail:</label>
-        <input type="email" required>
-        <label>Senha:</label>
-        <input type="password" required>
-        <button type="submit">Entrar</button>
-      </form>
-    </div>
-
-    <!-- ABA DE CADASTRO -->
-    <div class="tab-content cadastro-content">
-      <form action="criar-perfil.html" method="get">
-        <h3>Cadastro</h3>
-        <label>Nome Completo:</label>
-        <input type="text" name="nome" required>
-        <label>E-mail:</label>
-        <input type="email" name="email" required>
-        <label>Senha:</label>
-        <input type="password" name="senha" required>
-
-        <div class="perfil">
-          <input type="radio" name="perfil" id="produtor" value="produtor" required hidden>
-          <label for="produtor">Produtor</label>
-
-          <input type="radio" name="perfil" id="candidato" value="candidato" required hidden>
-          <label for="candidato">Candidato</label>
-        </div>
-
-        <!-- Campos extras para Produtor -->
-        <div class="campos-produtor">
-          <label>Nome da Fazenda:</label>
-          <input type="text" name="nomeFazenda">
-          <label>Área Cultivada (ha):</label>
-          <input type="number" name="areaCultivada" min="0">
-        </div>
-
-        <!-- Campos extras para Candidato -->
-        <div class="campos-candidato">
-          <label>Área de Interesse:</label>
-          <input type="text" name="areaInteresse">
-          <label>Experiência (anos):</label>
-          <input type="number" name="experiencia" min="0">
-        </div>
-
-        <button type="submit">Cadastrar</button>
-      </form>
-    </div>
-  </div>
+<div class="perfil-selector">
+  <label for="produtor">Sou Produtor</label>
+  <label for="candidato">Sou Candidato</label>
 </div>
+
+<section class="formulario">
+
+  <!-- FORMULÁRIO PRODUTOR -->
+  <div class="form-produtor">
+    <h2>Cadastro - Produtor</h2>
+    <form>
+      <label>Nome:</label>
+      <input type="text" required>
+      <label>Sobrenome:</label>
+      <input type="text" required>
+      <label>Foto de Perfil:</label>
+      <input type="file" accept="image/*">
+      <label>Cidade e Estado:</label>
+      <input type="text" required>
+      <label>Links de Contato:</label>
+      <input type="text" placeholder="WhatsApp">
+      <input type="text" placeholder="LinkedIn">
+      <label>Nome da Fazenda/Sítio:</label>
+      <input type="text">
+      <label>Localização (coordenadas ou endereço):</label>
+      <input type="text">
+      <label>Descrição:</label>
+      <textarea rows="4"></textarea>
+      <label>Informações da Empresa:</label>
+      <textarea placeholder="Tamanho do terreno, o que é produzido, se tem criação de animais, maior demanda atual, se busca funcionários..."></textarea>
+      <button type="submit">Enviar Cadastro</button>
+    </form>
+  </div>
+
+  <!-- FORMULÁRIO CANDIDATO -->
+  <div class="form-candidato">
+    <h2>Cadastro - Candidato</h2>
+    <form>
+      <label>Nome:</label>
+      <input type="text" required>
+      <label>Sobrenome:</label>
+      <input type="text" required>
+      <label>Formações:</label>
+      <input type="text" placeholder="Curso ou especialização">
+      <label>Área de Atuação:</label>
+      <input type="text">
+      <label>Cidade e Estado:</label>
+      <input type="text">
+      <label>Links de Contato:</label>
+      <input type="text" placeholder="WhatsApp">
+      <input type="text" placeholder="LinkedIn">
+      <label>Descrição:</label>
+      <textarea rows="4" placeholder="Fale mais sobre sua experiência, habilidades e disponibilidade."></textarea>
+      <button type="submit">Enviar Cadastro</button>
+    </form>
+  </div>
+</section>
+
 
    </main>
 
