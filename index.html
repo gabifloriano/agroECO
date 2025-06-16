@@ -592,7 +592,7 @@
 
     <!-- ABA DE CADASTRO -->
     <div class="tab-content cadastro-content">
-      <form action="criar-perfil.html" method="get">
+      <form>
         <h3>Cadastro</h3>
         <label>Nome Completo:</label>
         <input type="text" name="nome" required>
@@ -604,12 +604,34 @@
           <label><input type="radio" name="perfil" value="produtor" required> Produtor</label>
           <label><input type="radio" name="perfil" value="candidato" required> Candidato</label>
         </div>
-        <button type="submit">Cadastrar</button>
+
+        <!-- Botão que leva à seção oculta -->
+        <a href="#criar-perfil" class="continue-btn">
+          <button type="button">Cadastrar</button>
+        </a>
       </form>
     </div>
   </div>
 </div>
 
+<!-- SEÇÃO INVISÍVEL DE CRIAR PERFIL -->
+<section id="criar-perfil" class="rounded-container">
+  <h2>Criação de Perfil</h2>
+  <p>Complete as informações adicionais para finalizar seu cadastro no agroECO.</p>
+  
+  <form>
+    <label for="foto">Foto de perfil:</label>
+    <input type="file" id="foto" name="foto">
+
+    <label for="cidade">Cidade:</label>
+    <input type="text" id="cidade" name="cidade" required>
+
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" name="descricao" required></textarea>
+
+    <button type="submit">Salvar Perfil</button>
+  </form>
+</section>
 
 <input type="checkbox" id="modo-noturno-toggle" hidden />
 
