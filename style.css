@@ -1303,11 +1303,30 @@ footer {
 }
 
 
+
+
+/* BOTÃO FLUTUANTE */
+.login-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* ÁREA DE ABAS */
 .form-tabs {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin: 20px auto;
+  margin: 80px auto 20px; /* Espaço no topo para o botão flutuante */
   max-width: 400px;
 }
 
@@ -1328,6 +1347,7 @@ footer {
   color: white;
 }
 
+/* CONTEÚDO DO FORMULÁRIO */
 .form-container {
   display: none;
   background: white;
@@ -1397,6 +1417,7 @@ button {
   font-size: 12px;
   color: #666;
 }
+
 
 
 
