@@ -1445,153 +1445,118 @@ button:hover {
 
 
 
-/* Container das abas */
+<!-- Botão flutuante -->
+<label class="login-btn" for="abrir-formulario">Login / Cadastro</label>
+<input type="checkbox" id="abrir-formulario" hidden>
+
+<!-- Formulário que aparece quando checkbox estiver checado -->
+<div class="form-wrapper">
+  <!-- Radios para abas -->
+  <input type="radio" name="perfil-tab" id="perfil-produtor" hidden checked>
+  <input type="radio" name="perfil-tab" id="perfil-candidato" hidden>
+
+  <!-- Abas -->
+  <div class="form-tabs">
+    <label for="perfil-produtor">Produtor</label>
+    <label for="perfil-candidato">Candidato</label>
+  </div>
+
+  <!-- Formulário Produtor -->
+  <div class="form-container produtor">
+    <form>
+      <h3>Cadastro - Produtor</h3>
+      <label>Nome:</label>
+      <input type="text" required>
+
+      <!-- resto dos campos -->
+
+      <button type="submit">Salvar</button>
+    </form>
+  </div>
+
+  <!-- Formulário Candidato -->
+  <div class="form-container candidato">
+    <form>
+      <h3>Cadastro - Candidato</h3>
+      <label>Nome:</label>
+      <input type="text" required>
+
+      <!-- resto dos campos -->
+
+      <button type="submit">Salvar</button>
+    </form>
+  </div>
+</div>
+
+<style>
+/* Esconde form-wrapper por padrão */
+.form-wrapper {
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 600px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  padding: 20px;
+  z-index: 9999;
+}
+
+/* Quando checkbox aberto */
+#abrir-formulario:checked ~ .form-wrapper {
+  display: block;
+}
+
+/* Estilos das abas */
 .form-tabs {
   display: flex;
-  justify-content: center;
   gap: 10px;
-  margin: 20px auto 0 auto;
-  max-width: 400px;
+  margin-bottom: 20px;
+  user-select: none;
 }
 
-/* Labels das abas */
 .form-tabs label {
   flex: 1;
-  text-align: center;
-  background-color: #eee;
   padding: 12px;
-  border-radius: 10px 10px 0 0;
+  background: #eee;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
   cursor: pointer;
   font-weight: bold;
-  transition: background 0.3s, color 0.3s;
+  transition: background-color 0.3s;
 }
 
-/* Aba ativa */
+/* Aba ativa: muda cor via :checked */
 #perfil-produtor:checked ~ .form-tabs label[for="perfil-produtor"],
 #perfil-candidato:checked ~ .form-tabs label[for="perfil-candidato"] {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
 }
 
-/* Containers dos formulários inicialmente escondidos */
-.form-container {
+/* Esconde os dois formulários por padrão */
+.form-container.produtor,
+.form-container.candidato {
   display: none;
-  background: white;
-  border-radius: 0 10px 10px 10px;
-  padding: 20px;
-  max-width: 600px;
-  margin: 0 auto 40px auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* Mostrar o formulário conforme tab selecionada */
-#perfil-produtor:checked ~ .produtor {
+/* Mostra o formulário produtor quando radio produtor marcado */
+#perfil-produtor:checked ~ .form-container.produtor {
   display: block;
 }
 
-#perfil-candidato:checked ~ .candidato {
+/* Mostra o formulário candidato quando radio candidato marcado */
+#perfil-candidato:checked ~ .form-container.candidato {
   display: block;
 }
 
-/* Formulário geral */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-/* Inputs e textarea padrão */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="file"],
-textarea {
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-  font-family: inherit;
-  width: 100%;
-  box-sizing: border-box;
-  transition: border-color 0.2s;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-textarea:focus {
-  border-color: #4CAF50;
-  outline: none;
-}
-
-textarea {
-  resize: vertical;
-  min-height: 60px;
-}
-
-/* Grupo de radios lado a lado */
-.radio-group {
-  display: flex;
-  gap: 20px;
-  margin-top: 6px;
-}
-
-/* Botão para adicionar formação */
-.add-formacao {
-  background: #e0e0e0;
-  color: #333;
-  text-align: center;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  width: fit-content;
-  user-select: none;
-  transition: background-color 0.3s;
-}
-
-.add-formacao:hover {
-  background-color: #ccc;
-}
-
-/* Botão salvar */
-button {
-  padding: 12px;
-  background: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 20px;
-  font-size: 16px;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-/* Informação pequena */
-.neat-info {
-  font-size: 12px;
-  color: #666;
-  margin-top: -8px;
-  margin-bottom: 12px;
-}
-
-/* Estilo para inputs adicionados dinamicamente (formações) */
-.formacoes-produtor input,
-.formacoes-candidato input {
-  margin-top: 6px;
-}
-
-/* Botão flutuante Login/Cadastro */
+/* Botão flutuante */
 .login-btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   padding: 14px 20px;
   border-radius: 50px;
@@ -1600,13 +1565,37 @@ button:hover {
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   user-select: none;
   transition: background-color 0.3s;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .login-btn:hover {
   background-color: #45a049;
 }
 
+/* Inputs e botões básicos */
+input, textarea, button {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+</style>
 
 
 
