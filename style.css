@@ -1445,63 +1445,20 @@ button:hover {
 
 
 
-<!-- Botão flutuante -->
-<label class="login-btn" for="abrir-formulario">Login / Cadastro</label>
-<input type="checkbox" id="abrir-formulario" hidden>
-
-<!-- Formulário que aparece quando checkbox estiver checado -->
-<div class="form-wrapper">
-  <!-- Radios para abas -->
-  <input type="radio" name="perfil-tab" id="perfil-produtor" hidden checked>
-  <input type="radio" name="perfil-tab" id="perfil-candidato" hidden>
-
-  <!-- Abas -->
-  <div class="form-tabs">
-    <label for="perfil-produtor">Produtor</label>
-    <label for="perfil-candidato">Candidato</label>
-  </div>
-
-  <!-- Formulário Produtor -->
-  <div class="form-container produtor">
-    <form>
-      <h3>Cadastro - Produtor</h3>
-      <label>Nome:</label>
-      <input type="text" required>
-
-      <!-- resto dos campos -->
-
-      <button type="submit">Salvar</button>
-    </form>
-  </div>
-
-  <!-- Formulário Candidato -->
-  <div class="form-container candidato">
-    <form>
-      <h3>Cadastro - Candidato</h3>
-      <label>Nome:</label>
-      <input type="text" required>
-
-      <!-- resto dos campos -->
-
-      <button type="submit">Salvar</button>
-    </form>
-  </div>
-</div>
-
-<style>
-/* Esconde form-wrapper por padrão */
+/* Esconde o formulário todo por padrão */
 .form-wrapper {
   display: none;
   position: fixed;
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  max-width: 600px;
   background: white;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   padding: 20px;
-  z-index: 9999;
+  width: 90%;
+  max-width: 450px;
+  z-index: 10000;
 }
 
 /* Quando checkbox aberto */
@@ -1509,15 +1466,15 @@ button:hover {
   display: block;
 }
 
-/* Estilos das abas */
-.form-tabs {
+/* Estilos abas principais (Login/Cadastro) */
+.form-tabs-main {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
   user-select: none;
 }
 
-.form-tabs label {
+.form-tabs-main label {
   flex: 1;
   padding: 12px;
   background: #eee;
@@ -1528,56 +1485,80 @@ button:hover {
   transition: background-color 0.3s;
 }
 
-/* Aba ativa: muda cor via :checked */
-#perfil-produtor:checked ~ .form-tabs label[for="perfil-produtor"],
-#perfil-candidato:checked ~ .form-tabs label[for="perfil-candidato"] {
+/* Aba principal ativa */
+#tab-login:checked ~ .form-tabs-main label[for="tab-login"],
+#tab-cadastro:checked ~ .form-tabs-main label[for="tab-cadastro"] {
   background-color: #4caf50;
   color: white;
 }
 
-/* Esconde os dois formulários por padrão */
-.form-container.produtor,
-.form-container.candidato {
+/* Esconder todos os containers */
+.form-container.login,
+.form-container.cadastro {
   display: none;
 }
 
-/* Mostra o formulário produtor quando radio produtor marcado */
-#perfil-produtor:checked ~ .form-container.produtor {
+/* Mostrar aba Login ou Cadastro */
+#tab-login:checked ~ .form-container.login {
   display: block;
 }
 
-/* Mostra o formulário candidato quando radio candidato marcado */
-#perfil-candidato:checked ~ .form-container.candidato {
+#tab-cadastro:checked ~ .form-container.cadastro {
   display: block;
 }
 
-/* Botão flutuante */
-.login-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+/* Abas internas cadastro Produtor/Candidato */
+.form-tabs-cadastro {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  user-select: none;
+}
+
+.form-tabs-cadastro label {
+  flex: 1;
+  padding: 10px;
+  background: #eee;
+  text-align: center;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+/* Aba cadastro ativa */
+#cad-produtor:checked ~ .form-container.cadastro .form-tabs-cadastro label[for="cad-produtor"],
+#cad-candidato:checked ~ .form-container.cadastro .form-tabs-cadastro label[for="cad-candidato"] {
   background-color: #4caf50;
   color: white;
-  padding: 14px 20px;
-  border-radius: 50px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  user-select: none;
-  transition: background-color 0.3s;
-  z-index: 10000;
 }
 
-.login-btn:hover {
-  background-color: #45a049;
+/* Formulários internos cadastro escondidos */
+form.cad-produtor,
+form.cad-candidato {
+  display: none;
 }
 
-/* Inputs e botões básicos */
-input, textarea, button {
+/* Mostrar formulário cadastro produtor ou candidato */
+#cad-produtor:checked ~ .form-container.cadastro form.cad-produtor {
+  display: block;
+}
+
+#cad-candidato:checked ~ .form-container.cadastro form.cad-candidato {
+  display: block;
+}
+
+/* Estilos básicos dos inputs e botão */
+input, button, label {
+  font-family: Arial, sans-serif;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
   width: 100%;
-  margin-bottom: 12px;
   padding: 8px;
-  font-size: 14px;
+  margin-bottom: 12px;
   border-radius: 6px;
   border: 1px solid #ccc;
   box-sizing: border-box;
@@ -1587,15 +1568,50 @@ button {
   background-color: #4caf50;
   color: white;
   border: none;
+  border-radius: 6px;
+  padding: 10px;
   font-weight: bold;
   cursor: pointer;
+  width: 100%;
   transition: background-color 0.3s;
 }
 
 button:hover {
   background-color: #45a049;
 }
-</style>
+
+/* Label que parece link para abrir aba cadastro */
+.btn-link {
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  color: #4caf50;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+/* Botão flutuante estilo básico */
+.login-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #4caf50;
+  color: white;
+  padding: 14px 22px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  user-select: none;
+  z-index: 10001;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #388e3c;
+}
+
 
 
 
