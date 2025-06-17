@@ -566,10 +566,6 @@
 <label class="login-btn" for="abrir-formulario">Login / Cadastro</label>
 <input type="checkbox" id="abrir-formulario" hidden>
 
-<!-- Checkbox que exibe o formulário final -->
-<input type="checkbox" id="finalizar-cadastro" hidden>
-
-<!-- FORMULÁRIO DE LOGIN/CADASTRO INICIAL -->
 <div class="form-wrapper">
 
   <!-- Radios para escolher entre aba Login e aba Cadastro -->
@@ -628,7 +624,8 @@
       <label>Senha:</label>
       <input type="password" required>
 
-      <label for="finalizar-cadastro" onclick="document.getElementById('perfil-produtor').checked = true;" class="btn">Cadastrar</label>
+      <!-- Botão Cadastrar redirecionando para o formulário dentro da página -->
+      <button type="button" onclick="location.href='#formularioCompleto'">Cadastrar</button>
     </form>
 
     <!-- Formulário Candidato -->
@@ -647,11 +644,34 @@
       <label>Senha:</label>
       <input type="password" required>
 
-      <label for="finalizar-cadastro" onclick="document.getElementById('perfil-candidato').checked = true;" class="btn">Cadastrar</label>
+      <!-- Botão Cadastrar redirecionando para o formulário dentro da página -->
+      <button type="button" onclick="location.href='#formularioCompleto'">Cadastrar</button>
     </form>
   </div>
 </div>
 
+<!-- Formulário completo dentro da página -->
+<div id="formularioCompleto" style="max-width:600px; margin: 40px auto; padding: 20px; border: 2px solid #4caf50; border-radius: 10px;">
+  <h2>Formulário Completo</h2>
+  <form>
+    <label>Nome Completo:</label>
+    <input type="text" required>
+
+    <label>Email:</label>
+    <input type="email" required>
+
+    <label>Telefone:</label>
+    <input type="text">
+
+    <label>Descrição:</label>
+    <textarea></textarea>
+
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+
+
+formulario
 <input type="radio" name="perfil-tab" id="perfil-produtor" hidden checked>
 <input type="radio" name="perfil-tab" id="perfil-candidato" hidden>
 
