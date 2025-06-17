@@ -651,24 +651,102 @@
 </div>
 
 <!-- Formulário completo dentro da página -->
-<div id="formularioCompleto" style="max-width:600px; margin: 40px auto; padding: 20px; border: 2px solid #4caf50; border-radius: 10px;">
+<div id="formularioCompleto">
   <h2>Formulário Completo</h2>
   <form>
-    <label>Nome Completo:</label>
+<input type="radio" name="perfil-tab" id="perfil-produtor" hidden checked>
+<input type="radio" name="perfil-tab" id="perfil-candidato" hidden>
+
+<div class="form-tabs">
+  <label for="perfil-produtor">Produtor</label>
+  <label for="perfil-candidato">Candidato</label>
+</div>
+
+<!-- FORMULÁRIO PRODUTOR -->
+<div class="form-container produtor">
+  <form>
+    <h3>Cadastro - Produtor</h3>
+
+    <label>Nome:</label>
     <input type="text" required>
 
-    <label>Email:</label>
-    <input type="email" required>
+    <label>Sobrenome:</label>
+    <input type="text" required>
 
-    <label>Telefone:</label>
+    <label>Foto de Perfil:</label>
+    <input type="file" accept="image/*">
+
+    <label>Cidade e Estado:</label>
+    <input type="text" required>
+
+    <label>Links de contato (WhatsApp, LinkedIn):</label>
+    <input type="text" placeholder="Ex: https://wa.me/ ou LinkedIn" required>
+
+    <label>Nome da Propriedade:</label>
+    <input type="text" required>
+
+    <label>Localização (Link do mapa ou endereço):</label>
     <input type="text">
 
     <label>Descrição:</label>
-    <textarea></textarea>
+    <textarea placeholder="Fale sobre sua propriedade, objetivos, etc." rows="3"></textarea>
 
-    <button type="submit">Enviar</button>
+    <label>Informações da Empresa:</label>
+    <textarea placeholder="Tamanho do terreno, o que produz, se cria animais, qual a maior demanda..." rows="4"></textarea>
+
+    <label>Tem certificado NEAT?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="neat" value="sim"> Sim</label>
+      <label><input type="radio" name="neat" value="nao"> Não</label>
+    </div>
+    <small class="neat-info">
+      Produtores certificados pelo NEAT ganham um selo de verificação no perfil.
+    </small>
+
+    <label>Formações:</label>
+    <input type="text" placeholder="Ex: Curso SENAR – 2023">
+    <div class="add-formacao">+ Adicionar outra formação</div>
+
+    <button type="submit">Salvar</button>
   </form>
 </div>
+
+<!-- FORMULÁRIO CANDIDATO -->
+<div class="form-container candidato">
+  <form>
+    <h3>Cadastro - Candidato</h3>
+
+    <label>Nome:</label>
+    <input type="text" required>
+
+    <label>Sobrenome:</label>
+    <input type="text" required>
+
+    <label>Foto de Perfil:</label>
+    <input type="file" accept="image/*">
+
+    <label>Formações:</label>
+    <input type="text" placeholder="Ex: Técnico Agrícola - IFPR">
+    <div class="add-formacao">+ Adicionar outra formação</div>
+
+    <label>Área de Atuação:</label>
+    <input type="text" placeholder="Ex: Irrigação, colheita, logística">
+
+    <label>Cidade e Estado:</label>
+    <input type="text" required>
+
+    <label>Links de contato (WhatsApp, LinkedIn):</label>
+    <input type="text" placeholder="Ex: https://wa.me/ ou LinkedIn" required>
+
+    <label>Descrição:</label>
+    <textarea placeholder="Fale um pouco sobre sua experiência e objetivos." rows="4"></textarea>
+
+    <button type="submit">Salvar</button>
+  </form>
+</div>
+
+<!-- LINK DO CSS -->
+<link rel="stylesheet" href="styles.css">
 
 
 formulario
