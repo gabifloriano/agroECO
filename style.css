@@ -1670,3 +1670,13 @@ button:hover {
 #finalizar-cadastro:checked ~ .formulario-final {
   display: block;
 }
+
+/* Oculta upload por padrão */
+.upload-certificado {
+  display: none;
+}
+
+/* Mostra upload só se o radio "sim" estiver marcado */
+#neat-sim:checked ~ .upload-certificado {
+  display: block;
+}
