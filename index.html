@@ -690,15 +690,17 @@
     <textarea placeholder="Tamanho do terreno, o que produz, se cria animais, qual a maior demanda..." rows="4"></textarea>
 
     <label>Tem certificado NEAT?</label>
-    <div class="radio-group">
-      <label><input type="radio" name="neat" value="sim"> Sim</label>
-      <label><input type="radio" name="neat" value="nao"> Não</label>
-      <input type="file" accept="image/*">
-    </div>
-    <small class="neat-info">
-      Produtores certificados pelo NEAT ganham um selo de verificação no perfil.
-    </small>
- 
+<div class="radio-group">
+  <label><input type="radio" name="neat" value="sim"> Sim</label>
+  <label><input type="radio" name="neat" value="nao"> Não</label>
+</div>
+
+<label>Enviar arquivo do certificado (opcional):</label>
+<input type="file" accept=".pdf,.jpg,.jpeg,.png">
+
+<small class="neat-info">
+  Produtores certificados pelo NEAT ganham um selo de verificação no perfil.
+</small>
 
     <label>Formações:</label>
     <input type="text" placeholder="Ex: Curso SENAR – 2023">
