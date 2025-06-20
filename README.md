@@ -7,14 +7,25 @@ Calendário do Produtor: Registre plantios, irrigações, uso de agrotóxicos e 
 
 Cursos: Capacitações em parceria com o SENAR, disponíveis online e nos polos de atendimento.
 
-Solicitação de Serviços: Encontre profissionais qualificados para necessidades como veterinários, técnicos agrícolas ou coleta de solo.
+Solicitação de Serviços: Encontre profissionais qualificados para demandas como veterinários, técnicos agrícolas ou coleta de solo.
 
 Contratação: Publique ou acesse currículos com filtros por função, localização e disponibilidade.
 
-Loja: Loja AgroECO é um marketplace seguro e transparente para produtores e comerciantes venderem produtos agrícolas, exceto agrotóxicos. Também oferece consulta de locais autorizados para facilitar o acesso a insumos confiáveis.
+Loja: A Loja AgroECO é um marketplace seguro e transparente para produtores e comerciantes venderem produtos agrícolas (exceto agrotóxicos). Também oferece consulta de locais autorizados para facilitar o acesso a insumos confiáveis.
 
 Armazém Inteligente: Cadastre seus insumos e receba alertas visuais quando o estoque estiver baixo.
 
-Apoio ao Pequeno Produtor: Com parceria do projeto NEAT, oferecemos selo de verificação para produtores certificados e tablets com o app incluso para quem não tem acesso a celular.
+Crédito Rural: Conheça os bancos que oferecem linhas de financiamento específicas para o campo, as vantagens de cada um, cidades próximas com atendimento e como utilizar esse crédito de forma eficiente no seu negócio rural.
 
-O agroECO nasceu com o compromisso de gerar oportunidades, aproximar o campo da cidade e valorizar quem alimenta o Brasil.
+Apoio ao Pequeno Produtor: Em parceria com o projeto NEAT, oferecemos selo de verificação para produtores certificados e tablets com o app incluso, voltado a quem não possui acesso a celular.
+
+Além disso, o site conta com:
+
+Botão de Acessibilidade para ajustar o tamanho da fonte e contraste;
+
+Botão de Tema Claro/Escuro (no canto inferior esquerdo) para conforto visual;
+
+Botão Flutuante de Login/Cadastro (canto inferior direito), facilitando o acesso rápido à plataforma.
+
+agroECO. Projeto Agrinho.
+Projeto desenvolvido pela Aluna Gabriela Andreoti Mendes Floriano & Professor Francisco Peres Biudes Junior.
