@@ -27,5 +27,13 @@ Botão de Tema Claro/Escuro (no canto inferior esquerdo) para conforto visual;
 
 Botão Flutuante de Login/Cadastro (canto inferior direito), facilitando o acesso rápido à plataforma.
 
+agroECO é um nome que carrega propósito:
+
+Agro vem de Agricultura;
+
+E representa Ecologia e Ecossistema;
+
+CO simboliza Conexão — entre produtores, meio ambiente e tecnologia.fdffdf
+
 agroECO. Projeto Agrinho.
 Projeto desenvolvido pela Aluna Gabriela Andreoti Mendes Floriano & Professor Francisco Peres Biudes Junior.
