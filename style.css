@@ -1671,3 +1671,68 @@ button:hover {
   display: block;
 }
 
+
+
+
+/* Seção de Crédito Rural */
+#créditorural {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  margin: 40px auto;
+  max-width: 1000px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}
+
+#créditorural h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #2e7d32;
+  text-align: center;
+}
+
+#créditorural h3 {
+  font-size: 20px;
+  margin-top: 20px;
+  color: #388e3c;
+}
+
+#créditorural p,
+#créditorural li {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+#créditorural ul {
+  padding-left: 20px;
+}
+
+.banco-item {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 10px;
+  background-color: #fff;
+}
+
+.banco-item h4 {
+  color: #2e7d32;
+  margin-bottom: 6px;
+}
+
+.banco-item p {
+  margin: 4px 0;
+}
+
+.cr-titulo {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.cr-final {
+  margin-top: 20px;
+  font-style: italic;
+  color: #555;
+  text-align: center;
+}
